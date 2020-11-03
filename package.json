@@ -1,0 +1,24 @@
+{
+  "name": "zoomies",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@petfinder/petfinder-js": "^1.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arlette-pineda/zoomies.git"
+  },
+  "keywords": [],
+  "author": "arlette_pineda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arlette-pineda/zoomies/issues"
+  },
+  "homepage": "https://github.com/arlette-pineda/zoomies#readme"
+}
