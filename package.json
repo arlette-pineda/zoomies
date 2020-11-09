@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "@petfinder/petfinder-js": "^1.0.6"
+    "@petfinder/petfinder-js": "^1.0.6",
+    "express": "^4.17.1"
   },
   "devDependencies": {},
   "scripts": {
