@@ -6,26 +6,31 @@ const Dog = require("./dog.js");
 const Address = require("./address");
 const Photos = require("./photos");
 
-async function getAnimals(breed, age, size, page, limit){
-  let animalsResult = await client.animal.search({ type: 'dog', breed: breed, age: age, size: size, page: page, limit: limit });
-  return animalsResult.data.animals.map(animal => new Dog(animal.id, animal.name, animal.breeds, animal.age, animal.size,
-    animal.description, new Address(animal.contact.address.city, animal.contact.address.state), animal.gender, animal.coat,
-    animal.colors, animal.tags, new Photos(animal.photos[0].small, animal.photos[0].medium, animal.photos[0].large, animal.photos[0].full)));
+class PetfinderService {
+  constructor() {}
+  async getAnimals(breed, age, size, page, limit){
+    let animalsResult = await client.animal.search({ type: 'dog', breed: breed, age: age, size: size, page: page, limit: limit });
+    return animalsResult.data.animals.map(animal => new Dog(animal.id, animal.name, animal.breeds, animal.age, animal.size,
+      animal.description, new Address(animal.contact.address.city, animal.contact.address.state), animal.gender, animal.coat,
+      animal.colors, animal.tags, new Photos(animal.photos[0].small, animal.photos[0].medium, animal.photos[0].large, animal.photos[0].full)));
+  }
+
+  async getAnimal(id){
+    let animalResult = await client.animal.show(id);
+    let animalData = animalResult.data.animal;
+    return new Dog(animalData.id, animalData.name, animalData.breeds, animalData.age, animalData.size,
+      animalData.description, new Address(animalData.contact.address.city, animalData.contact.address.state), animalData.gender, animalData.coat,
+      animalData.colors, animalData.tags, new Photos(animalData.photos[0].small, animalData.photos[0].medium, animalData.photos[0].large, animalData.photos[0].full));
+  }
+
+  async getBreed(breed){
+    let breedResult = await client.animalData.breeds(breed);
+    let breedData = breedResult.data.breeds;
+    return breedData.map(breed => breed.name);
+  }
 }
 
-async function getAnimal(id){
-  let animalResult = await client.animal.show(id);
-  let animalData = animalResult.data.animal;
-  return new Dog(animalData.id, animalData.name, animalData.breeds, animalData.age, animalData.size,
-    animalData.description, new Address(animalData.contact.address.city, animalData.contact.address.state), animalData.gender, animalData.coat,
-    animalData.colors, animalData.tags, new Photos(animalData.photos[0].small, animalData.photos[0].medium, animalData.photos[0].large, animalData.photos[0].full));
-}
-
-async function getBreed(breed){
-  let breedResult = await client.animalData.breeds(breed);
-  let breedData = breedResult.data.breeds;
-  return breedData.map(breed => breed.name);
-}
+module.exports = PetfinderService;
 
 // (async function () {
 //   try {
