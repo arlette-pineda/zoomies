@@ -13,6 +13,18 @@ app.get('/animals/:animalId', async (req, res) => {
   }
 });
 
+app.get('/dogBreeds', async (req, res) => {
+  // res.send('hey breeds is working');
+  try {
+    let pfService = new petfinderService();
+    let dogBreeds = await pfService.getBreed();
+    // console.log('dogBreeeds be right here', dogBreeds);
+    return res.json(dogBreeds);
+  } catch (error) {
+    console.log(error)
+  }
+});
+
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`)
 })
