@@ -2,11 +2,11 @@ const express = require('express');
 const app = express();
 const petfinderService = require('./petfinder-service');
 const port = 3000;
+const pfService = new petfinderService();
 
-app.get('/animals/:animalId', async (req, res) => {
+app.get('/dogs/:dogId', async (req, res) => {
   try {
-    let pfService = new petfinderService();
-    let animalResult = await pfService.getAnimal(req.params.animalId);
+    let animalResult = await pfService.getAnimal(req.params.dogId);
     return res.json(animalResult);
   } catch (error) {
     console.log(error)
@@ -14,12 +14,23 @@ app.get('/animals/:animalId', async (req, res) => {
 });
 
 app.get('/dogBreeds', async (req, res) => {
-  // res.send('hey breeds is working');
   try {
-    let pfService = new petfinderService();
     let dogBreeds = await pfService.getBreed();
-    // console.log('dogBreeeds be right here', dogBreeds);
     return res.json(dogBreeds);
+  } catch (error) {
+    console.log(error)
+  }
+});
+
+app.get('/search', async (req, res) => {
+  try {
+    let breed = req.query.breed;
+    let age = req.query.age;
+    let size = req.query.size;
+    let page = req.query.page;
+    let limit = 20;
+    let animalSearchResult = await pfService.getAnimals(breed, age, size, page, limit);
+    return res.json(animalSearchResult);
   } catch (error) {
     console.log(error)
   }
