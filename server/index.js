@@ -4,25 +4,25 @@ const petfinderService = require('./petfinder-service');
 const port = 3000;
 const pfService = new petfinderService();
 
-app.get('/dogs/:dogId', async (req, res) => {
+app.get('/dogs/:dogId', async (req, res, next) => {
   try {
     let animalResult = await pfService.getAnimal(req.params.dogId);
     return res.json(animalResult);
   } catch (error) {
-    console.log(error)
+    next(error);
   }
 });
 
-app.get('/dogBreeds', async (req, res) => {
+app.get('/dogBreeds', async (req, res, next) => {
   try {
     let dogBreeds = await pfService.getBreed();
     return res.json(dogBreeds);
   } catch (error) {
-    console.log(error)
+    next(error);
   }
 });
 
-app.get('/search', async (req, res) => {
+app.get('/search', async (req, res, next) => {
   try {
     let breed = req.query.breed;
     let age = req.query.age;
@@ -32,9 +32,21 @@ app.get('/search', async (req, res) => {
     let animalSearchResult = await pfService.getAnimals(breed, age, size, page, limit);
     return res.json(animalSearchResult);
   } catch (error) {
-    console.log(error)
+    next(error);
   }
 });
+
+app.get('/errorTest', (req, res) => {
+  throw new Error('I broke');
+});
+
+app.use((err, req, res, next) => {
+  console.log("I'm here");
+  console.error(err);
+  res.status(500).json({
+    error: 'an unexpected error occurred'
+  });
+})
 
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`)
