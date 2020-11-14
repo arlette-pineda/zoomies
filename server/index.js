@@ -41,7 +41,6 @@ app.get('/errorTest', (req, res) => {
 });
 
 app.use((err, req, res, next) => {
-  console.log("I'm here");
   console.error(err);
   res.status(500).json({
     error: 'an unexpected error occurred'
