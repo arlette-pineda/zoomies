@@ -4,6 +4,14 @@ const petfinderService = require('./petfinder-service');
 const port = 3000;
 const pfService = new petfinderService();
 
+
+app.get('/api/health-check', (req, res, next) => {
+  db.query(`select 'successfully connected' as "message"`)
+    .then(result => res.json(result.rows[0]))
+    .catch(err => next(err));
+});
+
+
 app.get('/dogs/:dogId', async (req, res, next) => {
   try {
     let animalResult = await pfService.getAnimal(req.params.dogId);
