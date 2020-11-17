@@ -1,14 +1,8 @@
-require('dotenv/config');
 const express = require('express');
 const app = express();
 const petfinderService = require('./petfinder-service');
+const port = 3000;
 const pfService = new petfinderService();
-
-
-app.get('/api/health-check', (req, res, next) => {
-  return res.json({message:`select 'successfully connected' as "message"`});
-});
-
 
 app.get('/dogs/:dogId', async (req, res, next) => {
   try {
@@ -53,6 +47,6 @@ app.use((err, req, res, next) => {
   });
 })
 
-app.listen(process.env.PORT, () => {
-  console.log('Listening at http://localhost:', process.env.PORT);
+app.listen(port, () => {
+  console.log(`Listening at http://localhost:${port}`)
 })
