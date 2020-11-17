@@ -1,4 +1,7 @@
 .env
+.idea
+.vscode
 .DS_Store
 node_modules
+server/public/main.js*
 server/petfinder-service.js
