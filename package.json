@@ -77,6 +77,7 @@
     }
   },
   "dependencies": {
+    "@material-ui/core": "4.11.0",
     "@petfinder/petfinder-js": "^1.0.6",
     "dotenv": "8.2.0",
     "express": "^4.17.1",
