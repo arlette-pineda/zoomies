@@ -35,7 +35,8 @@
     "extends": [
       "plugin:react/recommended",
       "eslint:recommended",
-      "standard"
+      "standard",
+      "plugin:react-hooks/recommended"
     ],
     "settings": {
       "react": {
