@@ -1,4 +1,3 @@
-// DO NOT COMMIT KEY!!//
 require('dotenv/config');
 var petfinder = require('@petfinder/petfinder-js');
 var client = new petfinder.Client({ apiKey: process.env.PF_API_KEY, secret: process.env.PF_SECRET });
