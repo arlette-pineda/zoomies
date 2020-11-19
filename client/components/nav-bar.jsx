@@ -38,7 +38,7 @@ function NavBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="sticky" className='app-bar-color' onClick={anchorEl ? () => handleClose() : undefined}>
+      <AppBar position="sticky" className='main-color' onClick={anchorEl ? () => handleClose() : undefined}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             <img src="/images/zoomies-img.png" alt="zoomies logo" className="logo-img"/>
