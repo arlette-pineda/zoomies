@@ -1,10 +1,19 @@
-.app-bar-color {
+body {
+  margin: 0;
+}
+
+.main-color {
   background-color: #FEC600 !important;
 }
 
 .logo-img {
   max-height: 55px;
   object-fit: contain;
+}
+
+.MuiTypography-h5 {
+  font-family: "Bubbler One","Helvetica", "Arial", sans-serif !important;
+  font-weight: 900 !important;
 }
 
 .makeStyles-menuButton-2 {
