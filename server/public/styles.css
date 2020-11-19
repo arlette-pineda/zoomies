@@ -1,0 +1,22 @@
+.app-bar-color {
+  background-color: #FEC600 !important;
+}
+
+.logo-img {
+  max-height: 55px;
+  object-fit: contain;
+}
+
+.makeStyles-menuButton-2 {
+  margin-right: 0 !important;
+}
+
+.MuiToolbar-regular {
+    min-height: 80px !important;
+}
+
+@media (min-width: 600px){
+  .MuiToolbar-regular {
+      min-height: 100px !important;
+  }
+}
