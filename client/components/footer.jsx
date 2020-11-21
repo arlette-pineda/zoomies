@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
   text: {
-    padding: theme.spacing(2, 10, 0),
+    // padding: theme.spacing(2, 10, 0),
     color: 'black'
   },
   appBar: {
@@ -25,7 +25,7 @@ export default function Footer() {
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
-          <Typography className={classes.text} variant="h5" gutterBottom>
+          <Typography className={classes.text} align="center" variant="h5" gutterBottom>
             &copy; 2020 Zoomies
           </Typography>
         </Toolbar>
