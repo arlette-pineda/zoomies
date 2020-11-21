@@ -16,8 +16,8 @@ export default class App extends React.Component {
         <div>
           <p>We&apos;re adding Routing!</p>
         </div>
-        {/* <DogCard/> */}
         <DogList/>
+        {/* <DogList/> */}
         <Footer/>
         <Route path="/" exact component={Test}/>
         <Route path="/second" component={Second} />

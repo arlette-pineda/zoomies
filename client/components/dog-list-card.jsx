@@ -17,20 +17,21 @@ const useStyles = makeStyles({
   }
 });
 
-export default function DogCard() {
+export default function DogCard(props) {
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
+          component="img"
           className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image={props.dog.photos.small}
           title="Contemplative Reptile"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Doge
+            {props.dog.name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             This little doggie right here is real cute and would like to show you their best zoomies!
