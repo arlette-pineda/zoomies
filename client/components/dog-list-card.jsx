@@ -2,10 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
@@ -14,6 +12,9 @@ const useStyles = makeStyles({
   },
   media: {
     height: 140
+  },
+  bgColor: {
+    backgroundColor: '#fec700de'
   }
 });
 
@@ -27,25 +28,21 @@ export default function DogCard(props) {
           component="img"
           className={classes.media}
           image={props.dog.photos.small}
-          title="Contemplative Reptile"
+          title="Contemplative Reptile" // fix this later
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom variant="h5" component="h2" className={classes.bgColor}>
             {props.dog.name}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            This little doggie right here is real cute and would like to show you their best zoomies!
+          <Typography gutterBottom variant="body2" color="textSecondary" component="p">
+            {props.dog.breed.primary}       {props.dog.age}
+          </Typography>
+          <Typography>
+            {props.dog.location.city}, {props.dog.location.state}
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
-      </CardActions>
+
     </Card>
   );
 }
