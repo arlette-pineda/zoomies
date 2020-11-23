@@ -1,21 +1,20 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
+import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import DogCard from './dog-list-card';
 
-// const useStyles = makeStyles(theme => ({
-//   root: {
-//     flexGrow: 1
-//   },
-//   paper: {
-//     padding: theme.spacing(2),
-//     textAlign: 'center',
-//     color: theme.palette.text.secondary
-//   }
-// }));
+const useStyles = theme => ({
+  root: {
+    flexGrow: 1
+  },
+  cardStyle: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary
+  }
+});
 
-export default class DogList extends React.Component {
+class DogList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,10 +22,7 @@ export default class DogList extends React.Component {
     };
   }
 
-  // const classes = useStyles();
-
   componentDidMount() {
-    console.log('this is mounted');
     this.getDogs();
   }
 
@@ -42,28 +38,21 @@ export default class DogList extends React.Component {
   }
 
   render() {
+    const { classes } = this.props;
     return (
       <div>
-        {this.state.dogs.map(dog => {
-          return (<DogCard key={dog.id} dog={dog}
-          />);
-        })
-        }
-        {/* // <Grid container spacing={3}>
-      //   <Grid item xs={6} sm={3}>
-      //     <Paper className={classes.paper}>xs=6 sm=3</Paper>
-      //   </Grid>
-      //   <Grid item xs={6} sm={3}>
-      //     <Paper className={classes.paper}>xs=6 sm=3</Paper>
-      //   </Grid>
-      //   <Grid item xs={6} sm={3}>
-      //     <Paper className={classes.paper}>xs=6 sm=3</Paper>
-      //   </Grid>
-      //   <Grid item xs={6} sm={3}>
-      //     <Paper className={classes.paper}>xs=6 sm=3</Paper>
-      //   </Grid>
-      // </Grid> */}
+        <Grid container spacing={1} className={classes.cardStyle}>
+          <Grid item xs={6} sm={3} >
+            {this.state.dogs.map(dog => {
+              return (<DogCard key={dog.id} dog={dog}
+              />);
+            })
+            }
+          </Grid>
+        </Grid>
       </div>
     );
   }
 }
+
+export default withStyles(useStyles)(DogList);
