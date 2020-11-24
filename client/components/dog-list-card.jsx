@@ -9,7 +9,9 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
-    borderRadius: '30px'
+    borderRadius: '30px',
+    marginBottom: '10px'
+    // marginBottom: theme.spacing(2)
   },
   media: {
     height: 140
@@ -28,7 +30,7 @@ export default function DogCard(props) {
         <CardMedia
           component="img"
           className={classes.media}
-          image={props.dog.photos.small}
+          image={props.dog.photos.medium ? props.dog.photos.medium : '/images/doge-edited.png'}
           title="Contemplative Reptile" // fix this later
         />
         <CardContent>
@@ -36,7 +38,7 @@ export default function DogCard(props) {
             {props.dog.name}
           </Typography>
           <Typography gutterBottom variant="body2" color="textSecondary" component="p">
-            {props.dog.breed.primary}       {props.dog.age}
+            {props.dog.breed.primary} - {props.dog.age}
           </Typography>
           <Typography>
             {props.dog.location.city}, {props.dog.location.state}

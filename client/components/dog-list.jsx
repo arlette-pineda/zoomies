@@ -40,15 +40,15 @@ class DogList extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <div>
-        <Grid container spacing={1} className={classes.cardStyle}>
-          <Grid item xs={6} sm={3} >
-            {this.state.dogs.map(dog => {
-              return (<DogCard key={dog.id} dog={dog}
-              />);
-            })
-            }
-          </Grid>
+      <div className={classes.root}>
+        <Grid container spacing={2} className={classes.cardStyle}>
+          {this.state.dogs.map(dog => {
+            return (<Grid item xs={6} sm={3} key={dog.id}>
+              <DogCard dog={dog} />
+            </Grid>);
+          })
+          }
+
         </Grid>
       </div>
     );
