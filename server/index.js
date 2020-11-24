@@ -8,7 +8,7 @@ app.get('/api/health-check', (req, res, next) => {
   return res.json({ message: 'select \'successfully connected\' as "message"' });
 });
 
-app.get('/dogs/:dogId', async (req, res, next) => {
+app.get('/api/dogs/:dogId', async (req, res, next) => {
   try {
     const animalResult = await pfService.getAnimal(req.params.dogId);
     return res.json(animalResult);
@@ -17,7 +17,7 @@ app.get('/dogs/:dogId', async (req, res, next) => {
   }
 });
 
-app.get('/dogBreeds', async (req, res, next) => {
+app.get('/api/dogBreeds', async (req, res, next) => {
   try {
     const dogBreeds = await pfService.getBreed();
     return res.json(dogBreeds);
@@ -26,12 +26,12 @@ app.get('/dogBreeds', async (req, res, next) => {
   }
 });
 
-app.get('/search', async (req, res, next) => {
+app.get('/api/search', async (req, res, next) => {
   try {
     const breed = req.query.breed;
     const age = req.query.age;
     const size = req.query.size;
-    const page = req.query.page;
+    const page = req.query.page || 1;
     const limit = 20;
     const animalSearchResult = await pfService.getAnimals(breed, age, size, page, limit);
     return res.json(animalSearchResult);

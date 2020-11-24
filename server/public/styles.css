@@ -3,12 +3,16 @@ body {
 }
 
 .main-color {
-  background-color: #FEC600 !important;
+  background-color: #fec700 !important;
 }
 
 .logo-img {
   max-height: 55px;
   object-fit: contain;
+}
+
+.MuiToolbar-root {
+  justify-content: center;
 }
 
 .MuiTypography-h5 {
