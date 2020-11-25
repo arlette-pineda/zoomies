@@ -2,6 +2,7 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import DogCard from './dog-list-card';
+import SearchButton from './search-button';
 
 const useStyles = theme => ({
   root: {
@@ -41,7 +42,8 @@ class DogList extends React.Component {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
-        <Grid container spacing={2} className={classes.cardStyle}>
+        <SearchButton/>
+        <Grid container spacing={3} className={classes.cardStyle}>
           {this.state.dogs.map(dog => {
             return (<Grid item xs={6} sm={3} key={dog.id}>
               <DogCard dog={dog} />
