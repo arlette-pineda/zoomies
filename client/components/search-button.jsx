@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -10,9 +11,10 @@ const useStyles = makeStyles(theme => ({
   },
   buttonStyling: {
     borderRadius: '30px',
-    paddingLeft: '50px',
-    paddingRight: '50px',
-    textTransform: 'capitalize'
+    textTransform: 'capitalize',
+    fontFamily: 'Bubbler One, Helvetica, Arial, sans- serif',
+    fontWeight: 'bold',
+    width: '90%'
   }
 }));
 
@@ -21,7 +23,9 @@ export default function SearchButton() {
 
   return (
     <div className={classes.root}>
-      <Button variant="contained" className={classes.buttonStyling}>V   Search</Button>
+      <Button variant="contained" className={classes.buttonStyling}>
+        Search <ExpandMoreIcon/>
+      </Button>
     </div>
   );
 }
