@@ -10,7 +10,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    position: 'relative'
+    // zIndex: 1400
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -38,7 +40,7 @@ function NavBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="sticky" className='main-color' onClick={anchorEl ? () => handleClose() : undefined}>
+      <AppBar position="relative" className='main-color' onClick={anchorEl ? () => handleClose() : undefined}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             <img src="/images/zoomies-img.png" alt="zoomies logo" className="logo-img"/>
