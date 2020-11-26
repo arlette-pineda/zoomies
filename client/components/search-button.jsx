@@ -22,10 +22,10 @@ export default function SearchButton() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <Button variant="contained" className={classes.buttonStyling}>
+    // <div className={classes.root}>
+    <Button variant="contained" className={classes.buttonStyling}>
         Search <ExpandMoreIcon/>
-      </Button>
-    </div>
+    </Button>
+    // </div>
   );
 }
