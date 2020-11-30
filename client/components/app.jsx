@@ -6,6 +6,8 @@ import NavBar from './nav-bar';
 import DogList from './dog-list';
 import Footer from './footer';
 import SearchDrawer from './search-drawer';
+import NewSearchDrawer from './new-search-drawer';
+import SearchButton from './search-button';
 
 export default class App extends React.Component {
 
@@ -14,7 +16,7 @@ export default class App extends React.Component {
       <Router>
         <NavBar/>
         {/* <DogList/> */}
-        <SearchDrawer />
+        <SearchButton />
         <Footer/>
         <Route path="/" exact component={Test}/>
         <Route path="/second" component={Second} />

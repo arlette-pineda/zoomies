@@ -14,12 +14,12 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles({
-  list: {
-    width: 250
-  },
-  fullList: {
-    width: 'auto'
-  },
+  // list: {
+  //   width: 250
+  // },
+  // fullList: {
+  //   width: 'auto'
+  // },
   root: {
     marginTop: '4%',
     display: 'flex',
