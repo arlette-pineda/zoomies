@@ -5,7 +5,6 @@ import Second from './second-test';
 import NavBar from './nav-bar';
 import DogList from './dog-list';
 import Footer from './footer';
-import SearchButton from './search-button';
 
 export default class App extends React.Component {
 
@@ -13,8 +12,7 @@ export default class App extends React.Component {
     return (
       <Router>
         <NavBar/>
-        {/* <DogList/> */}
-        <SearchButton />
+        <DogList/>
         <Footer/>
         <Route path="/" exact component={Test}/>
         <Route path="/second" component={Second} />
