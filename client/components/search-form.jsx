@@ -16,15 +16,22 @@ const useStyles = makeStyles(theme => ({
   },
   labelStyle: {
     fontFamily: 'Bubbler One, Helvetica, Arial, sans- serif',
-    fontWeight: 900
+    fontWeight: 900,
+    fontSize: '1.2rem'
   },
-  buttonDiv: {
+  buttonsDiv: {
     display: 'flex',
     justifyContent: 'space-evenly',
-    borderRadius: '30px'
+    marginTop: '40px'
   },
-  buttonRadius: {
-    borderRadius: '30px'
+  buttonStyle: {
+    borderRadius: '30px',
+    fontFamily: 'Bubbler One, Helvetica, Arial, sans- serif',
+    fontWeight: 'bold',
+    flexGrow: 1,
+    marginLeft: '6%',
+    marginRight: '6%',
+    backgroundColor: '#fec700'
   }
 }));
 
@@ -58,7 +65,7 @@ export default function SearchForm() {
         className="circle-radius"
         renderInput={params => <TextField {...params} variant="outlined" />}
       />
-      <InputLabel id="demo-simple-select-placeholder-label-label">
+      <InputLabel className={classes.labelStyle} id="demo-simple-select-placeholder-label-label">
         Age
       </InputLabel>
       <Autocomplete
@@ -68,7 +75,7 @@ export default function SearchForm() {
         className="circle-radius"
         renderInput={params => <TextField {...params} variant="outlined" />}
       />
-      <InputLabel id="demo-simple-select-placeholder-label-label">
+      <InputLabel className={classes.labelStyle} id="demo-simple-select-placeholder-label-label">
         Size
       </InputLabel>
       <Autocomplete
@@ -78,11 +85,11 @@ export default function SearchForm() {
         className="circle-radius"
         renderInput={params => <TextField {...params} variant="outlined" />}
       />
-      <div className={classes.buttonDiv}>
-        <Button variant="contained" className={classes.buttonRadius}>
+      <div className={classes.buttonsDiv}>
+        <Button variant="contained" className={classes.buttonStyle}>
         Clear All
         </Button>
-        <Button variant="contained" className={classes.buttonRadius}>
+        <Button variant="contained" className={classes.buttonStyle}>
         Apply
         </Button>
       </div>
