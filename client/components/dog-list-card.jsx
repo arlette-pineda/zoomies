@@ -19,6 +19,13 @@ const useStyles = makeStyles({
   bgColor: {
     backgroundColor: '#fec700de'
   }
+  // fix: {
+  //   display: 'flex',
+  //   flexWrap: 'nowrap'
+  // },
+  // ellipsis: {
+  //   textOverflow: 'ellipsis'
+  // }
 });
 
 export default function DogCard(props) {
@@ -31,12 +38,15 @@ export default function DogCard(props) {
           component="img"
           className={classes.media}
           image={props.dog.photos.medium ? props.dog.photos.medium : '/images/doge-edited.png'}
-          title="Contemplative Reptile" // fix this later
+          title="Contemplative Reptile" // fix this later --> props.dog.age + props.dog.breed.primary
         />
-        <CardContent>
+        <CardContent >
+          {/* <div className={classes.fix}> */}
+          {/*  ${classes.ellipsis}`} */}
           <Typography gutterBottom variant="h5" component="h2" className={classes.bgColor}>
             {props.dog.name}
           </Typography>
+          {/* </div> */}
           <Typography gutterBottom variant="body2" color="textSecondary" component="p">
             {props.dog.breed.primary} - {props.dog.age}
           </Typography>
