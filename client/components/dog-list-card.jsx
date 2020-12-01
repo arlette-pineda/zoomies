@@ -18,14 +18,12 @@ const useStyles = makeStyles({
   },
   bgColor: {
     backgroundColor: '#fec700de'
+  },
+  ellipsis: {
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden'
   }
-  // fix: {
-  //   display: 'flex',
-  //   flexWrap: 'nowrap'
-  // },
-  // ellipsis: {
-  //   textOverflow: 'ellipsis'
-  // }
 });
 
 export default function DogCard(props) {
@@ -41,16 +39,14 @@ export default function DogCard(props) {
           title="Contemplative Reptile" // fix this later --> props.dog.age + props.dog.breed.primary
         />
         <CardContent >
-          {/* <div className={classes.fix}> */}
-          {/*  ${classes.ellipsis}`} */}
-          <Typography gutterBottom variant="h5" component="h2" className={classes.bgColor}>
+          <Typography gutterBottom variant="h5" component="h2" className={`${classes.bgColor} ${classes.ellipsis}`}>
             {props.dog.name}
           </Typography>
           {/* </div> */}
-          <Typography gutterBottom variant="body2" color="textSecondary" component="p">
-            {props.dog.breed.primary} - {props.dog.age}
+          <Typography gutterBottom variant="body2" color="textSecondary" component="p" className={classes.ellipsis}>
+            {props.dog.age} - {props.dog.breed.primary}
           </Typography>
-          <Typography>
+          <Typography className={classes.ellipsis}>
             {props.dog.location.city}, {props.dog.location.state}
           </Typography>
         </CardContent>
