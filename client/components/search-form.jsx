@@ -3,20 +3,28 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import InputLabel from '@material-ui/core/InputLabel';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
   root: {
     '& > *': {
-      margin: theme.spacing(1),
-      width: '25ch',
+      margin: theme.spacing(2),
+      // width: '25ch'
       display: 'flex',
       justifyContent: 'center'
-    },
-    labelStyle: {
-      fontFamily: 'Bubbler One, Helvetica, Arial, sans- serif',
-      fontWeight: 'bold'
     }
-
+  },
+  labelStyle: {
+    fontFamily: 'Bubbler One, Helvetica, Arial, sans- serif',
+    fontWeight: 900
+  },
+  buttonDiv: {
+    display: 'flex',
+    justifyContent: 'space-evenly',
+    borderRadius: '30px'
+  },
+  buttonRadius: {
+    borderRadius: '30px'
   }
 }));
 
@@ -39,40 +47,45 @@ export default function SearchForm() {
   const classes = useStyles();
 
   return (
-    <form className={classes.root} noValidate >
-      {/* <TextField id="standard-basic" label="Standard" />
-      <TextField id="filled-basic" label="Filled" variant="filled" />
-      <TextField id="outlined-basic" label="Outlined" variant="outlined" /> */}
-      <InputLabel className="label-style" shrink id="demo-simple-select-placeholder-label-label">
+    <form className={classes.root} noValidate>
+      <InputLabel className={classes.labelStyle} id="demo-simple-select-placeholder-label-label">
         Breed
       </InputLabel>
       <Autocomplete
         id="combo-box-demo"
         options={top100Films}
         getOptionLabel={option => option.title}
-        style={{ width: 300 }}
+        className="circle-radius"
         renderInput={params => <TextField {...params} variant="outlined" />}
       />
-      <InputLabel shrink id="demo-simple-select-placeholder-label-label">
+      <InputLabel id="demo-simple-select-placeholder-label-label">
         Age
       </InputLabel>
       <Autocomplete
         id="combo-box-demo"
         options={top100Films}
         getOptionLabel={option => option.title}
-        style={{ width: 300 }}
+        className="circle-radius"
         renderInput={params => <TextField {...params} variant="outlined" />}
       />
-      <InputLabel shrink id="demo-simple-select-placeholder-label-label">
+      <InputLabel id="demo-simple-select-placeholder-label-label">
         Size
       </InputLabel>
       <Autocomplete
         id="combo-box-demo"
         options={top100Films}
         getOptionLabel={option => option.title}
-        style={{ width: 300 }}
+        className="circle-radius"
         renderInput={params => <TextField {...params} variant="outlined" />}
       />
+      <div className={classes.buttonDiv}>
+        <Button variant="contained" className={classes.buttonRadius}>
+        Clear All
+        </Button>
+        <Button variant="contained" className={classes.buttonRadius}>
+        Apply
+        </Button>
+      </div>
     </form>
   );
 }

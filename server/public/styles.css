@@ -28,6 +28,10 @@ body {
     min-height: 80px !important;
 }
 
+.circle-radius .MuiAutocomplete-inputRoot {
+  border-radius: 30px !important;
+}
+
 @media (min-width: 600px){
   .MuiToolbar-regular {
       min-height: 100px !important;
