@@ -61,7 +61,7 @@ export default function SearchForm() {
         id="combo-box-demo"
         options={top100Films}
         getOptionLabel={option => option.title}
-        className="circle-radius"
+        className="search-input-styling"
         renderInput={params => <TextField {...params} variant="outlined" />}
       />
       <InputLabel className={classes.labelStyle} id="demo-simple-select-placeholder-label-label">
@@ -71,7 +71,7 @@ export default function SearchForm() {
         id="combo-box-demo"
         options={top100Films}
         getOptionLabel={option => option.title}
-        className="circle-radius"
+        className="search-input-styling"
         renderInput={params => <TextField {...params} variant="outlined" />}
       />
       <InputLabel className={classes.labelStyle} id="demo-simple-select-placeholder-label-label">
@@ -81,7 +81,7 @@ export default function SearchForm() {
         id="combo-box-demo"
         options={top100Films}
         getOptionLabel={option => option.title}
-        className="circle-radius"
+        className="search-input-styling"
         renderInput={params => <TextField {...params} variant="outlined" />}
       />
       <div className={classes.buttonsDiv}>
