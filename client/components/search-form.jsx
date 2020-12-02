@@ -56,6 +56,13 @@ const ages = [
   'senior'
 ];
 
+const size = [
+  'small',
+  'medium',
+  'large',
+  'xlarge'
+];
+
 export default function SearchForm(props) {
   const classes = useStyles();
   // const [breed, setBreed] = useState('');
