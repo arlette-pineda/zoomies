@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -56,9 +57,9 @@ function NavBar() {
               getContentAnchorEl={null}
               anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
             >
-              <MenuItem onClick={handleClose}>Home</MenuItem>
-              <MenuItem onClick={handleClose}>About</MenuItem>
-              <MenuItem onClick={handleClose}>Search</MenuItem>
+              <MenuItem component={Link} to='/'>Home</MenuItem>
+              <MenuItem component={Link} to='/about'>About</MenuItem>
+              <MenuItem component={Link} to='/search'>Search</MenuItem>
             </Menu>
           </IconButton>
         </Toolbar>

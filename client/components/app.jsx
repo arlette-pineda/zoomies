@@ -12,11 +12,12 @@ export default class App extends React.Component {
     return (
       <Router>
         <NavBar/>
-        <DogList/>
+        {/* <DogList/> */}
         {/* <Home /> */}
         <Footer/>
         <Route path="/" exact component={Home}/>
         <Route path="/about" component={About} />
+        <Route path="/search" component={DogList} />
       </Router>
     );
   }
