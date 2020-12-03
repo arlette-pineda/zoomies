@@ -50,17 +50,17 @@ const top100Films = [
 ];
 
 const ages = [
-  'baby',
-  'young',
-  'adult',
-  'senior'
+  'Baby',
+  'Young',
+  'Adult',
+  'Senior'
 ];
 
-const size = [
-  'small',
-  'medium',
-  'large',
-  'xlarge'
+const sizes = [
+  'Small',
+  'Medium',
+  'Large',
+  'Xlarge'
 ];
 
 export default function SearchForm(props) {
@@ -100,8 +100,8 @@ export default function SearchForm(props) {
       </InputLabel>
       <Autocomplete
         id="combo-box-demo"
-        options={top100Films}
-        getOptionLabel={option => option.title}
+        options={ages}
+        getOptionLabel={option => option}
         className="search-input-styling"
         renderInput={params => <TextField {...params} variant="outlined" />}
       />
@@ -110,17 +110,17 @@ export default function SearchForm(props) {
       </InputLabel>
       <Autocomplete
         id="combo-box-demo"
-        options={top100Films}
-        getOptionLabel={option => option.title}
+        options={sizes}
+        getOptionLabel={option => option}
         className="search-input-styling"
-        // onChange={e => setSize(e.target.value)}
+        // onSelect={e => setSize(e.target.value)}
         renderInput={params => <TextField {...params} variant="outlined" />}
       />
       <div className={classes.buttonsDiv}>
         <Button variant="contained" className={classes.buttonStyle}>
         Clear All
         </Button>
-        <Button variant="contained" className={classes.buttonStyle}>
+        <Button type="submit" variant="contained" className={classes.buttonStyle}>
         Apply
         </Button>
       </div>
