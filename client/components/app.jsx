@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
-import Test from './test-page';
-import Second from './second-test';
 import NavBar from './nav-bar';
+import Home from './home';
+import About from './about';
 import DogList from './dog-list';
 import Footer from './footer';
 
@@ -12,10 +12,12 @@ export default class App extends React.Component {
     return (
       <Router>
         <NavBar/>
-        <DogList/>
+        {/* <DogList/> */}
+        {/* <Home /> */}
         <Footer/>
-        <Route path="/" exact component={Test}/>
-        <Route path="/second" component={Second} />
+        <Route path="/" exact component={Home}/>
+        <Route path="/about" component={About} />
+        <Route path="/search" component={DogList} />
       </Router>
     );
   }
