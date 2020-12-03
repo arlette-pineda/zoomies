@@ -68,8 +68,16 @@ export default function SearchForm(props) {
     alert(`Submitting Breed ${breed} ${age} ${size}`);
   };
 
+  const handleReset = evt => {
+    evt.preventDefault();
+    setBreed('');
+    setSize('');
+    setAge('');
+    alert(`Form has been cleared ${breed} ${age} ${size}`);
+  };
+
   return (
-    <form className={classes.root} noValidate onSubmit={handleSubmit}>
+    <form className={classes.root} noValidate onSubmit={handleSubmit} onReset={handleReset}>
       <InputLabel className={classes.labelStyle} id="input-label-breed">
         Breed
       </InputLabel>
@@ -77,6 +85,7 @@ export default function SearchForm(props) {
         id="combo-box-demo"
         options={breedList}
         getOptionLabel={option => option}
+        value={breed || null}
         onSelect={e => setBreed(e.target.value)}
         className="search-input-styling"
         renderInput={params => <TextField {...params} variant="outlined" />}
@@ -88,6 +97,7 @@ export default function SearchForm(props) {
         id="combo-box-demo"
         options={ages}
         getOptionLabel={option => option}
+        value={age || null}
         onSelect={e => setAge(e.target.value)}
         className="search-input-styling"
         renderInput={params => <TextField {...params} variant="outlined" />}
@@ -99,12 +109,13 @@ export default function SearchForm(props) {
         id="combo-box-demo"
         options={sizes}
         getOptionLabel={option => option}
+        value={size || null}
         className="search-input-styling"
         onSelect={e => setSize(e.target.value)}
         renderInput={params => <TextField {...params} variant="outlined" />}
       />
       <div className={classes.buttonsDiv}>
-        <Button variant="contained" className={classes.buttonStyle}>
+        <Button type="reset" onClick={handleReset} variant="contained" className={classes.buttonStyle}>
         Clear All
         </Button>
         <Button type="submit" variant="contained" className={classes.buttonStyle}>
