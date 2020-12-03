@@ -12,7 +12,7 @@ export default class App extends React.Component {
     return (
       <Router>
         <NavBar/>
-        {/* <DogList/> */}
+        <DogList/>
         {/* <Home /> */}
         <Footer/>
         <Route path="/" exact component={Home}/>

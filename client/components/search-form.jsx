@@ -34,21 +34,6 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const top100Films = [
-  { title: 'The Shawshank Redemption', year: 1994 },
-  { title: 'The Godfather', year: 1972 },
-  { title: 'The Godfather: Part II', year: 1974 },
-  { title: 'The Dark Knight', year: 2008 },
-  { title: '12 Angry Men', year: 1957 },
-  { title: "Schindler's List", year: 1993 },
-  { title: 'Pulp Fiction', year: 1994 },
-  { title: 'The Lord of the Rings: The Return of the King', year: 2003 },
-  { title: 'The Good, the Bad and the Ugly', year: 1966 },
-  { title: 'Fight Club', year: 1999 },
-  { title: 'The Lord of the Rings: The Fellowship of the Ring', year: 2001 },
-  { title: 'Star Wars: Episode V - The Empire Strikes Back', year: 1980 }
-];
-
 const ages = [
   'Baby',
   'Young',
@@ -65,9 +50,9 @@ const sizes = [
 
 export default function SearchForm(props) {
   const classes = useStyles();
-  // const [breed, setBreed] = useState('');
-  // const [age, setAge] = useState('');
-  // const [size, setSize] = useState('');
+  const [breed, setBreed] = useState('');
+  const [age, setAge] = useState('');
+  const [size, setSize] = useState('');
   const [breedList, setBreedList] = useState([]);
   const [hasError, setErrors] = useState(false);
 
@@ -80,7 +65,7 @@ export default function SearchForm(props) {
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    alert(`Submitting Name ${name}`);
+    alert(`Submitting Breed ${breed} ${age} ${size}`);
   };
 
   return (
@@ -92,6 +77,7 @@ export default function SearchForm(props) {
         id="combo-box-demo"
         options={breedList}
         getOptionLabel={option => option}
+        onSelect={e => setBreed(e.target.value)}
         className="search-input-styling"
         renderInput={params => <TextField {...params} variant="outlined" />}
       />
@@ -102,6 +88,7 @@ export default function SearchForm(props) {
         id="combo-box-demo"
         options={ages}
         getOptionLabel={option => option}
+        onSelect={e => setAge(e.target.value)}
         className="search-input-styling"
         renderInput={params => <TextField {...params} variant="outlined" />}
       />
@@ -113,7 +100,7 @@ export default function SearchForm(props) {
         options={sizes}
         getOptionLabel={option => option}
         className="search-input-styling"
-        // onSelect={e => setSize(e.target.value)}
+        onSelect={e => setSize(e.target.value)}
         renderInput={params => <TextField {...params} variant="outlined" />}
       />
       <div className={classes.buttonsDiv}>
