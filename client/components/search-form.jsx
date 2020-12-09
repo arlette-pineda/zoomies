@@ -71,8 +71,8 @@ export default function SearchForm(props) {
   const handleSubmit = evt => {
     evt.preventDefault();
 
-    const something = QueryString.stringify({ breedname: breed, age, size });
-    history.push({ pathname: '/search', search: something });
+    const searchResult = QueryString.stringify({ breedname: breed, age, size });
+    history.push({ pathname: '/search', search: searchResult });
     // history.push({ pathname: location.pathname, search: something });
     alert(`Submitting Breed ${breed} ${age} ${size}`);
   };
