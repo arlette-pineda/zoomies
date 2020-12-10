@@ -18,6 +18,9 @@ const useStyles = makeStyles(theme => ({
 export default function DogList(props) {
   const classes = useStyles();
   const [dogs, setDogs] = useState([]);
+  const [breed, setBreed] = useState('');
+  const [age, setAge] = useState('');
+  const [size, setSize] = useState('');
   const [hasError, setErrors] = useState(false);
 
   useEffect(() => {
@@ -30,7 +33,7 @@ export default function DogList(props) {
 
   return (
     <div className={classes.root}>
-      <SearchButton />
+      <SearchButton setBreed={setBreed} breed={breed} />
       <Grid container spacing={3} className={classes.cardStyle}>
         {dogs.map(dog => {
           return (<Grid item xs={6} sm={3} key={dog.id}>
