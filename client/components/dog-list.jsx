@@ -41,6 +41,7 @@ export default function DogList(props) {
         breed={breed} setBreed={setBreed}
         age={age} setAge={setAge}
         size={size} setSize={setSize}
+        searchDogs={searchDogs}
       />
       <Grid container spacing={3} className={classes.cardStyle}>
         {dogs.map(dog => {
