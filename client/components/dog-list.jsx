@@ -24,12 +24,16 @@ export default function DogList(props) {
   const [hasError, setErrors] = useState(false);
 
   useEffect(() => {
+    searchDogs();
+  },
+  []);
+
+  const searchDogs = () => {
     fetch('/api/search')
       .then(response => response.json())
       .then(res => setDogs(res))
       .catch(() => setErrors(true));
-  },
-  []);
+  };
 
   return (
     <div className={classes.root}>
@@ -45,7 +49,6 @@ export default function DogList(props) {
           </Grid>);
         })
         }
-
       </Grid>
     </div>
   );
