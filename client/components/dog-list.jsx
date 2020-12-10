@@ -33,7 +33,11 @@ export default function DogList(props) {
 
   return (
     <div className={classes.root}>
-      <SearchButton setBreed={setBreed} breed={breed} />
+      <SearchButton
+        breed={breed} setBreed={setBreed}
+        age={age} setAge={setAge}
+        size={size} setSize={setSize}
+      />
       <Grid container spacing={3} className={classes.cardStyle}>
         {dogs.map(dog => {
           return (<Grid item xs={6} sm={3} key={dog.id}>

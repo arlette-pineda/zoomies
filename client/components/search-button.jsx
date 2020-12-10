@@ -35,7 +35,12 @@ export default function SearchButton(props) {
         Search <ExpandMoreIcon/>
         </Button>
       </div>
-      <SearchDrawer open={isOpen} setBreed={props.setBreed} breed={props.breed} />
+      <SearchDrawer
+        open={isOpen}
+        breed={props.breed} setBreed={props.setBreed}
+        age={props.age} setAge={props.setAge}
+        size={props.size} setSize={props.setSize}
+      />
     </div>
   );
 }

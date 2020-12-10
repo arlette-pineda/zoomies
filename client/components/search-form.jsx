@@ -63,23 +63,23 @@ export default function SearchForm(props) {
   },
   []);
 
-  const history = useHistory();
+  // const history = useHistory();
 
   const handleSubmit = evt => {
     evt.preventDefault();
 
-    const searchResult = QueryString.stringify({ breedname: props.breed, age, size });
-    history.push({ pathname: '/search', search: searchResult });
+    // const searchResult = QueryString.stringify({ breedname: props.breed, props.age, props.size });
+    // history.push({ pathname: '/search', search: searchResult });
     // history.push({ pathname: location.pathname, search: something });
-    alert(`Submitting Breed ${breed} ${age} ${size}`);
+    alert(`Submitting Breed ${props.breed} ${props.age} ${props.size}`);
   };
 
   const handleReset = evt => {
     evt.preventDefault();
     props.setBreed('');
-    setSize('');
-    setAge('');
-    alert(`Form has been cleared ${breed} ${age} ${size}`);
+    props.setSize('');
+    props.setAge('');
+    alert(`Form has been cleared ${props.breed} ${props.age} ${props.size}`);
   };
 
   return (
@@ -103,8 +103,8 @@ export default function SearchForm(props) {
         id="combo-box-demo"
         options={ages}
         getOptionLabel={option => option}
-        value={age || null}
-        onSelect={e => setAge(e.target.value)}
+        value={props.age || null}
+        onSelect={e => props.setAge(e.target.value)}
         className="search-input-styling"
         renderInput={params => <TextField {...params} variant="outlined" />}
       />
@@ -115,9 +115,9 @@ export default function SearchForm(props) {
         id="combo-box-demo"
         options={sizes}
         getOptionLabel={option => option}
-        value={size || null}
+        value={props.size || null}
         className="search-input-styling"
-        onSelect={e => setSize(e.target.value)}
+        onSelect={e => props.setSize(e.target.value)}
         renderInput={params => <TextField {...params} variant="outlined" />}
       />
       <div className={classes.buttonsDiv}>

@@ -16,7 +16,11 @@ export default function SearchDrawer(props) {
   return (
     <Slide direction="right" in={props.open} mountOnEnter unmountOnExit>
       <div className={classes.root}>
-        <SearchForm setBreed={props.setBreed} breed={props.breed} />
+        <SearchForm
+          breed={props.breed} setBreed={props.setBreed}
+          age={props.age} setAge={props.setAge}
+          size={props.size} setSize={props.setSize}
+        />
       </div>
     </Slide>
   );
