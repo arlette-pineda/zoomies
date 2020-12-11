@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import DogCard from './dog-list-card';
 import SearchButton from './search-button';
+import QueryString from 'query-string';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -23,17 +24,17 @@ export default function DogList(props) {
   const [size, setSize] = useState('');
   const [hasError, setErrors] = useState(false);
 
-  useEffect(() => {
-    searchDogs();
-  },
-  []);
-
-  const searchDogs = () => {
-    fetch('/api/search')
+  const dogSearch = () => {
+    const searchResult = QueryString.stringify({ breed, age, size });
+    fetch(`/api/search?${searchResult}`)
       .then(response => response.json())
       .then(res => setDogs(res))
       .catch(() => setErrors(true));
   };
+
+  useEffect(() => {
+    dogSearch();
+  }, []);
 
   return (
     <div className={classes.root}>
@@ -41,7 +42,7 @@ export default function DogList(props) {
         breed={breed} setBreed={setBreed}
         age={age} setAge={setAge}
         size={size} setSize={setSize}
-        searchDogs={searchDogs}
+        dogSearch={dogSearch}
       />
       <Grid container spacing={3} className={classes.cardStyle}>
         {dogs.map(dog => {
