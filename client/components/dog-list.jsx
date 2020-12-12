@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function DogList(props) {
   const classes = useStyles();
-  const [dogs, setDogs] = useState([]);
+  const [dogs, setDogs] = useState();
   const [breed, setBreed] = useState('');
   const [age, setAge] = useState('');
   const [size, setSize] = useState('');
@@ -34,6 +34,7 @@ export default function DogList(props) {
 
   useEffect(() => {
     dogSearch();
+
   }, []);
 
   return (
@@ -44,14 +45,21 @@ export default function DogList(props) {
         size={size} setSize={setSize}
         dogSearch={dogSearch}
       />
-      <Grid container spacing={3} className={classes.cardStyle}>
-        {dogs.map(dog => {
-          return (<Grid item xs={6} sm={3} key={dog.id}>
-            <DogCard dog={dog} />
-          </Grid>);
-        })
-        }
-      </Grid>
+      {dogs == null
+        ? null
+        : dogs.length === 0
+          ? <div>
+            <p>Sorry, those doggies are currently unavailable. Try another search!</p>
+          </div>
+          : <Grid container spacing={3} className={classes.cardStyle}>
+            {dogs.map(dog => {
+              return (<Grid item xs={6} sm={3} key={dog.id}>
+                <DogCard dog={dog} />
+              </Grid>);
+            })
+            }
+          </Grid>
+      }
     </div>
   );
 }
