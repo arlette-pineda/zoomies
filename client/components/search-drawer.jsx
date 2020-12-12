@@ -10,13 +10,18 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SearchDrawer({ open }) {
+export default function SearchDrawer(props) {
   const classes = useStyles();
 
   return (
-    <Slide direction="right" in={open} mountOnEnter unmountOnExit>
+    <Slide direction="right" in={props.open} mountOnEnter unmountOnExit>
       <div className={classes.root}>
-        <SearchForm />
+        <SearchForm
+          breed={props.breed} setBreed={props.setBreed}
+          age={props.age} setAge={props.setAge}
+          size={props.size} setSize={props.setSize}
+          setSearch={props.setSearch} setReset={props.setReset}
+        />
       </div>
     </Slide>
   );

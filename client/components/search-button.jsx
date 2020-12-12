@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SearchButton() {
+export default function SearchButton(props) {
   const classes = useStyles();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +35,13 @@ export default function SearchButton() {
         Search <ExpandMoreIcon/>
         </Button>
       </div>
-      <SearchDrawer open={isOpen} />
+      <SearchDrawer
+        open={isOpen}
+        breed={props.breed} setBreed={props.setBreed}
+        age={props.age} setAge={props.setAge}
+        size={props.size} setSize={props.setSize}
+        setSearch={props.setSearch} setReset={props.setReset}
+      />
     </div>
   );
 }

@@ -4,6 +4,8 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import InputLabel from '@material-ui/core/InputLabel';
 import Button from '@material-ui/core/Button';
+// import QueryString from 'query-string';
+// import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -50,9 +52,6 @@ const sizes = [
 
 export default function SearchForm(props) {
   const classes = useStyles();
-  const [breed, setBreed] = useState('');
-  const [age, setAge] = useState('');
-  const [size, setSize] = useState('');
   const [breedList, setBreedList] = useState([]);
   const [hasError, setErrors] = useState(false);
 
@@ -61,19 +60,25 @@ export default function SearchForm(props) {
       .then(response => response.json())
       .then(res => setBreedList(res))
       .catch(() => setErrors(true));
-  }, []);
+  },
+  []);
+
+  // const history = useHistory();
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    alert(`Submitting Breed ${breed} ${age} ${size}`);
+    props.setSearch(true);
+    // const searchResult = QueryString.stringify({ breedname: props.breed, props.age, props.size });
+    // history.push({ pathname: '/search', search: searchResult });
+    // history.push({ pathname: location.pathname, search: something });
   };
 
   const handleReset = evt => {
     evt.preventDefault();
-    setBreed('');
-    setSize('');
-    setAge('');
-    alert(`Form has been cleared ${breed} ${age} ${size}`);
+    props.setBreed('');
+    props.setSize('');
+    props.setAge('');
+    props.setReset(true);
   };
 
   return (
@@ -85,8 +90,8 @@ export default function SearchForm(props) {
         id="combo-box-demo"
         options={breedList}
         getOptionLabel={option => option}
-        value={breed || null}
-        onSelect={e => setBreed(e.target.value)}
+        value={props.breed || null}
+        onSelect={e => props.setBreed(e.target.value)}
         className="search-input-styling"
         renderInput={params => <TextField {...params} variant="outlined" />}
       />
@@ -97,8 +102,8 @@ export default function SearchForm(props) {
         id="combo-box-demo"
         options={ages}
         getOptionLabel={option => option}
-        value={age || null}
-        onSelect={e => setAge(e.target.value)}
+        value={props.age || null}
+        onSelect={e => props.setAge(e.target.value)}
         className="search-input-styling"
         renderInput={params => <TextField {...params} variant="outlined" />}
       />
@@ -109,9 +114,9 @@ export default function SearchForm(props) {
         id="combo-box-demo"
         options={sizes}
         getOptionLabel={option => option}
-        value={size || null}
+        value={props.size || null}
         className="search-input-styling"
-        onSelect={e => setSize(e.target.value)}
+        onSelect={e => props.setSize(e.target.value)}
         renderInput={params => <TextField {...params} variant="outlined" />}
       />
       <div className={classes.buttonsDiv}>
