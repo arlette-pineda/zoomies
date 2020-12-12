@@ -20,7 +20,7 @@ export default function SearchDrawer(props) {
           breed={props.breed} setBreed={props.setBreed}
           age={props.age} setAge={props.setAge}
           size={props.size} setSize={props.setSize}
-          dogSearch={props.dogSearch}
+          setSearch={props.setSearch} setReset={props.setReset}
         />
       </div>
     </Slide>

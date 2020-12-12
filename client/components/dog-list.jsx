@@ -23,19 +23,28 @@ export default function DogList(props) {
   const [age, setAge] = useState('');
   const [size, setSize] = useState('');
   const [hasError, setErrors] = useState(false);
+  const [firstLoad, setFirstLoad] = useState(true);
+  const [search, setSearch] = useState(false);
+  const [reset, setReset] = useState(false);
 
   const dogSearch = () => {
     const searchResult = QueryString.stringify({ breed, age, size });
     fetch(`/api/search?${searchResult}`)
       .then(response => response.json())
-      .then(res => setDogs(res))
+      .then(res => {
+        setDogs(res);
+        setFirstLoad(false);
+        setSearch(false);
+        setReset(false);
+      })
       .catch(() => setErrors(true));
   };
 
   useEffect(() => {
-    dogSearch();
-
-  }, []);
+    if (firstLoad || search || reset) {
+      dogSearch();
+    }
+  }, [firstLoad, search, reset]);
 
   return (
     <div className={classes.root}>
@@ -43,7 +52,7 @@ export default function DogList(props) {
         breed={breed} setBreed={setBreed}
         age={age} setAge={setAge}
         size={size} setSize={setSize}
-        dogSearch={dogSearch}
+        setSearch={setSearch} setReset={setReset}
       />
       {dogs == null
         ? null
