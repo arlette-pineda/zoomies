@@ -16,7 +16,14 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.text.secondary
   },
   textMargin: {
-    margin: theme.spacing(2)
+    margin: theme.spacing(2),
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    fontFamily: 'Bubbler One, Helvetica, Arial, sans- serif',
+    fontSize: '1.5rem',
+    fontWeight: 'bold'
   }
 }));
 
@@ -66,7 +73,7 @@ export default function DogList(props) {
         ? (<div className={classes.textMargin}>Loading <HourglassEmptyIcon /> </div>)
         : dogs.length === 0
           ? <div>
-            <h6>Sorry, those doggies are currently unavailable. Try another search!</h6>
+            <h6 className={classes.textMargin}>Sorry, those doggies are currently unavailable. Try another search!</h6>
           </div>
           : <Grid container spacing={3} className={classes.cardStyle}>
             {dogs.map(dog => {
