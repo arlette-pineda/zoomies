@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import DogCard from './dog-list-card';
 import SearchButton from './search-button';
 import QueryString from 'query-string';
+import { useHistory } from 'react-router-dom';
 import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
 
 const useStyles = makeStyles(theme => ({
@@ -38,12 +39,13 @@ export default function DogList(props) {
   const [search, setSearch] = useState(false);
   const [reset, setReset] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const history = useHistory();
 
   const dogSearch = () => {
     const searchResult = QueryString.stringify({ breed, age, size });
     setIsLoading(true);
+    history.push({ pathname: location.pathname, search: searchResult });
     fetch(`/api/search?${searchResult}`)
-
       .then(response => response.json())
       .then(res => {
         setDogs(res);

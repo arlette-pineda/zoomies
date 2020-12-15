@@ -4,8 +4,6 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import InputLabel from '@material-ui/core/InputLabel';
 import Button from '@material-ui/core/Button';
-// import QueryString from 'query-string';
-// import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -63,14 +61,9 @@ export default function SearchForm(props) {
   },
   []);
 
-  // const history = useHistory();
-
   const handleSubmit = evt => {
     evt.preventDefault();
     props.setSearch(true);
-    // const searchResult = QueryString.stringify({ breedname: props.breed, props.age, props.size });
-    // history.push({ pathname: '/search', search: searchResult });
-    // history.push({ pathname: location.pathname, search: something });
   };
 
   const handleReset = evt => {
