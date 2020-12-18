@@ -52,6 +52,9 @@ export default function SearchForm(props) {
   const classes = useStyles();
   const [breedList, setBreedList] = useState([]);
   const [hasError, setErrors] = useState(false);
+  const [localBreed, setLocalBreed] = useState('');
+  const [localAge, setLocalAge] = useState('');
+  const [localSize, setLocalSize] = useState('');
 
   useEffect(() => {
     fetch('/api/dogBreeds')
@@ -63,7 +66,10 @@ export default function SearchForm(props) {
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    props.setSearch(true);
+    // props.setSearch(true);
+    props.setBreed(localBreed);
+    props.setSize(localSize);
+    props.setAge(localAge);
   };
 
   const handleReset = evt => {
@@ -71,7 +77,7 @@ export default function SearchForm(props) {
     props.setBreed('');
     props.setSize('');
     props.setAge('');
-    props.setReset(true);
+    // props.setReset(true);
   };
 
   return (
@@ -84,7 +90,7 @@ export default function SearchForm(props) {
         options={breedList}
         getOptionLabel={option => option}
         value={props.breed || null}
-        onSelect={e => props.setBreed(e.target.value)}
+        onSelect={e => setLocalBreed(e.target.value)}
         className="search-input-styling"
         renderInput={params => <TextField {...params} variant="outlined" />}
       />
@@ -96,7 +102,7 @@ export default function SearchForm(props) {
         options={ages}
         getOptionLabel={option => option}
         value={props.age || null}
-        onSelect={e => props.setAge(e.target.value)}
+        onSelect={e => setLocalAge(e.target.value)}
         className="search-input-styling"
         renderInput={params => <TextField {...params} variant="outlined" />}
       />
@@ -109,7 +115,7 @@ export default function SearchForm(props) {
         getOptionLabel={option => option}
         value={props.size || null}
         className="search-input-styling"
-        onSelect={e => props.setSize(e.target.value)}
+        onSelect={e => setLocalSize(e.target.value)}
         renderInput={params => <TextField {...params} variant="outlined" />}
       />
       <div className={classes.buttonsDiv}>
