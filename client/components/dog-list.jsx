@@ -35,48 +35,32 @@ export default function DogList(props) {
   const [age, setAge] = useState('');
   const [size, setSize] = useState('');
   const [hasError, setErrors] = useState(false);
-  const [firstLoad, setFirstLoad] = useState(true);
-  const [search, setSearch] = useState(false);
-  const [reset, setReset] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const history = useHistory();
 
   const dogSearch = () => {
     const searchResult = QueryString.stringify({ breed, age, size });
-    console.log('search resulted');
     setIsLoading(true);
     history.push({ pathname: location.pathname, search: searchResult });
     fetch(`/api/search?${searchResult}`)
       .then(response => response.json())
       .then(res => {
         setDogs(res);
-        setFirstLoad(false);
-        setSearch(false);
-        setReset(false);
         setIsLoading(false);
-        console.log('end of res');
       })
       .catch(() => setErrors(true));
   };
 
   useEffect(() => {
-    if (firstLoad) {
-      const parsed = QueryString.parse(location.search);
-      setBreed(parsed.breed);
-      setAge(parsed.age);
-      setSize(parsed.size);
-      console.log({ parsed });
-      console.log({ breed });
-      console.log({ age });
-      console.log({ size });
-    }
+    const parsed = QueryString.parse(location.search);
+    setBreed(parsed.breed);
+    setAge(parsed.age);
+    setSize(parsed.size);
   }, []);
 
   useEffect(() => {
-    if (firstLoad || search || reset) {
-      dogSearch();
-    }
-  }, [firstLoad, search, reset]);
+    dogSearch();
+  }, [breed, age, size]);
 
   return (
     <div className={classes.root}>
@@ -84,7 +68,6 @@ export default function DogList(props) {
         breed={breed} setBreed={setBreed}
         age={age} setAge={setAge}
         size={size} setSize={setSize}
-        setSearch={setSearch} setReset={setReset}
       />
       {dogs == null || isLoading
         ? (<div className={classes.textMargin}>Loading <HourglassEmptyIcon /> </div>)
