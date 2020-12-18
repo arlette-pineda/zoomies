@@ -22,7 +22,8 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     flexGrow: 1,
-    color: 'black'
+    color: 'black',
+    width: '50%'
   }
 }));
 
@@ -43,7 +44,7 @@ function NavBar() {
     <div className={classes.root}>
       <AppBar position="relative" className='main-color' onClick={anchorEl ? () => handleClose() : undefined}>
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
+          <Typography component={Link} to='/' variant="h6" className={classes.title}>
             <img src="/images/zoomies-img.png" alt="zoomies logo" className="logo-img"/>
           </Typography>
           <IconButton edge="start" className={classes.menuButton} aria-label="simple-menu" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
