@@ -43,6 +43,7 @@ export default function DogList(props) {
 
   const dogSearch = () => {
     const searchResult = QueryString.stringify({ breed, age, size });
+    console.log('search resulted');
     setIsLoading(true);
     history.push({ pathname: location.pathname, search: searchResult });
     fetch(`/api/search?${searchResult}`)
@@ -53,9 +54,23 @@ export default function DogList(props) {
         setSearch(false);
         setReset(false);
         setIsLoading(false);
+        console.log('end of res');
       })
       .catch(() => setErrors(true));
   };
+
+  useEffect(() => {
+    if (firstLoad) {
+      const parsed = QueryString.parse(location.search);
+      setBreed(parsed.breed);
+      setAge(parsed.age);
+      setSize(parsed.size);
+      console.log({ parsed });
+      console.log({ breed });
+      console.log({ age });
+      console.log({ size });
+    }
+  }, []);
 
   useEffect(() => {
     if (firstLoad || search || reset) {

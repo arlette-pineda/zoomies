@@ -1,4 +1,4 @@
-class Photos{
+class Photos {
   constructor(small, medium, large, full) {
     this.small = small;
     this.medium = medium;
