@@ -40,7 +40,6 @@ export default function SearchButton(props) {
         breed={props.breed} setBreed={props.setBreed}
         age={props.age} setAge={props.setAge}
         size={props.size} setSize={props.setSize}
-        // setSearch={props.setSearch} setReset={props.setReset}
       />
     </div>
   );

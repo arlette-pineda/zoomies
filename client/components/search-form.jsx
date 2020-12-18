@@ -66,7 +66,6 @@ export default function SearchForm(props) {
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    // props.setSearch(true);
     props.setBreed(localBreed);
     props.setSize(localSize);
     props.setAge(localAge);
@@ -80,7 +79,6 @@ export default function SearchForm(props) {
     setLocalBreed('');
     setLocalSize('');
     setLocalAge('');
-    // props.setReset(true);
   };
 
   return (
