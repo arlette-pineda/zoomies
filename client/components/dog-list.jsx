@@ -36,6 +36,7 @@ export default function DogList(props) {
   const [size, setSize] = useState('');
   const [hasError, setErrors] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [page, setPage] = useState('');
   const history = useHistory();
 
   const dogSearch = () => {
