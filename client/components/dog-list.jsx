@@ -82,7 +82,9 @@ export default function DogList(props) {
               </Grid>);
             })
             }
+            <button>Show More</button>
           </Grid>
+
       }
     </div>
   );
