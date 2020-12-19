@@ -36,11 +36,11 @@ export default function DogList(props) {
   const [size, setSize] = useState('');
   const [hasError, setErrors] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [page, setPage] = useState('');
+  const [page, setPage] = useState(1);
   const history = useHistory();
 
   const dogSearch = () => {
-    const searchResult = QueryString.stringify({ breed, age, size });
+    const searchResult = QueryString.stringify({ breed, age, size, page });
     setIsLoading(true);
     history.push({ pathname: location.pathname, search: searchResult });
     fetch(`/api/search?${searchResult}`)
@@ -61,7 +61,7 @@ export default function DogList(props) {
 
   useEffect(() => {
     dogSearch();
-  }, [breed, age, size]);
+  }, [breed, age, size, page]);
 
   return (
     <div className={classes.root}>
@@ -83,7 +83,7 @@ export default function DogList(props) {
               </Grid>);
             })
             }
-            <button>Show More</button>
+            <button onClick={() => setPage(page + 1)}>Show More</button>
           </Grid>
 
       }
