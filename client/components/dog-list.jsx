@@ -6,6 +6,7 @@ import SearchButton from './search-button';
 import QueryString from 'query-string';
 import { useHistory } from 'react-router-dom';
 import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -23,6 +24,20 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     textAlign: 'center',
     fontFamily: 'Bubbler One, Helvetica, Arial, sans- serif',
+    fontSize: '1.5rem',
+    fontWeight: 'bold'
+  },
+  divOutsideShowMore: {
+    marginBottom: '20%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%'
+  },
+  showMoreStyle: {
+    border: 'none',
+    fontFamily: 'Bubbler One, Helvetica, Arial, sans- serif',
+    background: 'none',
     fontSize: '1.5rem',
     fontWeight: 'bold'
   }
@@ -83,9 +98,10 @@ export default function DogList(props) {
               </Grid>);
             })
             }
-            <button onClick={() => setPage(page + 1)}>Show More</button>
+            <div className={classes.divOutsideShowMore}>
+              <button onClick={() => setPage(page + 1)} className={classes.showMoreStyle}>Show More <br /> <ExpandMoreIcon/> </button>
+            </div>
           </Grid>
-
       }
     </div>
   );
