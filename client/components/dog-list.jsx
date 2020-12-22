@@ -6,7 +6,9 @@ import SearchButton from './search-button';
 import QueryString from 'query-string';
 import { useHistory } from 'react-router-dom';
 import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+// import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -28,18 +30,22 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 'bold'
   },
   divOutsideShowMore: {
-    marginBottom: '20%',
+    marginBottom: '25%',
+    marginTop: '10%',
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     alignItems: 'center',
     width: '100%'
   },
   showMoreStyle: {
-    border: 'none',
+    // border: 'none',
     fontFamily: 'Bubbler One, Helvetica, Arial, sans- serif',
-    background: 'none',
-    fontSize: '1.5rem',
-    fontWeight: 'bold'
+    // background: 'none',
+    fontSize: '1.3rem',
+    fontWeight: 'bold',
+    borderRadius: '10px',
+    padding: '8px',
+    textAlign: 'center'
   }
 }));
 
@@ -99,7 +105,8 @@ export default function DogList(props) {
             })
             }
             <div className={classes.divOutsideShowMore}>
-              <button onClick={() => setPage(page + 1)} className={classes.showMoreStyle}>Show More <br /> <ExpandMoreIcon/> </button>
+              <button onClick={() => setPage(page - 1)} className={classes.showMoreStyle}> <ChevronLeftIcon/> Previous Page  </button>
+              <button onClick={() => setPage(page + 1)} className={classes.showMoreStyle}>  Next Page <ChevronRightIcon /></button>
             </div>
           </Grid>
       }
