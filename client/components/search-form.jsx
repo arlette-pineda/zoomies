@@ -76,6 +76,7 @@ export default function SearchForm(props) {
     props.setBreed('');
     props.setSize('');
     props.setAge('');
+    props.setPage(1);
     setLocalBreed('');
     setLocalSize('');
     setLocalAge('');

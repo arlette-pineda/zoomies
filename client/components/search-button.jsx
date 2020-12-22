@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-// import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import SearchDrawer from './search-drawer';
 
 const useStyles = makeStyles(theme => ({
@@ -33,7 +33,8 @@ export default function SearchButton(props) {
     <div>
       <div className={classes.root}>
         <Button variant="contained" className={classes.buttonStyling} onClick={toggle}>
-        Search <ExpandMoreIcon/>
+          Search
+          {isOpen ? <ExpandLessIcon /> : <ExpandMoreIcon/>}
         </Button>
       </div>
       <SearchDrawer
@@ -41,6 +42,7 @@ export default function SearchButton(props) {
         breed={props.breed} setBreed={props.setBreed}
         age={props.age} setAge={props.setAge}
         size={props.size} setSize={props.setSize}
+        page={props.page} setPage={props.setPage}
       />
     </div>
   );
