@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
   },
   divOutsideShowMore: {
     marginBottom: '25%',
-    marginTop: '10%',
+    marginTop: '5%',
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',
@@ -105,7 +105,11 @@ export default function DogList(props) {
             })
             }
             <div className={classes.divOutsideShowMore}>
-              <button onClick={() => setPage(page - 1)} className={classes.showMoreStyle}> <ChevronLeftIcon/> Previous Page  </button>
+              {page > 1
+                ? (<button onClick={() => setPage(page - 1)} className={classes.showMoreStyle}> <ChevronLeftIcon /> Previous Page  </button>)
+                : null
+              }
+              {/* <button onClick={() => setPage(page - 1)} className={classes.showMoreStyle}> <ChevronLeftIcon/> Previous Page  </button> */}
               <button onClick={() => setPage(page + 1)} className={classes.showMoreStyle}>  Next Page <ChevronRightIcon /></button>
             </div>
           </Grid>
