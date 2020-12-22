@@ -58,6 +58,7 @@ export default function DogList(props) {
   const [hasError, setErrors] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
+  const [paging, setPaging] = useState({});
   const history = useHistory();
 
   const dogSearch = () => {
@@ -67,7 +68,8 @@ export default function DogList(props) {
     fetch(`/api/search?${searchResult}`)
       .then(response => response.json())
       .then(res => {
-        setDogs(res);
+        setDogs(res.dogs);
+        setPaging(res.paging);
         setIsLoading(false);
       })
       .catch(() => setErrors(true));
@@ -109,8 +111,9 @@ export default function DogList(props) {
                 ? (<button onClick={() => setPage(page - 1)} className={classes.showMoreStyle}> <ChevronLeftIcon /> Previous Page  </button>)
                 : null
               }
-              {/* <button onClick={() => setPage(page - 1)} className={classes.showMoreStyle}> <ChevronLeftIcon/> Previous Page  </button> */}
-              <button onClick={() => setPage(page + 1)} className={classes.showMoreStyle}>  Next Page <ChevronRightIcon /></button>
+              {page < paging.totalPages
+                ? <button onClick={() => setPage(page + 1)} className={classes.showMoreStyle}>  Next Page <ChevronRightIcon /></button>
+                : null}
             </div>
           </Grid>
       }
