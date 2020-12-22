@@ -38,14 +38,17 @@ const useStyles = makeStyles(theme => ({
     width: '100%'
   },
   showMoreStyle: {
-    // border: 'none',
     fontFamily: 'Bubbler One, Helvetica, Arial, sans- serif',
-    // background: 'none',
     fontSize: '1.3rem',
     fontWeight: 'bold',
     borderRadius: '10px',
     padding: '8px',
     textAlign: 'center'
+
+  },
+  resultsStyle: {
+    marginLeft: theme.spacing(2),
+    marginTop: theme.spacing(2)
   }
 }));
 
@@ -86,6 +89,17 @@ export default function DogList(props) {
     dogSearch();
   }, [breed, age, size, page]);
 
+  const limit = 20;
+  let startIndex = (page - 1) * limit + 1;
+  let endIndex = page * limit;
+
+  if (page === paging.totalPages) {
+    endIndex = paging.totalCount;
+  }
+  if (paging.totalCount === 0) {
+    startIndex = 0;
+  }
+
   return (
     <div className={classes.root}>
       <SearchButton
@@ -93,6 +107,7 @@ export default function DogList(props) {
         age={age} setAge={setAge}
         size={size} setSize={setSize}
       />
+      <div className={classes.resultsStyle}> {startIndex}-{endIndex} of {paging.totalCount} results</div>
       {dogs == null || isLoading
         ? (<div className={classes.textMargin}>Loading <HourglassEmptyIcon /> </div>)
         : dogs.length === 0
