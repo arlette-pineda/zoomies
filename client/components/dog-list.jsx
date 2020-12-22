@@ -107,7 +107,11 @@ export default function DogList(props) {
         age={age} setAge={setAge}
         size={size} setSize={setSize}
       />
-      <div className={classes.resultsStyle}> {startIndex}-{endIndex} of {paging.totalCount} results</div>
+      <div className={classes.resultsStyle}>
+        {paging.totalCount === 0
+          ? '0 results'
+          : (`${startIndex}-${endIndex} of ${paging.totalCount} results`)}
+      </div>
       {dogs == null || isLoading
         ? (<div className={classes.textMargin}>Loading <HourglassEmptyIcon /> </div>)
         : dogs.length === 0
