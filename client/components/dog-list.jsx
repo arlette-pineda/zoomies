@@ -5,8 +5,7 @@ import DogCard from './dog-list-card';
 import SearchButton from './search-button';
 import QueryString from 'query-string';
 import { useHistory } from 'react-router-dom';
-import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
-// import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
@@ -49,6 +48,9 @@ const useStyles = makeStyles(theme => ({
   resultsStyle: {
     marginLeft: theme.spacing(2),
     marginTop: theme.spacing(2)
+  },
+  circProgress: {
+    margin: '12px'
   }
 }));
 
@@ -114,7 +116,8 @@ export default function DogList(props) {
           : (`${startIndex}-${endIndex} of ${paging.totalCount} results`)}
       </div>
       {dogs == null || isLoading
-        ? (<div className={classes.textMargin}>Loading <HourglassEmptyIcon /> </div>)
+        ? (<div className={classes.textMargin}>Loading  <CircularProgress className={classes.circProgress} />
+        </div>)
         : dogs.length === 0
           ? <div>
             <h6 className={classes.textMargin}>Sorry, those doggies are currently unavailable. Try another search!</h6>
