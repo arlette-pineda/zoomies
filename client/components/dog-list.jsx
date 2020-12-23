@@ -5,8 +5,9 @@ import DogCard from './dog-list-card';
 import SearchButton from './search-button';
 import QueryString from 'query-string';
 import { useHistory } from 'react-router-dom';
-import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -28,18 +29,28 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 'bold'
   },
   divOutsideShowMore: {
-    marginBottom: '20%',
+    marginBottom: '25%',
+    marginTop: '5%',
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     alignItems: 'center',
     width: '100%'
   },
   showMoreStyle: {
-    border: 'none',
     fontFamily: 'Bubbler One, Helvetica, Arial, sans- serif',
-    background: 'none',
-    fontSize: '1.5rem',
-    fontWeight: 'bold'
+    fontSize: '1.3rem',
+    fontWeight: 'bold',
+    borderRadius: '10px',
+    padding: '8px',
+    textAlign: 'center'
+
+  },
+  resultsStyle: {
+    marginLeft: theme.spacing(2),
+    marginTop: theme.spacing(2)
+  },
+  circProgress: {
+    margin: '12px'
   }
 }));
 
@@ -52,6 +63,7 @@ export default function DogList(props) {
   const [hasError, setErrors] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
+  const [paging, setPaging] = useState({});
   const history = useHistory();
 
   const dogSearch = () => {
@@ -61,7 +73,8 @@ export default function DogList(props) {
     fetch(`/api/search?${searchResult}`)
       .then(response => response.json())
       .then(res => {
-        setDogs(res);
+        setDogs(res.dogs);
+        setPaging(res.paging);
         setIsLoading(false);
       })
       .catch(() => setErrors(true));
@@ -78,15 +91,33 @@ export default function DogList(props) {
     dogSearch();
   }, [breed, age, size, page]);
 
+  const limit = 20;
+  let startIndex = (page - 1) * limit + 1;
+  let endIndex = page * limit;
+
+  if (page === paging.totalPages) {
+    endIndex = paging.totalCount;
+  }
+  if (paging.totalCount === 0) {
+    startIndex = 0;
+  }
+
   return (
     <div className={classes.root}>
       <SearchButton
         breed={breed} setBreed={setBreed}
         age={age} setAge={setAge}
         size={size} setSize={setSize}
+        page={page} setPage={setPage}
       />
+      <div className={classes.resultsStyle}>
+        {paging.totalCount === 0
+          ? '0 results'
+          : (`${startIndex}-${endIndex} of ${paging.totalCount} results`)}
+      </div>
       {dogs == null || isLoading
-        ? (<div className={classes.textMargin}>Loading <HourglassEmptyIcon /> </div>)
+        ? (<div className={classes.textMargin}>Loading  <CircularProgress className={classes.circProgress} />
+        </div>)
         : dogs.length === 0
           ? <div>
             <h6 className={classes.textMargin}>Sorry, those doggies are currently unavailable. Try another search!</h6>
@@ -99,7 +130,13 @@ export default function DogList(props) {
             })
             }
             <div className={classes.divOutsideShowMore}>
-              <button onClick={() => setPage(page + 1)} className={classes.showMoreStyle}>Show More <br /> <ExpandMoreIcon/> </button>
+              {page > 1
+                ? (<button onClick={() => setPage(page - 1)} className={classes.showMoreStyle}> <ChevronLeftIcon /> Previous Page  </button>)
+                : null
+              }
+              {page < paging.totalPages
+                ? <button onClick={() => setPage(page + 1)} className={classes.showMoreStyle}>  Next Page <ChevronRightIcon /></button>
+                : null}
             </div>
           </Grid>
       }

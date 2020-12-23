@@ -1,6 +1,6 @@
 
 class Dog {
-  constructor(id, name, breed, age, size, description, location, gender, coat, color, traits, photos){
+  constructor(id, name, breed, age, size, description, location, gender, coat, color, traits, photos) {
     this.id = id;
     this.name = name;
     this.breed = breed;

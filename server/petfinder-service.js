@@ -4,11 +4,14 @@ var client = new petfinder.Client({ apiKey: process.env.PF_API_KEY, secret: proc
 const Dog = require('./dog.js');
 const Address = require('./address');
 const Photos = require('./photos');
+const Paging = require('./paging');
+const SearchResult = require('./search-result');
 
 class PetfinderService {
   async getAnimals(breed, age, size, page, limit) {
     const animalsResult = await client.animal.search({ type: 'dog', breed: breed, age: age, size: size, page: page, limit: limit });
-    return animalsResult.data.animals.map(animal => {
+    const paging = new Paging(animalsResult.data.pagination.total_pages, animalsResult.data.pagination.total_count);
+    const animals = animalsResult.data.animals.map(animal => {
       let photos = {};
       if (animal.photos.length !== 0) {
         photos = new Photos(animal.photos[0].small, animal.photos[0].medium, animal.photos[0].large, animal.photos[0].full);
@@ -18,6 +21,7 @@ class PetfinderService {
         animal.colors, animal.tags, photos);
     }
     );
+    return new SearchResult(paging, animals);
   }
 
   async getAnimal(id) {
