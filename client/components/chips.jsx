@@ -20,6 +20,10 @@ export default function Chips(props) {
     props.setAge('');
   };
 
+  const handleDeleteSize = () => {
+    props.setSize('');
+  };
+
   return (
     <div className={classes.theMargin}>
       {props.breed
@@ -44,7 +48,7 @@ export default function Chips(props) {
           size="small"
           avatar={<Avatar alt="Natacha" src="/images/zoomies-icon.png" />}
           label={props.size}
-          // onDelete={handleDelete}
+          onDelete={handleDeleteSize}
         />
         : null
       }
