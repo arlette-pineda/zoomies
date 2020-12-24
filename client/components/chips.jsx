@@ -12,12 +12,8 @@ const useStyles = makeStyles(theme => ({
 export default function Chips(props) {
   const classes = useStyles();
 
-  const handleDelete = () => {
-    console.info('You clicked the delete icon.');
-  };
-
-  const handleClick = () => {
-    console.info('You clicked the Chip.');
+  const handleDeleteBreed = () => {
+    props.setBreed('');
   };
 
   return (
@@ -27,7 +23,7 @@ export default function Chips(props) {
           size="small"
           avatar={<Avatar alt="Natacha" src="/images/zoomies-icon.png" />}
           label={props.breed}
-          onDelete={handleDelete}
+          onDelete={handleDeleteBreed}
         />
         : null
       }
@@ -36,7 +32,7 @@ export default function Chips(props) {
           size="small"
           avatar={<Avatar alt="Natacha" src="/images/zoomies-icon.png" />}
           label={props.age}
-          onDelete={handleDelete}
+          // onDelete={handleDelete}
         />
         : null}
       {props.size
@@ -44,7 +40,7 @@ export default function Chips(props) {
           size="small"
           avatar={<Avatar alt="Natacha" src="/images/zoomies-icon.png" />}
           label={props.size}
-          onDelete={handleDelete}
+          // onDelete={handleDelete}
         />
         : null
       }
