@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
 import Avatar from '@material-ui/core/Avatar';
@@ -14,6 +14,10 @@ export default function Chips(props) {
 
   const handleDeleteBreed = () => {
     props.setBreed('');
+  };
+
+  const handleDeleteAge = () => {
+    props.setAge('');
   };
 
   return (
@@ -32,7 +36,7 @@ export default function Chips(props) {
           size="small"
           avatar={<Avatar alt="Natacha" src="/images/zoomies-icon.png" />}
           label={props.age}
-          // onDelete={handleDelete}
+          onDelete={handleDeleteAge}
         />
         : null}
       {props.size
