@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import DogCard from './dog-list-card';
 import SearchButton from './search-button';
+import Chips from './chips';
 import QueryString from 'query-string';
 import { useHistory } from 'react-router-dom';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -46,8 +47,7 @@ const useStyles = makeStyles(theme => ({
 
   },
   resultsStyle: {
-    marginLeft: theme.spacing(2),
-    marginTop: theme.spacing(2)
+    margin: theme.spacing(2)
   },
   circProgress: {
     margin: '12px'
@@ -115,6 +115,10 @@ export default function DogList(props) {
           ? '0 results'
           : (`${startIndex}-${endIndex} of ${paging.totalCount} results`)}
       </div>
+      <Chips
+        breed={breed} setBreed={setBreed}
+        age={age} setAge={setAge}
+        size={size} setSize={setSize} />
       {dogs == null || isLoading
         ? (<div className={classes.textMargin}>Loading  <CircularProgress className={classes.circProgress} />
         </div>)
