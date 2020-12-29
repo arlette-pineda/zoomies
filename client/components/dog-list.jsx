@@ -9,6 +9,7 @@ import { useHistory } from 'react-router-dom';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -25,12 +26,11 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
-    fontFamily: 'Bubbler One, Helvetica, Arial, sans- serif',
     fontSize: '1.5rem',
     fontWeight: 'bold'
   },
   divOutsideShowMore: {
-    marginBottom: '25%',
+    marginBottom: '5%',
     marginTop: '5%',
     display: 'flex',
     justifyContent: 'space-around',
@@ -38,16 +38,14 @@ const useStyles = makeStyles(theme => ({
     width: '100%'
   },
   showMoreStyle: {
-    fontFamily: 'Bubbler One, Helvetica, Arial, sans- serif',
     fontSize: '1.3rem',
     fontWeight: 'bold',
     borderRadius: '10px',
-    padding: '8px',
-    textAlign: 'center'
-
+    fontFamily: 'inherit'
   },
   resultsStyle: {
-    margin: theme.spacing(2)
+    margin: theme.spacing(2),
+    fontSize: '1.2rem'
   },
   circProgress: {
     margin: '12px'
@@ -135,11 +133,11 @@ export default function DogList(props) {
             }
             <div className={classes.divOutsideShowMore}>
               {page > 1
-                ? (<button onClick={() => setPage(page - 1)} className={classes.showMoreStyle}> <ChevronLeftIcon /> Previous Page  </button>)
+                ? (<Button variant="contained" onClick={() => setPage(page - 1)} className={classes.showMoreStyle}> <ChevronLeftIcon /> Previous Page  </Button>)
                 : null
               }
               {page < paging.totalPages
-                ? <button onClick={() => setPage(page + 1)} className={classes.showMoreStyle}>  Next Page <ChevronRightIcon /></button>
+                ? <Button variant="contained" onClick={() => setPage(page + 1)} className={classes.showMoreStyle}>  Next Page <ChevronRightIcon /></Button>
                 : null}
             </div>
           </Grid>
