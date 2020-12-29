@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import SearchDrawer from './search-drawer';
+import Hidden from '@material-ui/core/Hidden';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -13,7 +14,7 @@ const useStyles = makeStyles(theme => ({
   buttonStyling: {
     borderRadius: '30px',
     textTransform: 'capitalize',
-    fontFamily: 'Bubbler One, Helvetica, Arial, sans- serif',
+    // fontFamily: 'Bubbler One, Helvetica, Arial, sans- serif',
     fontWeight: 'bold',
     width: '90%',
     marginTop: '4%'
@@ -30,13 +31,13 @@ export default function SearchButton(props) {
   };
 
   return (
-    <div>
-      <div className={classes.root}>
+    <div className={classes.root}>
+      <Hidden lgUp>
         <Button variant="contained" className={classes.buttonStyling} onClick={toggle}>
           Search
           {isOpen ? <ExpandLessIcon /> : <ExpandMoreIcon/>}
         </Button>
-      </div>
+      </ Hidden>
       <SearchDrawer
         open={isOpen}
         breed={props.breed} setBreed={props.setBreed}
