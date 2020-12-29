@@ -13,7 +13,8 @@ const useStyles = makeStyles(theme => ({
   appBar: {
     top: 'auto',
     bottom: 0,
-    backgroundColor: '#FEC600'
+    backgroundColor: '#FEC600',
+    position: 'unset'
   }
 }));
 
@@ -23,7 +24,7 @@ export default function Footer() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <AppBar position="fixed" className={classes.appBar}>
+      <AppBar className={classes.appBar} id="footer">
         <Toolbar>
           <Typography className={classes.text} align="center" variant="h5" gutterBottom>
             &copy; 2020 Zoomies
