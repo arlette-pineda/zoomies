@@ -7,7 +7,6 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
   text: {
-    // padding: theme.spacing(2, 10, 0),
     color: 'black'
   },
   appBar: {

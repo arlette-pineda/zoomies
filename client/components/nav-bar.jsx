@@ -42,7 +42,7 @@ function NavBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="relative" className='main-color' onClick={anchorEl ? () => handleClose() : undefined}>
+      <AppBar position="relative" className='main-color header-size' onClick={anchorEl ? () => handleClose() : undefined}>
         <Toolbar>
           <Typography component={Link} to='/' variant="h6" className={classes.title}>
             <img src="/images/zoomies-img.png" alt="zoomies logo" className="logo-img"/>

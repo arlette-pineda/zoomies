@@ -84,9 +84,13 @@ body {
   object-fit: contain;
   }
   /* header size */
-  .MuiAppBar-root {
-    height: 175px;
-  }
+  /* .MuiAppBar-root {
+    height: 140px;
+  } */
+
+  /* .header-size {
+  height: 150px;
+} */
   /* header menu button  */
   .makeStyles-menuButton-2 {
     height: 110px;
