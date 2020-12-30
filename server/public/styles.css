@@ -121,6 +121,9 @@ body {
   .card-img-height {
     height: 225px;
   }
+  .search-form-margin-lg {
+    margin-bottom: 50px;
+  }
 }
 
 @media (min-width: 1920px){
