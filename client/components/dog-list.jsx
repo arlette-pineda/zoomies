@@ -52,10 +52,6 @@ const useStyles = makeStyles(theme => ({
   circProgress: {
     margin: '12px'
   }
-  // test: {
-  //   marginLeft: 'auto',
-  //   marginRight: 'auto'
-  // }
 }));
 
 export default function DogList(props) {
@@ -119,10 +115,12 @@ export default function DogList(props) {
           ? '0 results'
           : (`${startIndex}-${endIndex} of ${paging.totalCount} results`)}
       </div>
-      <Chips
-        breed={breed} setBreed={setBreed}
-        age={age} setAge={setAge}
-        size={size} setSize={setSize} />
+      <Hidden lgUp>
+        <Chips
+          breed={breed} setBreed={setBreed}
+          age={age} setAge={setAge}
+          size={size} setSize={setSize} />
+      </Hidden>
       {/* Grid for side search form and doggie cards start */}
       <Grid spacing={3}
         container
@@ -140,6 +138,12 @@ export default function DogList(props) {
             </SearchForm>
           </Hidden>
         </Grid>
+        {/* <Hidden mdDown>
+          <Chips
+            breed={breed} setBreed={setBreed}
+            age={age} setAge={setAge}
+            size={size} setSize={setSize} />
+        </Hidden> */}
         <Grid item lg={8}>
           {dogs == null || isLoading
             ? (<div className={classes.textMargin}>Loading  <CircularProgress className={classes.circProgress} />
@@ -148,14 +152,22 @@ export default function DogList(props) {
               ? <div>
                 <h6 className={classes.textMargin}>Sorry, those doggies are currently unavailable. Try another search!</h6>
               </div>
-              : <Grid container spacing={3} className={classes.cardStyle}>
-                {dogs.map(dog => {
-                  return (<Grid item xs={6} sm={3} key={dog.id} >
-                    <DogCard dog={dog} />
-                  </Grid>);
-                })
-                }
-              </Grid>
+              : <div>
+                <Hidden mdDown>
+                  <Chips
+                    breed={breed} setBreed={setBreed}
+                    age={age} setAge={setAge}
+                    size={size} setSize={setSize} />
+                </Hidden>
+                <Grid container spacing={3} className={classes.cardStyle}>
+                  {dogs.map(dog => {
+                    return (<Grid item xs={6} sm={3} key={dog.id} >
+                      <DogCard dog={dog} />
+                    </Grid>);
+                  })
+                  }
+                </Grid>
+              </div>
           }
         </Grid>
       </Grid>
