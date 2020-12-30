@@ -110,12 +110,12 @@ export default function DogList(props) {
         size={size} setSize={setSize}
         page={page} setPage={setPage}
       />
-      <div className={classes.resultsStyle}>
-        {paging.totalCount === 0
-          ? '0 results'
-          : (`${startIndex}-${endIndex} of ${paging.totalCount} results`)}
-      </div>
       <Hidden lgUp>
+        <div className={classes.resultsStyle}>
+          {paging.totalCount === 0
+            ? '0 results'
+            : (`${startIndex}-${endIndex} of ${paging.totalCount} results`)}
+        </div>
         <Chips
           breed={breed} setBreed={setBreed}
           age={age} setAge={setAge}
@@ -138,12 +138,6 @@ export default function DogList(props) {
             </SearchForm>
           </Hidden>
         </Grid>
-        {/* <Hidden mdDown>
-          <Chips
-            breed={breed} setBreed={setBreed}
-            age={age} setAge={setAge}
-            size={size} setSize={setSize} />
-        </Hidden> */}
         <Grid item lg={8}>
           {dogs == null || isLoading
             ? (<div className={classes.textMargin}>Loading  <CircularProgress className={classes.circProgress} />
@@ -154,6 +148,11 @@ export default function DogList(props) {
               </div>
               : <div>
                 <Hidden mdDown>
+                  <div className={classes.resultsStyle}>
+                    {paging.totalCount === 0
+                      ? '0 results'
+                      : (`${startIndex}-${endIndex} of ${paging.totalCount} results`)}
+                  </div>
                   <Chips
                     breed={breed} setBreed={setBreed}
                     age={age} setAge={setAge}
