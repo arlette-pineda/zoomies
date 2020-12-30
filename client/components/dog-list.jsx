@@ -51,6 +51,9 @@ const useStyles = makeStyles(theme => ({
   },
   circProgress: {
     margin: '12px'
+  },
+  searchGridLg: {
+    marginTop: '2%'
   }
 }));
 
@@ -127,6 +130,7 @@ export default function DogList(props) {
         direction="row"
         justify="center"
         alignItems="flex-start"
+        className={classes.searchGridLg}
       >
         <Grid item lg={4}>
           <Hidden mdDown>
