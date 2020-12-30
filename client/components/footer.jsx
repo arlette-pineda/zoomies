@@ -7,13 +7,13 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
   text: {
-    // padding: theme.spacing(2, 10, 0),
     color: 'black'
   },
   appBar: {
     top: 'auto',
     bottom: 0,
-    backgroundColor: '#FEC600'
+    backgroundColor: '#FEC600',
+    position: 'unset'
   }
 }));
 
@@ -23,7 +23,7 @@ export default function Footer() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <AppBar position="fixed" className={classes.appBar}>
+      <AppBar className={classes.appBar} id="footer">
         <Toolbar>
           <Typography className={classes.text} align="center" variant="h5" gutterBottom>
             &copy; 2020 Zoomies

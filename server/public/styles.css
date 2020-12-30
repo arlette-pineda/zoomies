@@ -1,5 +1,20 @@
 body {
   margin: 0;
+  /* font-family: 'Bubbler One, Helvetica, Arial, sans- serif'; */
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 80px;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
 }
 
 .main-color {
@@ -16,7 +31,6 @@ body {
 }
 
 .MuiTypography-h5 {
-  font-family: "Bubbler One","Helvetica", "Arial", sans-serif !important;
   font-weight: 900 !important;
 }
 
@@ -36,8 +50,81 @@ body {
               0px 1px 5px 0px rgba(0,0,0,0.12);
 }
 
+#root .card-title {
+  font-size: 1.6rem;
+  font-weight: 900;
+}
+
+#root .card-age-breed {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+#root .card-location {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+/* menu text size */
+#simple-menu {
+  font-size: 1.2rem;
+}
+
+.card-img-height {
+    height: 140px
+  }
+
 @media (min-width: 600px){
   .MuiToolbar-regular {
       min-height: 100px !important;
+  }
+  /* logo top */
+  .logo-img {
+  max-height: 150px;
+  object-fit: contain;
+  }
+  /* header size */
+  /* .MuiAppBar-root {
+    height: 140px;
+  } */
+
+  /* .header-size {
+  height: 150px;
+} */
+  /* header menu button  */
+  .makeStyles-menuButton-2 {
+    height: 110px;
+    width: 110px;
+  }
+  /* header menu icon */
+  .MuiSvgIcon-root {
+    width: 2em !important;
+    height: 2em !important;
+  }
+  /* body centering */
+  .makeStyles-root-6 {
+    margin: 0 auto;
+    width: 60%;
+  }
+}
+
+@media (min-width: 960px){
+
+}
+
+@media (min-width: 1280px){
+  #content-wrap {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .card-img-height {
+    height: 225px;
+  }
+}
+
+@media (min-width: 1920px){
+  .card-img-height {
+    height: 350px;
   }
 }
