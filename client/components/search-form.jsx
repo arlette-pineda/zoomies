@@ -14,7 +14,6 @@ const useStyles = makeStyles(theme => ({
     }
   },
   labelStyle: {
-    fontFamily: 'Bubbler One, Helvetica, Arial, sans- serif',
     fontWeight: 900,
     fontSize: '1.2rem'
   },
@@ -25,7 +24,6 @@ const useStyles = makeStyles(theme => ({
   },
   buttonStyle: {
     borderRadius: '30px',
-    fontFamily: 'Bubbler One, Helvetica, Arial, sans- serif',
     fontWeight: 'bold',
     flexGrow: 1,
     marginLeft: '6%',

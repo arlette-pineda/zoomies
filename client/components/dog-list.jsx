@@ -10,6 +10,8 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import Button from '@material-ui/core/Button';
+import SearchForm from './search-form';
+import Hidden from '@material-ui/core/Hidden';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -50,6 +52,10 @@ const useStyles = makeStyles(theme => ({
   circProgress: {
     margin: '12px'
   }
+  // test: {
+  //   marginLeft: 'auto',
+  //   marginRight: 'auto'
+  // }
 }));
 
 export default function DogList(props) {
@@ -117,31 +123,51 @@ export default function DogList(props) {
         breed={breed} setBreed={setBreed}
         age={age} setAge={setAge}
         size={size} setSize={setSize} />
-      {dogs == null || isLoading
-        ? (<div className={classes.textMargin}>Loading  <CircularProgress className={classes.circProgress} />
-        </div>)
-        : dogs.length === 0
-          ? <div>
-            <h6 className={classes.textMargin}>Sorry, those doggies are currently unavailable. Try another search!</h6>
-          </div>
-          : <Grid container spacing={3} className={classes.cardStyle}>
-            {dogs.map(dog => {
-              return (<Grid item xs={6} sm={3} key={dog.id}>
-                <DogCard dog={dog} />
-              </Grid>);
-            })
-            }
-            <div className={classes.divOutsideShowMore}>
-              {page > 1
-                ? (<Button variant="contained" onClick={() => setPage(page - 1)} className={classes.showMoreStyle}> <ChevronLeftIcon /> Previous Page  </Button>)
-                : null
-              }
-              {page < paging.totalPages
-                ? <Button variant="contained" onClick={() => setPage(page + 1)} className={classes.showMoreStyle}>  Next Page <ChevronRightIcon /></Button>
-                : null}
-            </div>
-          </Grid>
-      }
+      {/* Grid for side search form and doggie cards start */}
+      <Grid spacing={3}
+        container
+        direction="row"
+        justify="center"
+        alignItems="flex-start"
+      >
+        <Grid item lg={4}>
+          <Hidden mdDown>
+            <SearchForm
+              breed={breed} setBreed={setBreed}
+              age={age} setAge={setAge}
+              size={size} setSize={setSize}
+            >
+            </SearchForm>
+          </Hidden>
+        </Grid>
+        <Grid item lg={8}>
+          {dogs == null || isLoading
+            ? (<div className={classes.textMargin}>Loading  <CircularProgress className={classes.circProgress} />
+            </div>)
+            : dogs.length === 0
+              ? <div>
+                <h6 className={classes.textMargin}>Sorry, those doggies are currently unavailable. Try another search!</h6>
+              </div>
+              : <Grid container spacing={3} className={classes.cardStyle}>
+                {dogs.map(dog => {
+                  return (<Grid item xs={6} sm={3} key={dog.id} >
+                    <DogCard dog={dog} />
+                  </Grid>);
+                })
+                }
+              </Grid>
+          }
+        </Grid>
+      </Grid>
+      <div className={classes.divOutsideShowMore}>
+        {page > 1
+          ? (<Button variant="contained" onClick={() => setPage(page - 1)} className={classes.showMoreStyle}> <ChevronLeftIcon /> Previous Page  </Button>)
+          : null
+        }
+        {page < paging.totalPages
+          ? <Button variant="contained" onClick={() => setPage(page + 1)} className={classes.showMoreStyle}>  Next Page <ChevronRightIcon /></Button>
+          : null}
+      </div>
     </div>
   );
 }

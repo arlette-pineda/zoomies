@@ -10,11 +10,9 @@ const useStyles = makeStyles({
   root: {
     maxWidth: 345,
     borderRadius: '30px',
-    marginBottom: '10px'
-    // marginBottom: theme.spacing(2)
-  },
-  media: {
-    height: 140
+    marginBottom: '10px',
+    marginLeft: 'auto',
+    marginRight: 'auto'
   },
   bgColor: {
     backgroundColor: '#fec700de'
@@ -34,19 +32,19 @@ export default function DogCard(props) {
       <CardActionArea>
         <CardMedia
           component="img"
-          className={classes.media}
+          className="card-img-height"
           image={props.dog.photos.medium ? props.dog.photos.medium : '/images/doge-edited.png'}
           title="Contemplative Reptile" // fix this later --> props.dog.age + props.dog.breed.primary
         />
         <CardContent >
-          <Typography gutterBottom variant="h5" component="h2" className={`${classes.bgColor} ${classes.ellipsis}`}>
+          <Typography gutterBottom component="h2" className={`${classes.bgColor} ${classes.ellipsis} card-title`}>
             {props.dog.name}
           </Typography>
           {/* </div> */}
-          <Typography gutterBottom variant="body2" color="textSecondary" component="p" className={classes.ellipsis}>
+          <Typography gutterBottom variant="body2" color="textSecondary" component="p" className={`${classes.ellipsis} card-age-breed`}>
             {props.dog.age} - {props.dog.breed.primary}
           </Typography>
-          <Typography className={classes.ellipsis}>
+          <Typography className={`${classes.ellipsis} card-location`}>
             {props.dog.location.city}, {props.dog.location.state}
           </Typography>
         </CardContent>

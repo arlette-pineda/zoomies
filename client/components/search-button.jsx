@@ -31,13 +31,13 @@ export default function SearchButton(props) {
   };
 
   return (
-    <div className={classes.root}>
-      <Hidden lgUp>
+    <Hidden lgUp >
+      <div className={classes.root}>
         <Button variant="contained" className={classes.buttonStyling} onClick={toggle}>
           Search
           {isOpen ? <ExpandLessIcon /> : <ExpandMoreIcon/>}
         </Button>
-      </ Hidden>
+      </div>
       <SearchDrawer
         open={isOpen}
         breed={props.breed} setBreed={props.setBreed}
@@ -45,6 +45,6 @@ export default function SearchButton(props) {
         size={props.size} setSize={props.setSize}
         page={props.page} setPage={props.setPage}
       />
-    </div>
+    </ Hidden>
   );
 }

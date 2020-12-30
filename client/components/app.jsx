@@ -10,15 +10,20 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <Router>
-        <NavBar/>
-        {/* <DogList/> */}
-        {/* <Home /> */}
+      <div id="page-container">
+        <Router>
+          <NavBar/>
+          <div id="content-wrap">
+            {/* <DogList/> */}
+            {/* <Home /> */}
+            <Route path="/" exact component={Home}/>
+            <Route path="/about" component={About} />
+            <Route path="/search" component={DogList} />
+          </div>
+        </Router>
+
         <Footer/>
-        <Route path="/" exact component={Home}/>
-        <Route path="/about" component={About} />
-        <Route path="/search" component={DogList} />
-      </Router>
+      </div>
     );
   }
 }
