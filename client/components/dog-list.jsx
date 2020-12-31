@@ -164,7 +164,7 @@ export default function DogList(props) {
                 </Hidden>
                 <Grid container spacing={3} className={classes.cardStyle}>
                   {dogs.map(dog => {
-                    return (<Grid item xs={6} sm={3} key={dog.id} >
+                    return (<Grid item xs={6} sm={3} lg={4} key={dog.id} >
                       <DogCard dog={dog} />
                     </Grid>);
                   })
