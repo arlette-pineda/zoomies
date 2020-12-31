@@ -5,7 +5,6 @@ import SearchForm from './search-form';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    maxWidth: 400,
     backgroundColor: '#fafafa'
   }
 }));

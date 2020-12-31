@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center'
   },
   buttonStyling: {
-    borderRadius: '30px',
+    borderRadius: '10px',
     textTransform: 'capitalize',
     // fontFamily: 'Bubbler One, Helvetica, Arial, sans- serif',
     fontWeight: 'bold',

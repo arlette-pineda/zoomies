@@ -8,9 +8,7 @@ import Button from '@material-ui/core/Button';
 const useStyles = makeStyles(theme => ({
   root: {
     '& > *': {
-      margin: theme.spacing(2),
-      display: 'flex',
-      justifyContent: 'center'
+      margin: theme.spacing(2)
     }
   },
   labelStyle: {
@@ -23,12 +21,20 @@ const useStyles = makeStyles(theme => ({
     marginTop: '40px'
   },
   buttonStyle: {
-    borderRadius: '30px',
+    borderRadius: '10px',
     fontWeight: 'bold',
     flexGrow: 1,
     marginLeft: '6%',
     marginRight: '6%',
     backgroundColor: '#fec700'
+  },
+  searchGroup: {
+    width: '100%'
+    // marginLeft: 'auto',
+    // marginRight: 'auto'
+  },
+  inputWidth: {
+    width: '90%'
   }
 }));
 
@@ -82,7 +88,7 @@ export default function SearchForm(props) {
 
   return (
     <form noValidate onSubmit={handleSubmit} onReset={handleReset}>
-      <div className={`${classes.root} search-form-margin-lg`}>
+      <div className={`${classes.root} ${classes.searchGroup} search-form-margin-lg`}>
         <InputLabel className={classes.labelStyle} id="input-label-breed">
           Breed
         </InputLabel>
@@ -92,11 +98,11 @@ export default function SearchForm(props) {
           getOptionLabel={option => option}
           value={props.breed || null}
           onSelect={e => setLocalBreed(e.target.value)}
-          className="search-input-styling"
+          className={`${classes.inputWidth} search-input-styling`}
           renderInput={params => <TextField {...params} variant="outlined" />}
         />
       </div>
-      <div className={`${classes.root} search-form-margin-lg`}>
+      <div className={`${classes.root} ${classes.searchGroup} search-form-margin-lg`}>
         <InputLabel className={classes.labelStyle} id="input-label-age">
           Age
         </InputLabel>
@@ -106,11 +112,11 @@ export default function SearchForm(props) {
           getOptionLabel={option => option}
           value={props.age || null}
           onSelect={e => setLocalAge(e.target.value)}
-          className="search-input-styling"
+          className={`${classes.inputWidth} search-input-styling`}
           renderInput={params => <TextField {...params} variant="outlined" />}
         />
       </div>
-      <div className={`${classes.root} search-form-margin-lg`}>
+      <div className={`${classes.root} ${classes.searchGroup} search-form-margin-lg`}>
         <InputLabel className={classes.labelStyle} id="input-label-size">
           Size
         </InputLabel>
@@ -119,7 +125,7 @@ export default function SearchForm(props) {
           options={sizes}
           getOptionLabel={option => option}
           value={props.size || null}
-          className="search-input-styling"
+          className={`${classes.inputWidth} search-input-styling`}
           onSelect={e => setLocalSize(e.target.value)}
           renderInput={params => <TextField {...params} variant="outlined" />}
         />
