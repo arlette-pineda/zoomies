@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   },
   menuButtonsLg: {
     fontWeight: '800',
-    fontSize: 'large',
+    fontSize: '2.4rem',
     letterSpacing: '1px',
     color: 'black',
     margin: '0 9px'
