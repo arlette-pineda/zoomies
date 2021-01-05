@@ -8,7 +8,8 @@ const useStyles = makeStyles(theme => ({
     marginLeft: theme.spacing(2)
   },
   chipMargin: {
-    marginRight: theme.spacing(0.5)
+    marginRight: theme.spacing(0.5),
+    fontSize: '1.1rem'
   }
 }));
 
@@ -31,7 +32,6 @@ export default function Chips(props) {
     <div className={classes.theMargin}>
       {props.breed
         ? <Chip
-          size="small"
           avatar={<Avatar alt="Zoomies icon" src="/images/zoomies-icon.png" />}
           label={props.breed}
           onDelete={handleDeleteBreed}
@@ -41,7 +41,6 @@ export default function Chips(props) {
       }
       {props.age
         ? <Chip
-          size="small"
           avatar={<Avatar alt="Zoomies icon" src="/images/zoomies-icon.png" />}
           label={props.age}
           onDelete={handleDeleteAge}
@@ -50,11 +49,10 @@ export default function Chips(props) {
         : null}
       {props.size
         ? <Chip
-          size="small"
           avatar={<Avatar alt="Zoomies icon" src="/images/zoomies-icon.png" />}
           label={props.size}
           onDelete={handleDeleteSize}
-          className={classes.chipMargin}
+          className={`${classes.chipMargin} chip-sizing`}
         />
         : null
       }
