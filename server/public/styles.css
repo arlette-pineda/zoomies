@@ -1,6 +1,5 @@
 body {
   margin: 0;
-  /* font-family: 'Bubbler One, Helvetica, Arial, sans- serif'; */
 }
 
 #page-container {
@@ -67,11 +66,6 @@ body {
   font-weight: 700;
 }
 
-/* menu text size */
-#simple-menu {
-  font-size: 1.2rem;
-}
-
 .card-img-height {
     height: 140px
   }
@@ -104,11 +98,6 @@ body {
     margin: 0 auto;
     width: 60%;
   }
-  /* chip sizing */
-  /* .chip-sizing {
-    font-size: 1.1rem; */
-
-  /* } */
 }
 
 @media (min-width: 960px){

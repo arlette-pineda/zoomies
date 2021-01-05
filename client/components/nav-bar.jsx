@@ -15,7 +15,6 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     position: 'relative'
-    // zIndex: 1400
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -28,8 +27,8 @@ const useStyles = makeStyles(theme => ({
     width: '50%'
   },
   menuButtonsLg: {
-    fontWeight: 'bold',
-    fontSize: '2rem',
+    fontWeight: '800',
+    fontSize: 'large',
     letterSpacing: '1px',
     color: 'black',
     margin: '0 9px'

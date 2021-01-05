@@ -14,10 +14,10 @@ const useStyles = makeStyles(theme => ({
   buttonStyling: {
     borderRadius: '10px',
     textTransform: 'capitalize',
-    // fontFamily: 'Bubbler One, Helvetica, Arial, sans- serif',
     fontWeight: 'bold',
     width: '90%',
-    marginTop: '4%'
+    marginTop: '4%',
+    fontSize: 'large'
   }
 }));
 
