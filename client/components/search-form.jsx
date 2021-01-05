@@ -32,7 +32,6 @@ const useStyles = makeStyles(theme => ({
   searchGroup: {
     width: '100%',
     marginTop: '4%'
-
   },
   inputWidth: {
     width: '90%',

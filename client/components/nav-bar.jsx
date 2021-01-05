@@ -57,8 +57,8 @@ function NavBar() {
             <img src="/images/zoomies-img.png" alt="zoomies logo" className="logo-img"/>
           </Typography>
           <Hidden lgUp>
-            <IconButton edge="start" className={classes.menuButton} aria-label="simple-menu" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-              <MenuIcon/>
+            <IconButton edge="start" id="menu-button-lg" className={`${classes.menuButton}`} aria-label="simple-menu" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+              <MenuIcon id="menu-icon-button-lg"/>
               <Menu
                 id="simple-menu"
                 anchorEl={anchorEl}

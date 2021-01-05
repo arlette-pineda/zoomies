@@ -132,16 +132,16 @@ export default function DogList(props) {
         alignItems="flex-start"
         className={classes.searchGridLg}
       >
-        <Grid item lg={4}>
-          <Hidden mdDown>
+        <Hidden mdDown>
+          <Grid item lg={4}>
             <SearchForm
               breed={breed} setBreed={setBreed}
               age={age} setAge={setAge}
               size={size} setSize={setSize}
             >
             </SearchForm>
-          </Hidden>
-        </Grid>
+          </Grid>
+        </Hidden>
         <Grid item lg={8}>
           {dogs == null || isLoading
             ? (<div className={classes.textMargin}>Loading  <CircularProgress className={classes.circProgress} />
