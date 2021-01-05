@@ -13,7 +13,8 @@ const useStyles = makeStyles(theme => ({
   },
   labelStyle: {
     fontWeight: 900,
-    fontSize: '1.2rem'
+    fontSize: '1.2rem',
+    marginLeft: '6%'
   },
   buttonsDiv: {
     display: 'flex',
@@ -21,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: '40px'
   },
   buttonStyle: {
-    borderRadius: '10px',
+    borderRadius: '20px',
     fontWeight: 'bold',
     flexGrow: 1,
     marginLeft: '6%',
@@ -29,12 +30,14 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: '#fec700'
   },
   searchGroup: {
-    width: '100%'
-    // marginLeft: 'auto',
-    // marginRight: 'auto'
+    width: '100%',
+    marginTop: '4%'
+
   },
   inputWidth: {
-    width: '90%'
+    width: '90%',
+    marginLeft: 'auto',
+    marginRight: 'auto'
   }
 }));
 
