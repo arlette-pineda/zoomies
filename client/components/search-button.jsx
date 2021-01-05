@@ -12,12 +12,12 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center'
   },
   buttonStyling: {
-    borderRadius: '30px',
+    borderRadius: '10px',
     textTransform: 'capitalize',
-    // fontFamily: 'Bubbler One, Helvetica, Arial, sans- serif',
     fontWeight: 'bold',
     width: '90%',
-    marginTop: '4%'
+    marginTop: '4%',
+    fontSize: 'large'
   }
 }));
 

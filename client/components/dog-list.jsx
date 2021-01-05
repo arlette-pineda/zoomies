@@ -51,11 +51,10 @@ const useStyles = makeStyles(theme => ({
   },
   circProgress: {
     margin: '12px'
+  },
+  searchGridLg: {
+    marginTop: '2%'
   }
-  // test: {
-  //   marginLeft: 'auto',
-  //   marginRight: 'auto'
-  // }
 }));
 
 export default function DogList(props) {
@@ -114,32 +113,35 @@ export default function DogList(props) {
         size={size} setSize={setSize}
         page={page} setPage={setPage}
       />
-      <div className={classes.resultsStyle}>
-        {paging.totalCount === 0
-          ? '0 results'
-          : (`${startIndex}-${endIndex} of ${paging.totalCount} results`)}
-      </div>
-      <Chips
-        breed={breed} setBreed={setBreed}
-        age={age} setAge={setAge}
-        size={size} setSize={setSize} />
+      <Hidden lgUp>
+        <div className={classes.resultsStyle}>
+          {paging.totalCount === 0
+            ? '0 results'
+            : (`${startIndex}-${endIndex} of ${paging.totalCount} results`)}
+        </div>
+        <Chips
+          breed={breed} setBreed={setBreed}
+          age={age} setAge={setAge}
+          size={size} setSize={setSize} />
+      </Hidden>
       {/* Grid for side search form and doggie cards start */}
       <Grid spacing={3}
         container
         direction="row"
         justify="center"
         alignItems="flex-start"
+        className={classes.searchGridLg}
       >
-        <Grid item lg={4}>
-          <Hidden mdDown>
+        <Hidden mdDown>
+          <Grid item lg={4}>
             <SearchForm
               breed={breed} setBreed={setBreed}
               age={age} setAge={setAge}
               size={size} setSize={setSize}
             >
             </SearchForm>
-          </Hidden>
-        </Grid>
+          </Grid>
+        </Hidden>
         <Grid item lg={8}>
           {dogs == null || isLoading
             ? (<div className={classes.textMargin}>Loading  <CircularProgress className={classes.circProgress} />
@@ -148,14 +150,27 @@ export default function DogList(props) {
               ? <div>
                 <h6 className={classes.textMargin}>Sorry, those doggies are currently unavailable. Try another search!</h6>
               </div>
-              : <Grid container spacing={3} className={classes.cardStyle}>
-                {dogs.map(dog => {
-                  return (<Grid item xs={6} sm={3} key={dog.id} >
-                    <DogCard dog={dog} />
-                  </Grid>);
-                })
-                }
-              </Grid>
+              : <div>
+                <Hidden mdDown>
+                  <div className={classes.resultsStyle}>
+                    {paging.totalCount === 0
+                      ? '0 results'
+                      : (`${startIndex}-${endIndex} of ${paging.totalCount} results`)}
+                  </div>
+                  <Chips
+                    breed={breed} setBreed={setBreed}
+                    age={age} setAge={setAge}
+                    size={size} setSize={setSize} />
+                </Hidden>
+                <Grid container spacing={3} className={classes.cardStyle}>
+                  {dogs.map(dog => {
+                    return (<Grid item xs={6} sm={3} lg={4} key={dog.id} >
+                      <DogCard dog={dog} />
+                    </Grid>);
+                  })
+                  }
+                </Grid>
+              </div>
           }
         </Grid>
       </Grid>

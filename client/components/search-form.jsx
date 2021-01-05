@@ -8,14 +8,13 @@ import Button from '@material-ui/core/Button';
 const useStyles = makeStyles(theme => ({
   root: {
     '& > *': {
-      margin: theme.spacing(2),
-      display: 'flex',
-      justifyContent: 'center'
+      margin: theme.spacing(2)
     }
   },
   labelStyle: {
     fontWeight: 900,
-    fontSize: '1.2rem'
+    fontSize: '1.2rem',
+    marginLeft: '6%'
   },
   buttonsDiv: {
     display: 'flex',
@@ -23,12 +22,21 @@ const useStyles = makeStyles(theme => ({
     marginTop: '40px'
   },
   buttonStyle: {
-    borderRadius: '30px',
+    borderRadius: '20px',
     fontWeight: 'bold',
     flexGrow: 1,
     marginLeft: '6%',
     marginRight: '6%',
     backgroundColor: '#fec700'
+  },
+  searchGroup: {
+    width: '100%',
+    marginTop: '4%'
+  },
+  inputWidth: {
+    width: '90%',
+    marginLeft: 'auto',
+    marginRight: 'auto'
   }
 }));
 
@@ -81,43 +89,49 @@ export default function SearchForm(props) {
   };
 
   return (
-    <form className={classes.root} noValidate onSubmit={handleSubmit} onReset={handleReset}>
-      <InputLabel className={classes.labelStyle} id="input-label-breed">
-        Breed
-      </InputLabel>
-      <Autocomplete
-        id="combo-box-demo"
-        options={breedList}
-        getOptionLabel={option => option}
-        value={props.breed || null}
-        onSelect={e => setLocalBreed(e.target.value)}
-        className="search-input-styling"
-        renderInput={params => <TextField {...params} variant="outlined" />}
-      />
-      <InputLabel className={classes.labelStyle} id="input-label-age">
-    Age
-      </InputLabel>
-      <Autocomplete
-        id="combo-box-demo"
-        options={ages}
-        getOptionLabel={option => option}
-        value={props.age || null}
-        onSelect={e => setLocalAge(e.target.value)}
-        className="search-input-styling"
-        renderInput={params => <TextField {...params} variant="outlined" />}
-      />
-      <InputLabel className={classes.labelStyle} id="input-label-size">
-    Size
-      </InputLabel>
-      <Autocomplete
-        id="combo-box-demo"
-        options={sizes}
-        getOptionLabel={option => option}
-        value={props.size || null}
-        className="search-input-styling"
-        onSelect={e => setLocalSize(e.target.value)}
-        renderInput={params => <TextField {...params} variant="outlined" />}
-      />
+    <form noValidate onSubmit={handleSubmit} onReset={handleReset}>
+      <div className={`${classes.root} ${classes.searchGroup} search-form-margin-lg`}>
+        <InputLabel className={classes.labelStyle} id="input-label-breed">
+          Breed
+        </InputLabel>
+        <Autocomplete
+          id="combo-box-demo"
+          options={breedList}
+          getOptionLabel={option => option}
+          value={props.breed || null}
+          onSelect={e => setLocalBreed(e.target.value)}
+          className={`${classes.inputWidth} search-input-styling`}
+          renderInput={params => <TextField {...params} variant="outlined" />}
+        />
+      </div>
+      <div className={`${classes.root} ${classes.searchGroup} search-form-margin-lg`}>
+        <InputLabel className={classes.labelStyle} id="input-label-age">
+          Age
+        </InputLabel>
+        <Autocomplete
+          id="combo-box-demo"
+          options={ages}
+          getOptionLabel={option => option}
+          value={props.age || null}
+          onSelect={e => setLocalAge(e.target.value)}
+          className={`${classes.inputWidth} search-input-styling`}
+          renderInput={params => <TextField {...params} variant="outlined" />}
+        />
+      </div>
+      <div className={`${classes.root} ${classes.searchGroup} search-form-margin-lg`}>
+        <InputLabel className={classes.labelStyle} id="input-label-size">
+          Size
+        </InputLabel>
+        <Autocomplete
+          id="combo-box-demo"
+          options={sizes}
+          getOptionLabel={option => option}
+          value={props.size || null}
+          className={`${classes.inputWidth} search-input-styling`}
+          onSelect={e => setLocalSize(e.target.value)}
+          renderInput={params => <TextField {...params} variant="outlined" />}
+        />
+      </div>
       <div className={classes.buttonsDiv}>
         <Button type="reset" onClick={handleReset} variant="contained" className={classes.buttonStyle}>
         Clear All

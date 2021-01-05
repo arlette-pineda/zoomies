@@ -1,6 +1,5 @@
 body {
   margin: 0;
-  /* font-family: 'Bubbler One, Helvetica, Arial, sans- serif'; */
 }
 
 #page-container {
@@ -43,11 +42,13 @@ body {
 }
 
 .search-input-styling .MuiAutocomplete-inputRoot {
-  border-radius: 30px !important;
+  border-radius: 10px !important;
   background-color: #e9f7fc;
   box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),
               0px 2px 2px 0px rgba(0,0,0,0.14),
               0px 1px 5px 0px rgba(0,0,0,0.12);
+  font-size: large;
+  font-weight: 700;
 }
 
 #root .card-title {
@@ -65,11 +66,6 @@ body {
   font-weight: 700;
 }
 
-/* menu text size */
-#simple-menu {
-  font-size: 1.2rem;
-}
-
 .card-img-height {
     height: 140px
   }
@@ -83,23 +79,19 @@ body {
   max-height: 150px;
   object-fit: contain;
   }
-  /* header size */
-  /* .MuiAppBar-root {
-    height: 140px;
-  } */
-
-  /* .header-size {
-  height: 150px;
-} */
   /* header menu button  */
   .makeStyles-menuButton-2 {
     height: 110px;
     width: 110px;
   }
   /* header menu icon */
-  .MuiSvgIcon-root {
-    width: 2em !important;
-    height: 2em !important;
+  #menu-button-lg {
+    width: 4em;
+    height: 4em;
+  }
+  #menu-icon-button-lg {
+    width: 2em;
+    height: 2em;
   }
   /* body centering */
   .makeStyles-root-6 {
@@ -114,12 +106,15 @@ body {
 
 @media (min-width: 1280px){
   #content-wrap {
-    width: 90%;
+    width: 70%;
     margin-left: auto;
     margin-right: auto;
   }
   .card-img-height {
     height: 225px;
+  }
+  .search-form-margin-lg {
+    margin-bottom: 50px;
   }
 }
 
