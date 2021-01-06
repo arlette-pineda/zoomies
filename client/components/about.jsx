@@ -1,15 +1,24 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import NavigateNextRoundedIcon from '@material-ui/icons/NavigateNextRounded';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: theme.palette.main,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
     margin: '0 20%',
     fontWeight: '800'
+  },
+  searchButtonStyle: {
+    borderRadius: '10px',
+    backgroundColor: theme.palette.secondary.main
+  },
+  iconStyling: {
+    paddingLeft: '8px'
   }
 }));
 
@@ -28,6 +37,9 @@ export default function About() {
 
       <p>Volunteers at our partner organizations are ready to assist and our good boys
         and girls are eager to meet you!</p>
+      <Button variant="contained" component={Link} to='/search' className={classes.searchButtonStyle}>
+        Search <NavigateNextRoundedIcon className={classes.iconStyling} fontSize="large" />
+      </Button>
     </div>
   );
 }
