@@ -125,6 +125,9 @@ body {
   .search-form-margin-lg {
     margin-bottom: 50px;
   }
+  .about-us-p-lg {
+    font-size: large;
+  }
 }
 
 @media (min-width: 1920px){
