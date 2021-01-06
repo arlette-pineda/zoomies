@@ -14,14 +14,11 @@ export default class App extends React.Component {
         <Router>
           <NavBar/>
           <div id="content-wrap">
-            {/* <DogList/> */}
-            {/* <Home /> */}
             <Route path="/" exact component={Home}/>
             <Route path="/about" component={About} />
             <Route path="/search" component={DogList} />
           </div>
         </Router>
-
         <Footer/>
       </div>
     );
