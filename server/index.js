@@ -32,7 +32,7 @@ app.get('/api/search', async (req, res, next) => {
     const age = req.query.age;
     const size = req.query.size;
     const page = req.query.page || 1;
-    const limit = 20;
+    const limit = 24;
     const animalSearchResult = await pfService.getAnimals(breed, age, size, page, limit);
     return res.json(animalSearchResult);
   } catch (error) {

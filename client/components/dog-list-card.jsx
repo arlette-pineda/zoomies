@@ -40,7 +40,6 @@ export default function DogCard(props) {
           <Typography gutterBottom component="h2" className={`${classes.bgColor} ${classes.ellipsis} card-title`}>
             {props.dog.name}
           </Typography>
-          {/* </div> */}
           <Typography gutterBottom variant="body2" color="textSecondary" component="p" className={`${classes.ellipsis} card-age-breed`}>
             {props.dog.age} - {props.dog.breed.primary}
           </Typography>

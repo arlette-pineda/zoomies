@@ -7,6 +7,14 @@ const theme = createMuiTheme({
   typography: {
     fontFamily: 'Bubbler One, Helvetica, Arial, sans-serif',
     fontWeight: 'bold'
+  },
+  palette: {
+    primary: {
+      main: '#f3f3f3'
+    },
+    secondary: {
+      main: '#fec700'
+    }
   }
 });
 

@@ -94,7 +94,7 @@ export default function DogList(props) {
     dogSearch();
   }, [breed, age, size, page]);
 
-  const limit = 20;
+  const limit = 24;
   let startIndex = (page - 1) * limit + 1;
   let endIndex = page * limit;
 
