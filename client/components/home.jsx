@@ -1,5 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import NavigateNextRoundedIcon from '@material-ui/icons/NavigateNextRounded';
 
 const useStyles = makeStyles(theme => ({
   containerTopImage: {
@@ -25,6 +28,14 @@ const useStyles = makeStyles(theme => ({
     top: '8px',
     left: '16px',
     fontWeight: 700
+  },
+  searchButtonStyle: {
+    borderRadius: '10px',
+    backgroundColor: theme.palette.secondary.main,
+    padding: '3px 6px'
+  },
+  iconStyling: {
+    paddingLeft: '8px'
   },
   homeInfo: {
     display: 'flex',
@@ -57,8 +68,14 @@ export default function Home() {
     <div>
       <div className={classes.containerTopImage}>
         <img src="/images/homepage.jpg" alt="woman looking happy hugging dog" className={classes.imgStyle} />
-        <div className={classes.topImageText}>Many of our furry friends are full of energy and ready to show off their fastest zoomies.
-          Schedule a Zoom session today!</div>
+        <div className={classes.topImageText}>
+          <div>Many of our furry friends are full of energy and ready to show off their fastest zoomies.
+          Schedule a Zoom session today!
+          </div>
+          <Button variant="contained" component={Link} to='/search' className={classes.searchButtonStyle}>
+            Search <NavigateNextRoundedIcon className={classes.iconStyling} />
+          </Button>
+        </div>
       </div>
       <div className={classes.homeInfo}>
         <h1 className={classes.homeH1Style}>Did you know?</h1>
