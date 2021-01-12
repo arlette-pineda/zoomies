@@ -38,10 +38,6 @@ body {
   justify-content: center;
 }
 
-.MuiTypography-h5 {
-  font-weight: 900 !important;
-}
-
 .makeStyles-menuButton-2 {
   margin-right: 0 !important;
 }
@@ -57,22 +53,18 @@ body {
               0px 2px 2px 0px rgba(0,0,0,0.14),
               0px 1px 5px 0px rgba(0,0,0,0.12);
   font-size: large;
-  font-weight: 700;
 }
 
 #root .card-title {
-  font-size: 1.6rem;
-  font-weight: 900;
+  font-size: 1.5rem;
 }
 
 #root .card-age-breed {
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: .9rem;
 }
 
 #root .card-location {
-  font-size: 1.3rem;
-  font-weight: 700;
+  font-size: 1.1rem;
 }
 
 .card-img-height {
