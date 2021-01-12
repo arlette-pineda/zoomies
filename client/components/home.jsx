@@ -12,8 +12,8 @@ const useStyles = makeStyles(theme => ({
   },
   imgStyle: {
     maxWidth: '100%',
-    // position: 'absolute',
     objectFit: 'cover',
+    opacity: '75%',
     objectPosition: 'center'
     // paddingLeft: '300px',
     // boxSizing: 'borderBox',
@@ -26,9 +26,14 @@ const useStyles = makeStyles(theme => ({
   topImageText: {
     position: 'absolute',
     top: '8px',
-    left: '16px',
-    fontWeight: 700
+    padding: '0 20px',
+    fontWeight: 700,
+    color: 'white',
+    textShadow: '0 1px 10px #4d4751, 0 0 4px #4d4751',
+    textAlign: 'center'
   },
+  // topImageH3: {
+  // },
   searchButtonStyle: {
     borderRadius: '10px',
     backgroundColor: theme.palette.secondary.main,
@@ -54,10 +59,15 @@ const useStyles = makeStyles(theme => ({
     marginTop: 0,
     marginBottom: '30px'
   },
-  homeH2Style: {
+  homePStyle: {
     border: '3px double #fec700',
     padding: '20px 30px',
     margin: '0 15% 30px'
+  },
+  spanNameStyle: {
+    display: 'inline-block',
+    width: '100%',
+    textAlign: 'right'
   }
 }));
 
@@ -69,9 +79,9 @@ export default function Home() {
       <div className={classes.containerTopImage}>
         <img src="/images/homepage.jpg" alt="woman looking happy hugging dog" className={classes.imgStyle} />
         <div className={classes.topImageText}>
-          <div>Many of our furry friends are full of energy and ready to show off their fastest zoomies.
-          Schedule a Zoom session today!
-          </div>
+          <h1>Schedule a session today</h1>
+          <h2>Our furry friends are full of energy and ready to show off their fastest zoomies!</h2>
+          {/* <h3 className={classes.topImageH3}></h3> */}
           <Button variant="contained" component={Link} to='/search' className={classes.searchButtonStyle}>
             Search <NavigateNextRoundedIcon className={classes.iconStyling} />
           </Button>
@@ -98,14 +108,14 @@ export default function Home() {
         </div>
       </div>
       <div className={classes.testimonials}>
-        <h2 className={classes.homeH2Style}>
+        <p className={classes.homePStyle}>
           &quot;A baby chiweenie named Simon running around for a treat was just the treat I didn&apos;t know I needed to
-          get me through a rough day.&quot; -Cori V.
-        </h2>
-        <h2 className={classes.homeH2Style}>
+          get me through a rough day.&quot; <br /> <span className={classes.spanNameStyle}>-Cori V.</span>
+        </p>
+        <p className={classes.homePStyle}>
           &quot;Sparkle the senior dalmation helped put a smile on my face during a stressful period.
-          I would love to schedule with her again!&quot; -Jose X.
-        </h2>
+          I would love to schedule with her again!&quot; <br/> <span className={classes.spanNameStyle}>-Jose X.</span>
+        </p>
       </div>
     </div>
   );
