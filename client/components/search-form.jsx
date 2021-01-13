@@ -75,6 +75,7 @@ export default function SearchForm(props) {
     props.setBreed(localBreed);
     props.setSize(localSize);
     props.setAge(localAge);
+    props.setPage(1);
   };
 
   const handleReset = evt => {
