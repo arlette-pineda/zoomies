@@ -80,7 +80,7 @@ export default function Home() {
         <img src="/images/homepage.jpg" alt="woman looking happy hugging dog" className={classes.imgStyle} />
         <div className={classes.topImageText}>
           <h1>Schedule a session today</h1>
-          <h2>Our furry friends are full of energy and ready to show off their fastest zoomies!</h2>
+          <h2>Our furry friends are ready to show off their fastest zoomies!</h2>
           {/* <h3 className={classes.topImageH3}></h3> */}
           <Button variant="contained" component={Link} to='/search' className={classes.searchButtonStyle}>
             Search <NavigateNextRoundedIcon className={classes.iconStyling} />
