@@ -40,7 +40,6 @@ const useStyles = makeStyles(theme => ({
     width: '100%'
   },
   showMoreStyle: {
-    fontSize: '1.3rem',
     fontWeight: 'bold',
     borderRadius: '10px',
     fontFamily: 'inherit'
