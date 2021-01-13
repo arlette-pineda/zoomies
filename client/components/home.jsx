@@ -7,21 +7,12 @@ import NavigateNextRoundedIcon from '@material-ui/icons/NavigateNextRounded';
 const useStyles = makeStyles(theme => ({
   containerTopImage: {
     position: 'relative'
-    // textAlign: 'center'
-    // color: 'white'
   },
   imgStyle: {
     maxWidth: '100%',
     objectFit: 'cover',
     opacity: '75%',
     objectPosition: 'center'
-    // paddingLeft: '300px',
-    // boxSizing: 'borderBox',
-    // boxShadow: 'inset -250px 0 50px 10px #FFF'
-  // top: 0,
-  // bottom: 0,
-  // left: 0,
-  // right: 0
   },
   topImageText: {
     position: 'absolute',
@@ -32,8 +23,6 @@ const useStyles = makeStyles(theme => ({
     textShadow: '0 1px 10px #4d4751, 0 0 4px #4d4751',
     textAlign: 'center'
   },
-  // topImageH3: {
-  // },
   searchButtonStyle: {
     borderRadius: '10px',
     backgroundColor: theme.palette.secondary.main,
@@ -50,14 +39,17 @@ const useStyles = makeStyles(theme => ({
     margin: '0 5%'
   },
   homeH1Style: {
-    marginBottom: 0
+    marginBottom: 0,
+    backgroundColor: theme.palette.secondary.main,
+    padding: '0 15px'
   },
   homeH4Style: {
     margin: '0 auto'
   },
   homeUlStyle: {
     marginTop: 0,
-    marginBottom: '30px'
+    marginBottom: '30px',
+    color: '#7b7979'
   },
   homePStyle: {
     border: '3px double #fec700',
@@ -67,7 +59,17 @@ const useStyles = makeStyles(theme => ({
   spanNameStyle: {
     display: 'inline-block',
     width: '100%',
-    textAlign: 'right'
+    textAlign: 'right',
+    fontWeight: 600
+  },
+  solidDivider: {
+    borderTop: '2px solid #d4d1d194',
+    width: '80%'
+  },
+  homeIntro: {
+    textAlign: 'center',
+    padding: '0 20px',
+    fontWeight: 700
   }
 }));
 
@@ -81,12 +83,17 @@ export default function Home() {
         <div className={classes.topImageText}>
           <h1>Schedule a session today</h1>
           <h2>Our furry friends are ready to show off their fastest zoomies!</h2>
-          {/* <h3 className={classes.topImageH3}></h3> */}
           <Button variant="contained" component={Link} to='/search' className={classes.searchButtonStyle}>
             Search <NavigateNextRoundedIcon className={classes.iconStyling} />
           </Button>
         </div>
       </div>
+      <div className={classes.homeIntro}>
+        <p>Zoomies lets clients choose their favorite doggie from anywhere in the country
+          for an assisted virtual pet therapy session.</p>
+        <img src="/images/yellow-zoomer.png" alt="yellow filled outline of pug"/>
+      </div>
+      <hr className={classes.solidDivider} />
       <div className={classes.homeInfo}>
         <h1 className={classes.homeH1Style}>Did you know?</h1>
         <h4 className={classes.homeH4Style}>Interacting with a friendly pet can:</h4>
