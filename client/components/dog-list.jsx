@@ -105,7 +105,7 @@ export default function DogList(props) {
   }
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} id='content-wrap'>
       <SearchButton
         breed={breed} setBreed={setBreed}
         age={age} setAge={setAge}

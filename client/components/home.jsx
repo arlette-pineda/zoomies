@@ -6,10 +6,13 @@ import NavigateNextRoundedIcon from '@material-ui/icons/NavigateNextRounded';
 
 const useStyles = makeStyles(theme => ({
   containerTopImage: {
-    position: 'relative'
+    position: 'relative',
+    display: 'flex',
+    justifyContent: 'center'
   },
   imgStyle: {
-    width: '100vw',
+    width: '100%',
+    maxWidth: '1400px',
     objectFit: 'cover',
     opacity: '75%',
     objectPosition: '30% 20%'
@@ -93,41 +96,43 @@ export default function Home() {
           </Button>
         </div>
       </div>
-      <div className={classes.homeIntro}>
-        <img src="/images/yellow-zoomer.png" alt="yellow filled outline of pug"/>
-        <p>Zoomies lets clients choose their favorite doggie from anywhere in the country
+      <div id='content-wrap'>
+        <div className={classes.homeIntro}>
+          <img src="/images/yellow-zoomer.png" alt="yellow filled outline of pug"/>
+          <p>Zoomies lets clients choose their favorite doggie from anywhere in the country
           for an assisted virtual pet therapy session.</p>
-      </div>
-      <hr className={classes.solidDivider} />
-      <div className={classes.homeInfo}>
-        <h1 className={classes.homeH1Style}>Did you know?</h1>
-        <h4 className={classes.homeH4Style}>Interacting with a friendly pet can:</h4>
-        <div className={classes.homeUlStyle}>
-          <ul>
-            <li>
-              help many physical and mental issues
-            </li>
-            <li>
-              reduce blood pressure and improve overall cardiovascular health
-            </li>
-            <li>
-              release endorphins that produce a calming effect
-            </li>
-            <li>
-              alleviate pain, reduce stress, and improve overall psychological state
-            </li>
-          </ul>
         </div>
-      </div>
-      <div className={classes.testimonials}>
-        <p className={classes.homePStyle}>
+        <hr className={classes.solidDivider} />
+        <div className={classes.homeInfo}>
+          <h1 className={classes.homeH1Style}>Did you know?</h1>
+          <h4 className={classes.homeH4Style}>Interacting with a friendly pet can:</h4>
+          <div className={classes.homeUlStyle}>
+            <ul>
+              <li>
+              help many physical and mental issues
+              </li>
+              <li>
+              reduce blood pressure and improve overall cardiovascular health
+              </li>
+              <li>
+              release endorphins that produce a calming effect
+              </li>
+              <li>
+              alleviate pain, reduce stress, and improve overall psychological state
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className={classes.testimonials}>
+          <p className={classes.homePStyle}>
           &quot;A baby chiweenie named Simon running around for a treat was just the treat I didn&apos;t know I needed to
           get me through a rough day.&quot; <br /> <span className={classes.spanNameStyle}>-Cori V.</span>
-        </p>
-        <p className={classes.homePStyle}>
+          </p>
+          <p className={classes.homePStyle}>
           &quot;Sparkle the senior dalmation helped put a smile on my face during a stressful period.
           I would love to schedule with her again!&quot; <br/> <span className={classes.spanNameStyle}>-Jose X.</span>
-        </p>
+          </p>
+        </div>
       </div>
     </div>
   );
