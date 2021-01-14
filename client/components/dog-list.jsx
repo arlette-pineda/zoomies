@@ -40,7 +40,6 @@ const useStyles = makeStyles(theme => ({
     width: '100%'
   },
   showMoreStyle: {
-    fontSize: '1.3rem',
     fontWeight: 'bold',
     borderRadius: '10px',
     fontFamily: 'inherit'
@@ -106,7 +105,7 @@ export default function DogList(props) {
   }
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} id='content-wrap'>
       <SearchButton
         breed={breed} setBreed={setBreed}
         age={age} setAge={setAge}

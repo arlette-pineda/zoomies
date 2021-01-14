@@ -5,8 +5,7 @@ import App from './components/app';
 
 const theme = createMuiTheme({
   typography: {
-    fontFamily: 'Bubbler One, Helvetica, Arial, sans-serif',
-    fontWeight: 'bold'
+    fontFamily: 'Poppins, Helvetica, Arial, sans-serif'
   },
   palette: {
     primary: {
