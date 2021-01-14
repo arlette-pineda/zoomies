@@ -9,10 +9,10 @@ const useStyles = makeStyles(theme => ({
     position: 'relative'
   },
   imgStyle: {
-    maxWidth: '100%',
+    width: '100vw',
     objectFit: 'cover',
     opacity: '75%',
-    objectPosition: 'center'
+    objectPosition: '30% 20%'
   },
   topImageText: {
     position: 'absolute',
@@ -26,7 +26,8 @@ const useStyles = makeStyles(theme => ({
   searchButtonStyle: {
     borderRadius: '10px',
     backgroundColor: theme.palette.secondary.main,
-    padding: '3px 6px'
+    padding: '3px 6px',
+    textShadow: 'none'
   },
   iconStyling: {
     paddingLeft: '8px'
@@ -44,12 +45,12 @@ const useStyles = makeStyles(theme => ({
     padding: '0 15px'
   },
   homeH4Style: {
-    margin: '0 auto'
+    margin: '1% auto 0'
   },
   homeUlStyle: {
     marginTop: 0,
     marginBottom: '30px',
-    color: '#7b7979'
+    color: '#575555'
   },
   homePStyle: {
     border: '3px double #fec700',
@@ -69,7 +70,11 @@ const useStyles = makeStyles(theme => ({
   homeIntro: {
     textAlign: 'center',
     padding: '0 20px',
-    fontWeight: 700
+    fontWeight: 700,
+    marginTop: '5%'
+  },
+  testimonials: {
+    marginBottom: '10%'
   }
 }));
 
@@ -79,8 +84,8 @@ export default function Home() {
   return (
     <div>
       <div className={classes.containerTopImage}>
-        <img src="/images/homepage.jpg" alt="woman looking happy hugging dog" className={classes.imgStyle} />
-        <div className={classes.topImageText}>
+        <img src="/images/homepage.jpg" alt="woman looking happy hugging dog" className={`${classes.imgStyle} img-style-lg`} />
+        <div className={`${classes.topImageText} top-image-text-lg`}>
           <h1>Schedule a session today</h1>
           <h2>Our furry friends are ready to show off their fastest zoomies!</h2>
           <Button variant="contained" component={Link} to='/search' className={classes.searchButtonStyle}>
@@ -89,9 +94,9 @@ export default function Home() {
         </div>
       </div>
       <div className={classes.homeIntro}>
+        <img src="/images/yellow-zoomer.png" alt="yellow filled outline of pug"/>
         <p>Zoomies lets clients choose their favorite doggie from anywhere in the country
           for an assisted virtual pet therapy session.</p>
-        <img src="/images/yellow-zoomer.png" alt="yellow filled outline of pug"/>
       </div>
       <hr className={classes.solidDivider} />
       <div className={classes.homeInfo}>
