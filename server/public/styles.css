@@ -71,6 +71,10 @@ body {
     height: 140px
   }
 
+  /* @media (hover: hover) {
+
+  } */
+
 @media (min-width: 600px){
   .MuiToolbar-regular {
       min-height: 100px !important;

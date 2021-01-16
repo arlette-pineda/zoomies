@@ -30,7 +30,12 @@ const useStyles = makeStyles(theme => ({
     borderRadius: '10px',
     backgroundColor: theme.palette.secondary.main,
     padding: '3px 6px',
-    textShadow: 'none'
+    textShadow: 'none',
+    fontSize: '1rem',
+    '&:hover': {
+      backgroundColor: theme.palette.secondary.main,
+      color: 'white'
+    }
   },
   iconStyling: {
     paddingLeft: '8px'
