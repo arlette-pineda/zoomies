@@ -31,7 +31,13 @@ const useStyles = makeStyles(theme => ({
     fontSize: '2.4rem',
     letterSpacing: '1px',
     color: 'black',
-    margin: '0 9px'
+    margin: '0 9px',
+    '&:hover': {
+      background: 'none',
+      color: 'white',
+      borderRadius: 0,
+      borderBottom: '3px solid white'
+    }
   }
 }));
 
