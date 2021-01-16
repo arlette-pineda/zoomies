@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
-    margin: '5% 20% 10%',
+    margin: '5% 10% 0',
     fontWeight: '800'
   },
   aboutUsHeader: {
@@ -21,7 +21,8 @@ const useStyles = makeStyles(theme => ({
     borderRadius: '10px',
     backgroundColor: theme.palette.secondary.main,
     fontSize: 'large',
-    padding: '1px 15px'
+    padding: '1px 15px',
+    marginBottom: '10%'
   },
   iconStyling: {
     paddingLeft: '8px'
