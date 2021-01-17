@@ -33,8 +33,7 @@ const useStyles = makeStyles(theme => ({
     textShadow: 'none',
     fontSize: '1rem',
     '&:hover': {
-      backgroundColor: theme.palette.secondary.main,
-      color: 'white'
+      backgroundColor: '#dfaf04'
     }
   },
   iconStyling: {

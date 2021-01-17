@@ -22,7 +22,10 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.secondary.main,
     fontSize: 'large',
     padding: '1px 15px',
-    marginBottom: '10%'
+    marginBottom: '10%',
+    '&:hover': {
+      backgroundColor: '#dfaf04'
+    }
   },
   iconStyling: {
     paddingLeft: '8px'

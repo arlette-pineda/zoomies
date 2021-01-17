@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
   },
   menuButtonsLg: {
     fontWeight: '600',
-    fontSize: '1.6rem',
+    fontSize: '1.3rem',
     letterSpacing: '1px',
     color: 'black',
     margin: '0 9px',

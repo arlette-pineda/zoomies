@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
   },
   labelStyle: {
     fontWeight: 900,
-    fontSize: '1.2rem',
+    fontSize: '1.1rem',
     marginLeft: '6%'
   },
   buttonsDiv: {
@@ -27,7 +27,10 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     marginLeft: '6%',
     marginRight: '6%',
-    backgroundColor: '#fec700'
+    backgroundColor: theme.palette.secondary.main,
+    '&:hover': {
+      backgroundColor: '#dfaf04'
+    }
   },
   searchGroup: {
     width: '100%',

@@ -46,10 +46,11 @@ const useStyles = makeStyles(theme => ({
   },
   resultsStyle: {
     margin: theme.spacing(2),
-    fontSize: '1.2rem'
+    fontSize: '1.1rem'
   },
   circProgress: {
-    margin: '12px'
+    margin: '12px',
+    color: 'blue'
   },
   searchGridLg: {
     marginTop: '2%'
