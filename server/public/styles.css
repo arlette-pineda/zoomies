@@ -42,9 +42,9 @@ body {
   margin-right: 0 !important;
 }
 
-.MuiToolbar-regular {
+/* .MuiToolbar-regular {
     min-height: 80px !important;
-}
+} */
 
 .search-input-styling .MuiAutocomplete-inputRoot {
   border-radius: 10px !important;
@@ -76,12 +76,17 @@ body {
   } */
 
 @media (min-width: 600px){
-  .MuiToolbar-regular {
+  /* .MuiToolbar-regular {
       min-height: 100px !important;
+  } */
+
+  .nav-toolbar {
+    min-height: 85px !important;
   }
+
   /* logo top */
   .logo-img {
-  max-height: 150px;
+  max-height: 70px;
   object-fit: contain;
   }
   /* header menu button  */
@@ -91,8 +96,8 @@ body {
   }
   /* header menu icon */
   #menu-button-lg {
-    width: 4em;
-    height: 4em;
+    width: 3.1em;
+    height: 3.1em;
   }
   #menu-icon-button-lg {
     width: 2em;

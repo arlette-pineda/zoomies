@@ -79,10 +79,14 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     padding: '0 20px',
     fontWeight: 700,
-    marginTop: '5%'
+    marginTop: '5%',
+    fontSize: '1.2rem'
   },
   testimonials: {
-    marginBottom: '10%'
+    marginBottom: '10%',
+    maxWidth: '450px',
+    marginRight: 'auto',
+    marginLeft: 'auto'
   }
 }));
 
