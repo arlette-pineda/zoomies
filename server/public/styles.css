@@ -120,6 +120,14 @@ body {
   .top-image-text-lg {
     text-align: revert !important;
   }
+  /* testimonial divs row on lg */
+  .testimonials-lg {
+    display: flex;
+  }
+  /* testimonial p quotes margin lg */
+  .home-p-style-lg {
+    margin: 0 2% 30px !important;
+  }
 }
 
 @media (min-width: 1280px){

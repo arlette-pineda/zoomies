@@ -61,7 +61,7 @@ const useStyles = makeStyles(theme => ({
   },
   homePStyle: {
     border: '3px double #fec700',
-    padding: '20px 30px',
+    padding: '18px 28px',
     margin: '0 15% 30px'
   },
   spanNameStyle: {
@@ -82,8 +82,7 @@ const useStyles = makeStyles(theme => ({
     fontSize: '1.2rem'
   },
   testimonials: {
-    marginBottom: '10%',
-    maxWidth: '450px',
+    maxWidth: '500px',
     marginRight: 'auto',
     marginLeft: 'auto'
   }
@@ -131,12 +130,12 @@ export default function Home() {
             </ul>
           </div>
         </div>
-        <div className={classes.testimonials}>
-          <p className={classes.homePStyle}>
+        <div className={`${classes.testimonials} testimonials-lg`}>
+          <p className={`${classes.homePStyle} home-p-style-lg`}>
           &quot;A baby chiweenie named Simon running around for a treat was just the treat I didn&apos;t know I needed to
           get me through a rough day.&quot; <br /> <span className={classes.spanNameStyle}>-Cori V.</span>
           </p>
-          <p className={classes.homePStyle}>
+          <p className={`${classes.homePStyle} home-p-style-lg`}>
           &quot;Sparkle the senior dalmation helped put a smile on my face during a stressful period.
           I would love to schedule with her again!&quot; <br/> <span className={classes.spanNameStyle}>-Jose X.</span>
           </p>
