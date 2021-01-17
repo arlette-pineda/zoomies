@@ -26,9 +26,12 @@ const useStyles = makeStyles(theme => ({
     color: 'black',
     width: '50%'
   },
+  navToolbar: {
+    minHeight: '75px'
+  },
   menuButtonsLg: {
-    fontWeight: '800',
-    fontSize: '2.4rem',
+    fontWeight: '600',
+    fontSize: '1.6rem',
     letterSpacing: '1px',
     color: 'black',
     margin: '0 9px',
@@ -56,8 +59,8 @@ function NavBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="relative" className='main-color header-size' onClick={anchorEl ? () => handleClose() : undefined}>
-        <Toolbar>
+      <AppBar position="relative" className="main-color header-size" onClick={anchorEl ? () => handleClose() : undefined}>
+        <Toolbar className={`${classes.navToolbar} nav-toolbar`}>
           <Typography component={Link} to='/' variant="h6" className={classes.title}>
             <img src="/images/zoomies-img.png" alt="zoomies logo" className="logo-img"/>
           </Typography>
