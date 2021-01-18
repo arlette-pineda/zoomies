@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
-    margin: '5% 20% 10%',
+    margin: '5% 10% 0',
     fontWeight: '800'
   },
   aboutUsHeader: {
@@ -21,10 +21,15 @@ const useStyles = makeStyles(theme => ({
     borderRadius: '10px',
     backgroundColor: theme.palette.secondary.main,
     fontSize: 'large',
-    padding: '1px 15px'
+    padding: '2px 3px 2px 10px',
+    marginBottom: '10%',
+    '&:hover': {
+      backgroundColor: '#dfaf04'
+    }
   },
   iconStyling: {
-    paddingLeft: '8px'
+    paddingLeft: '8px',
+    fontSize: '1.8rem'
   }
 }));
 
@@ -42,7 +47,7 @@ export default function About() {
       <p className="about-us-p-lg">Volunteers at our partner organizations are ready to assist and our good boys
         and girls are eager to meet you!</p>
       <Button variant="contained" component={Link} to='/search' className={`${classes.searchButtonStyle} search-button-style-lg`}>
-        Search <NavigateNextRoundedIcon className={classes.iconStyling} />
+        Find a Dog <NavigateNextRoundedIcon className={classes.iconStyling} />
       </Button>
     </div>
   );

@@ -46,10 +46,11 @@ const useStyles = makeStyles(theme => ({
   },
   resultsStyle: {
     margin: theme.spacing(2),
-    fontSize: '1.2rem'
+    fontSize: '1.1rem'
   },
   circProgress: {
-    margin: '12px'
+    margin: '12px',
+    color: 'blue'
   },
   searchGridLg: {
     marginTop: '2%'
@@ -137,6 +138,7 @@ export default function DogList(props) {
               breed={breed} setBreed={setBreed}
               age={age} setAge={setAge}
               size={size} setSize={setSize}
+              page={page} setPage={setPage}
             >
             </SearchForm>
           </Grid>

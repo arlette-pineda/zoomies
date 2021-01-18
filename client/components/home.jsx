@@ -30,7 +30,11 @@ const useStyles = makeStyles(theme => ({
     borderRadius: '10px',
     backgroundColor: theme.palette.secondary.main,
     padding: '3px 6px',
-    textShadow: 'none'
+    textShadow: 'none',
+    fontSize: '1rem',
+    '&:hover': {
+      backgroundColor: '#dfaf04'
+    }
   },
   iconStyling: {
     paddingLeft: '8px'
@@ -57,7 +61,7 @@ const useStyles = makeStyles(theme => ({
   },
   homePStyle: {
     border: '3px double #fec700',
-    padding: '20px 30px',
+    padding: '18px 28px',
     margin: '0 15% 30px'
   },
   spanNameStyle: {
@@ -74,10 +78,16 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     padding: '0 20px',
     fontWeight: 700,
-    marginTop: '5%'
+    marginTop: '5%',
+    fontSize: '1.2rem'
+  },
+  homeIntroP: {
+    filter: 'drop-shadow(0 0 30px #333)'
   },
   testimonials: {
-    marginBottom: '10%'
+    maxWidth: '500px',
+    marginRight: 'auto',
+    marginLeft: 'auto'
   }
 }));
 
@@ -89,17 +99,17 @@ export default function Home() {
       <div className={classes.containerTopImage}>
         <img src="/images/homepage.jpg" alt="woman looking happy hugging dog" className={`${classes.imgStyle} img-style-lg`} />
         <div className={`${classes.topImageText} top-image-text-lg`}>
-          <h1>Schedule a session today</h1>
+          <h1>Schedule a therapy session today</h1>
           <h2>Our furry friends are ready to show off their fastest zoomies!</h2>
           <Button variant="contained" component={Link} to='/search' className={classes.searchButtonStyle}>
-            Search <NavigateNextRoundedIcon className={classes.iconStyling} />
+            Find a Dog <NavigateNextRoundedIcon className={classes.iconStyling} />
           </Button>
         </div>
       </div>
       <div id='content-wrap'>
         <div className={classes.homeIntro}>
           <img src="/images/yellow-zoomer.png" alt="yellow filled outline of pug"/>
-          <p>Zoomies lets clients choose their favorite doggie from anywhere in the country
+          <p className={classes.homeIntroP}>Zoomies lets clients choose their favorite doggie from anywhere in the country
           for an assisted virtual pet therapy session.</p>
         </div>
         <hr className={classes.solidDivider} />
@@ -123,12 +133,12 @@ export default function Home() {
             </ul>
           </div>
         </div>
-        <div className={classes.testimonials}>
-          <p className={classes.homePStyle}>
+        <div className={`${classes.testimonials} testimonials-lg`}>
+          <p className={`${classes.homePStyle} home-p-style-lg`}>
           &quot;A baby chiweenie named Simon running around for a treat was just the treat I didn&apos;t know I needed to
           get me through a rough day.&quot; <br /> <span className={classes.spanNameStyle}>-Cori V.</span>
           </p>
-          <p className={classes.homePStyle}>
+          <p className={`${classes.homePStyle} home-p-style-lg`}>
           &quot;Sparkle the senior dalmation helped put a smile on my face during a stressful period.
           I would love to schedule with her again!&quot; <br/> <span className={classes.spanNameStyle}>-Jose X.</span>
           </p>

@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
   },
   labelStyle: {
     fontWeight: 900,
-    fontSize: '1.2rem',
+    fontSize: '1.1rem',
     marginLeft: '6%'
   },
   buttonsDiv: {
@@ -27,7 +27,10 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     marginLeft: '6%',
     marginRight: '6%',
-    backgroundColor: '#fec700'
+    backgroundColor: theme.palette.secondary.main,
+    '&:hover': {
+      backgroundColor: '#dfaf04'
+    }
   },
   searchGroup: {
     width: '100%',
@@ -89,6 +92,11 @@ export default function SearchForm(props) {
     setLocalAge('');
   };
 
+  // const test = (evt, newValue) => {
+  //   console.log({ newValue });
+  //   setLocalBreed(newValue);
+  // };
+
   return (
     <form noValidate onSubmit={handleSubmit} onReset={handleReset}>
       <div className={`${classes.root} ${classes.searchGroup} search-form-margin-lg`}>
@@ -99,7 +107,7 @@ export default function SearchForm(props) {
           id="combo-box-demo"
           options={breedList}
           getOptionLabel={option => option}
-          value={props.breed || null}
+          value={localBreed || null}
           onSelect={e => setLocalBreed(e.target.value)}
           className={`${classes.inputWidth} search-input-styling`}
           renderInput={params => <TextField {...params} variant="outlined" />}
@@ -113,7 +121,7 @@ export default function SearchForm(props) {
           id="combo-box-demo"
           options={ages}
           getOptionLabel={option => option}
-          value={props.age || null}
+          value={localAge || null}
           onSelect={e => setLocalAge(e.target.value)}
           className={`${classes.inputWidth} search-input-styling`}
           renderInput={params => <TextField {...params} variant="outlined" />}
@@ -127,7 +135,7 @@ export default function SearchForm(props) {
           id="combo-box-demo"
           options={sizes}
           getOptionLabel={option => option}
-          value={props.size || null}
+          value={localSize || null}
           className={`${classes.inputWidth} search-input-styling`}
           onSelect={e => setLocalSize(e.target.value)}
           renderInput={params => <TextField {...params} variant="outlined" />}

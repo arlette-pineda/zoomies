@@ -26,12 +26,21 @@ const useStyles = makeStyles(theme => ({
     color: 'black',
     width: '50%'
   },
+  navToolbar: {
+    minHeight: '75px'
+  },
   menuButtonsLg: {
-    fontWeight: '800',
-    fontSize: '2.4rem',
+    fontWeight: '600',
+    fontSize: '1.3rem',
     letterSpacing: '1px',
     color: 'black',
-    margin: '0 9px'
+    margin: '0 9px',
+    '&:hover': {
+      background: 'none',
+      color: 'white',
+      borderRadius: 0,
+      borderBottom: '3px solid white'
+    }
   }
 }));
 
@@ -50,8 +59,8 @@ function NavBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="relative" className='main-color header-size' onClick={anchorEl ? () => handleClose() : undefined}>
-        <Toolbar>
+      <AppBar position="relative" className="main-color header-size" onClick={anchorEl ? () => handleClose() : undefined}>
+        <Toolbar className={`${classes.navToolbar} nav-toolbar`}>
           <Typography component={Link} to='/' variant="h6" className={classes.title}>
             <img src="/images/zoomies-img.png" alt="zoomies logo" className="logo-img"/>
           </Typography>
@@ -69,14 +78,14 @@ function NavBar() {
               >
                 <MenuItem component={Link} to='/'>Home</MenuItem>
                 <MenuItem component={Link} to='/about'>About</MenuItem>
-                <MenuItem component={Link} to='/search'>Search</MenuItem>
+                <MenuItem component={Link} to='/search'>Find a Dog</MenuItem>
               </Menu>
             </IconButton>
           </Hidden>
           <Hidden mdDown>
             <Button className={classes.menuButtonsLg} component={Link} to='/' color="inherit">Home</Button>
             <Button className={classes.menuButtonsLg} component={Link} to='/about' color="inherit">About</Button>
-            <Button className={classes.menuButtonsLg} component={Link} to='/search' color="inherit">Search</Button>
+            <Button className={classes.menuButtonsLg} component={Link} to='/search' color="inherit">Find a Dog</Button>
           </Hidden>
         </Toolbar>
       </AppBar>

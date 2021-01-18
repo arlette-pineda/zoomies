@@ -9,6 +9,7 @@ const useStyles = makeStyles(theme => ({
   },
   chipMargin: {
     marginRight: theme.spacing(0.5),
+    marginBottom: theme.spacing(0.5),
     fontSize: '1.1rem'
   }
 }));

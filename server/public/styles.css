@@ -34,6 +34,11 @@ body {
   background-color: #f3f3f3;
 }
 
+.about-us-p-lg {
+  color: #575555;
+  font-weight: 500;
+}
+
 .MuiToolbar-root {
   justify-content: center;
 }
@@ -42,29 +47,25 @@ body {
   margin-right: 0 !important;
 }
 
-.MuiToolbar-regular {
-    min-height: 80px !important;
-}
-
 .search-input-styling .MuiAutocomplete-inputRoot {
   border-radius: 10px !important;
   background-color: #fffbfb;
   box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),
               0px 2px 2px 0px rgba(0,0,0,0.14),
               0px 1px 5px 0px rgba(0,0,0,0.12);
-  font-size: large;
+  max-height: 50px;
 }
 
 #root .card-title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 #root .card-age-breed {
-  font-size: .9rem;
+  font-size: .8rem;
 }
 
 #root .card-location {
-  font-size: 1.1rem;
+  font-size: .95rem;
 }
 
 .card-img-height {
@@ -72,12 +73,12 @@ body {
   }
 
 @media (min-width: 600px){
-  .MuiToolbar-regular {
-      min-height: 100px !important;
+  .nav-toolbar {
+    min-height: 85px !important;
   }
   /* logo top */
   .logo-img {
-  max-height: 150px;
+  max-height: 60px;
   object-fit: contain;
   }
   /* header menu button  */
@@ -87,12 +88,12 @@ body {
   }
   /* header menu icon */
   #menu-button-lg {
-    width: 4em;
-    height: 4em;
+    width: 2.5em;
+    height: 2.5em;
   }
   #menu-icon-button-lg {
-    width: 2em;
-    height: 2em;
+    width: 1.5em;
+    height: 1.5em;
   }
   /* body centering */
   .makeStyles-root-6 {
@@ -119,6 +120,14 @@ body {
   .top-image-text-lg {
     text-align: revert !important;
   }
+  /* testimonial divs row on lg */
+  .testimonials-lg {
+    display: flex;
+  }
+  /* testimonial p quotes margin lg */
+  .home-p-style-lg {
+    margin: 0 2% 30px !important;
+  }
 }
 
 @media (min-width: 1280px){
@@ -128,16 +137,16 @@ body {
     margin-right: auto;
   }
   .card-img-height {
-    height: 225px;
+    height: 200px;
   }
   .search-form-margin-lg {
     margin-bottom: 50px;
   }
   .about-us-header-lg {
-    font-size: xxx-large;
+    font-size: xx-large;
   }
   .about-us-p-lg {
-    font-size: x-large;
+    font-size: 1rem;
   }
   /* homepage search button size */
   .search-button-size-lg {
@@ -151,6 +160,6 @@ body {
 
 @media (min-width: 1920px){
   .card-img-height {
-    height: 350px;
+    height: 230px;
   }
 }
