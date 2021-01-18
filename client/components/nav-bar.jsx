@@ -78,14 +78,14 @@ function NavBar() {
               >
                 <MenuItem component={Link} to='/'>Home</MenuItem>
                 <MenuItem component={Link} to='/about'>About</MenuItem>
-                <MenuItem component={Link} to='/search'>Search</MenuItem>
+                <MenuItem component={Link} to='/search'>Find a Dog</MenuItem>
               </Menu>
             </IconButton>
           </Hidden>
           <Hidden mdDown>
             <Button className={classes.menuButtonsLg} component={Link} to='/' color="inherit">Home</Button>
             <Button className={classes.menuButtonsLg} component={Link} to='/about' color="inherit">About</Button>
-            <Button className={classes.menuButtonsLg} component={Link} to='/search' color="inherit">Search</Button>
+            <Button className={classes.menuButtonsLg} component={Link} to='/search' color="inherit">Find a Dog</Button>
           </Hidden>
         </Toolbar>
       </AppBar>
