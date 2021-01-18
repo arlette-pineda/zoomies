@@ -81,6 +81,9 @@ const useStyles = makeStyles(theme => ({
     marginTop: '5%',
     fontSize: '1.2rem'
   },
+  homeIntroP: {
+    filter: 'drop-shadow(0 0 30px #333)'
+  },
   testimonials: {
     maxWidth: '500px',
     marginRight: 'auto',
@@ -106,7 +109,7 @@ export default function Home() {
       <div id='content-wrap'>
         <div className={classes.homeIntro}>
           <img src="/images/yellow-zoomer.png" alt="yellow filled outline of pug"/>
-          <p>Zoomies lets clients choose their favorite doggie from anywhere in the country
+          <p className={classes.homeIntroP}>Zoomies lets clients choose their favorite doggie from anywhere in the country
           for an assisted virtual pet therapy session.</p>
         </div>
         <hr className={classes.solidDivider} />
