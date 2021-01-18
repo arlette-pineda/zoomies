@@ -96,10 +96,10 @@ export default function Home() {
       <div className={classes.containerTopImage}>
         <img src="/images/homepage.jpg" alt="woman looking happy hugging dog" className={`${classes.imgStyle} img-style-lg`} />
         <div className={`${classes.topImageText} top-image-text-lg`}>
-          <h1>Schedule a session today</h1>
+          <h1>Schedule a therapy session today</h1>
           <h2>Our furry friends are ready to show off their fastest zoomies!</h2>
           <Button variant="contained" component={Link} to='/search' className={classes.searchButtonStyle}>
-            Search <NavigateNextRoundedIcon className={classes.iconStyling} />
+            Find a Dog <NavigateNextRoundedIcon className={classes.iconStyling} />
           </Button>
         </div>
       </div>
