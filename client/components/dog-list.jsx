@@ -138,6 +138,7 @@ export default function DogList(props) {
               breed={breed} setBreed={setBreed}
               age={age} setAge={setAge}
               size={size} setSize={setSize}
+              page={page} setPage={setPage}
             >
             </SearchForm>
           </Grid>
