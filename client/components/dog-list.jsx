@@ -178,11 +178,11 @@ export default function DogList(props) {
         </Grid>
       </Grid>
       <div className={classes.divOutsideShowMore}>
-        {page > 1
+        {page > 1 && !isLoading
           ? (<Button variant="contained" onClick={() => setPage(page - 1)} className={classes.showMoreStyle}> <ChevronLeftIcon /> Previous Page  </Button>)
           : null
         }
-        {page < paging.totalPages
+        {page < paging.totalPages && !isLoading
           ? <Button variant="contained" onClick={() => setPage(page + 1)} className={classes.showMoreStyle}>  Next Page <ChevronRightIcon /></Button>
           : null}
       </div>
