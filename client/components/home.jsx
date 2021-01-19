@@ -8,7 +8,8 @@ const useStyles = makeStyles(theme => ({
   containerTopImage: {
     position: 'relative',
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    backgroundColor: '#00000075'
   },
   imgStyle: {
     width: '100%',

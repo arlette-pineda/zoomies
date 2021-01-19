@@ -117,7 +117,9 @@ export default function DogList(props) {
         <div className={classes.resultsStyle}>
           {paging.totalCount === 0
             ? '0 results'
-            : (`${startIndex}-${endIndex} of ${paging.totalCount} results`)}
+            : !isLoading
+              ? (`${startIndex}-${endIndex} of ${paging.totalCount} results`)
+              : null }
         </div>
         <Chips
           breed={breed} setBreed={setBreed}
@@ -163,9 +165,9 @@ export default function DogList(props) {
                     age={age} setAge={setAge}
                     size={size} setSize={setSize} />
                 </Hidden>
-                <Grid container spacing={3} className={classes.cardStyle}>
+                <Grid container spacing={4} className={classes.cardStyle}>
                   {dogs.map(dog => {
-                    return (<Grid item xs={6} sm={3} lg={4} key={dog.id} >
+                    return (<Grid item xs={6} sm={4} md={3} lg={4} key={dog.id} >
                       <DogCard dog={dog} />
                     </Grid>);
                   })
@@ -176,11 +178,11 @@ export default function DogList(props) {
         </Grid>
       </Grid>
       <div className={classes.divOutsideShowMore}>
-        {page > 1
+        {page > 1 && !isLoading
           ? (<Button variant="contained" onClick={() => setPage(page - 1)} className={classes.showMoreStyle}> <ChevronLeftIcon /> Previous Page  </Button>)
           : null
         }
-        {page < paging.totalPages
+        {page < paging.totalPages && !isLoading
           ? <Button variant="contained" onClick={() => setPage(page + 1)} className={classes.showMoreStyle}>  Next Page <ChevronRightIcon /></Button>
           : null}
       </div>
