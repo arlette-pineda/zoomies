@@ -117,7 +117,9 @@ export default function DogList(props) {
         <div className={classes.resultsStyle}>
           {paging.totalCount === 0
             ? '0 results'
-            : (`${startIndex}-${endIndex} of ${paging.totalCount} results`)}
+            : !isLoading
+              ? (`${startIndex}-${endIndex} of ${paging.totalCount} results`)
+              : null }
         </div>
         <Chips
           breed={breed} setBreed={setBreed}
