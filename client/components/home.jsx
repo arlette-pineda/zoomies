@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     maxWidth: '1400px',
     objectFit: 'cover',
     opacity: '75%',
-    objectPosition: '30% 20%'
+    objectPosition: '30% 24%'
   },
   topImageText: {
     position: 'absolute',

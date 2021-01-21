@@ -72,6 +72,10 @@ body {
     height: 140px
   }
 
+.img-style-lg {
+  height: 285px;
+}
+
 @media (min-width: 600px){
   .nav-toolbar {
     min-height: 85px !important;
@@ -106,7 +110,7 @@ body {
   }
   /* homepage img style */
   .img-style-lg {
-    max-height: 300px;
+    max-height: 355px;
   }
 }
 
