@@ -65,6 +65,9 @@ export default function DogList(props) {
   const [breed, setBreed] = useState('');
   const [age, setAge] = useState('');
   const [size, setSize] = useState('');
+  const [localBreed, setLocalBreed] = useState('');
+  const [localAge, setLocalAge] = useState('');
+  const [localSize, setLocalSize] = useState('');
   const [hasError, setErrors] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
@@ -114,6 +117,9 @@ export default function DogList(props) {
         age={age} setAge={setAge}
         size={size} setSize={setSize}
         page={page} setPage={setPage}
+        localBreed={localBreed} setLocalBreed={setLocalBreed}
+        localAge={localAge} setLocalAge={setLocalAge}
+        localSize={localSize} setLocalSize={setLocalSize}
       />
       <Hidden lgUp>
         <div className={classes.resultsStyle}>
@@ -126,7 +132,11 @@ export default function DogList(props) {
         <Chips
           breed={breed} setBreed={setBreed}
           age={age} setAge={setAge}
-          size={size} setSize={setSize} />
+          size={size} setSize={setSize}
+          localBreed={localBreed} setLocalBreed={setLocalBreed}
+          localAge={localAge} setLocalAge={setLocalAge}
+          localSize={localSize} setLocalSize={setLocalSize}
+        />
       </Hidden>
       {/* Grid for side search form and doggie cards start */}
       <Grid spacing={3}
@@ -143,6 +153,9 @@ export default function DogList(props) {
               age={age} setAge={setAge}
               size={size} setSize={setSize}
               page={page} setPage={setPage}
+              localBreed={localBreed} setLocalBreed={setLocalBreed}
+              localAge={localAge} setLocalAge={setLocalAge}
+              localSize={localSize} setLocalSize={setLocalSize}
             >
             </SearchForm>
           </Grid>
@@ -165,7 +178,11 @@ export default function DogList(props) {
                   <Chips
                     breed={breed} setBreed={setBreed}
                     age={age} setAge={setAge}
-                    size={size} setSize={setSize} />
+                    size={size} setSize={setSize}
+                    localBreed={localBreed} setLocalBreed={setLocalBreed}
+                    localAge={localAge} setLocalAge={setLocalAge}
+                    localSize={localSize} setLocalSize={setLocalSize}
+                  />
                 </Hidden>
                 <Grid container spacing={4} className={classes.cardStyle}>
                   {dogs.map(dog => {
