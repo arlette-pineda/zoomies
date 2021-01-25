@@ -93,6 +93,9 @@ export default function DogList(props) {
     setBreed(parsed.breed);
     setAge(parsed.age);
     setSize(parsed.size);
+    setLocalBreed(parsed.breed);
+    setLocalAge(parsed.age);
+    setLocalSize(parsed.size);
   }, []);
 
   useEffect(() => {
