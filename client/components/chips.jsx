@@ -19,14 +19,17 @@ export default function Chips(props) {
 
   const handleDeleteBreed = () => {
     props.setBreed('');
+    props.setLocalBreed('');
   };
 
   const handleDeleteAge = () => {
     props.setAge('');
+    props.setLocalAge('');
   };
 
   const handleDeleteSize = () => {
     props.setSize('');
+    props.setLocalSize('');
   };
 
   return (
