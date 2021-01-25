@@ -44,6 +44,9 @@ export default function SearchButton(props) {
         age={props.age} setAge={props.setAge}
         size={props.size} setSize={props.setSize}
         page={props.page} setPage={props.setPage}
+        localBreed={props.localBreed} setLocalBreed={props.setLocalBreed}
+        localAge={props.localAge} setLocalAge={props.setLocalAge}
+        localSize={props.localSize} setLocalSize={props.setLocalSize}
       />
     </ Hidden>
   );

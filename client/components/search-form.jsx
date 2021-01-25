@@ -61,9 +61,6 @@ export default function SearchForm(props) {
   const classes = useStyles();
   const [breedList, setBreedList] = useState([]);
   const [hasError, setErrors] = useState(false);
-  const [localBreed, setLocalBreed] = useState('');
-  const [localAge, setLocalAge] = useState('');
-  const [localSize, setLocalSize] = useState('');
 
   useEffect(() => {
     fetch('/api/dogBreeds')
@@ -75,9 +72,9 @@ export default function SearchForm(props) {
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    props.setBreed(localBreed);
-    props.setSize(localSize);
-    props.setAge(localAge);
+    props.setBreed(props.localBreed);
+    props.setSize(props.localSize);
+    props.setAge(props.localAge);
     props.setPage(1);
   };
 
@@ -87,15 +84,10 @@ export default function SearchForm(props) {
     props.setSize('');
     props.setAge('');
     props.setPage(1);
-    setLocalBreed('');
-    setLocalSize('');
-    setLocalAge('');
+    props.setLocalBreed('');
+    props.setLocalSize('');
+    props.setLocalAge('');
   };
-
-  // const test = (evt, newValue) => {
-  //   console.log({ newValue });
-  //   setLocalBreed(newValue);
-  // };
 
   return (
     <form noValidate onSubmit={handleSubmit} onReset={handleReset}>
@@ -107,8 +99,8 @@ export default function SearchForm(props) {
           id="combo-box-demo"
           options={breedList}
           getOptionLabel={option => option}
-          value={localBreed || null}
-          onSelect={e => setLocalBreed(e.target.value)}
+          value={props.localBreed || null}
+          onChange={(e, newValue) => props.setLocalBreed(newValue)}
           className={`${classes.inputWidth} search-input-styling`}
           renderInput={params => <TextField {...params} variant="outlined" />}
         />
@@ -121,8 +113,8 @@ export default function SearchForm(props) {
           id="combo-box-demo"
           options={ages}
           getOptionLabel={option => option}
-          value={localAge || null}
-          onSelect={e => setLocalAge(e.target.value)}
+          value={props.localAge || null}
+          onChange={(e, newValue) => props.setLocalAge(newValue)}
           className={`${classes.inputWidth} search-input-styling`}
           renderInput={params => <TextField {...params} variant="outlined" />}
         />
@@ -135,9 +127,9 @@ export default function SearchForm(props) {
           id="combo-box-demo"
           options={sizes}
           getOptionLabel={option => option}
-          value={localSize || null}
+          value={props.localSize || null}
           className={`${classes.inputWidth} search-input-styling`}
-          onSelect={e => setLocalSize(e.target.value)}
+          onChange={(e, newValue) => props.setLocalSize(newValue)}
           renderInput={params => <TextField {...params} variant="outlined" />}
         />
       </div>
