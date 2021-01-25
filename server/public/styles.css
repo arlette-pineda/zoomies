@@ -72,6 +72,15 @@ body {
     height: 140px
   }
 
+.img-style-lg {
+  height: 285px;
+}
+
+/* next/prev buttons margin */
+/* .show-more-style-margin {
+  margin: 0 10px;
+} */
+
 @media (min-width: 600px){
   .nav-toolbar {
     min-height: 85px !important;
@@ -106,8 +115,12 @@ body {
   }
   /* homepage img style */
   .img-style-lg {
-    max-height: 300px;
+    max-height: 355px;
   }
+  /* next/prev buttons margin */
+  /* .show-more-style-margin {
+    margin: 0 200px;
+  } */
 }
 
 @media (min-width: 960px){
@@ -130,7 +143,7 @@ body {
   }
   /* testimonial p quotes margin lg */
   .home-p-style-lg {
-    margin: 0 2% 30px !important;
+    margin: 0 2.5% 30px !important;
   }
 }
 

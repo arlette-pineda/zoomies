@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     maxWidth: '1400px',
     objectFit: 'cover',
     opacity: '75%',
-    objectPosition: '30% 20%'
+    objectPosition: '30% 24%'
   },
   topImageText: {
     position: 'absolute',
@@ -53,7 +53,7 @@ const useStyles = makeStyles(theme => ({
     padding: '0 15px'
   },
   homeH4Style: {
-    margin: '1% auto 0'
+    margin: '1% 0 0'
   },
   homeUlStyle: {
     marginTop: 0,
@@ -62,7 +62,7 @@ const useStyles = makeStyles(theme => ({
   },
   homePStyle: {
     border: '3px double #fec700',
-    padding: '18px 28px',
+    padding: '20px 28px 18px',
     margin: '0 15% 30px'
   },
   spanNameStyle: {
@@ -77,7 +77,7 @@ const useStyles = makeStyles(theme => ({
   },
   homeIntro: {
     textAlign: 'center',
-    padding: '0 20px',
+    padding: '0 35px',
     fontWeight: 700,
     marginTop: '5%',
     fontSize: '1.2rem'
