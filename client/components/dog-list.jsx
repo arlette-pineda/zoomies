@@ -35,14 +35,16 @@ const useStyles = makeStyles(theme => ({
     marginBottom: '5%',
     marginTop: '5%',
     display: 'flex',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     alignItems: 'center',
     width: '100%'
   },
   showMoreStyle: {
     fontWeight: 'bold',
     borderRadius: '10px',
-    fontFamily: 'inherit'
+    fontFamily: 'inherit',
+    marginLeft: '1.5%',
+    marginRight: '1.5%'
   },
   resultsStyle: {
     margin: theme.spacing(2),
@@ -175,17 +177,17 @@ export default function DogList(props) {
                 </Grid>
               </div>
           }
+          <div className={classes.divOutsideShowMore}>
+            {page > 1 && !isLoading
+              ? (<Button variant="contained" onClick={() => setPage(page - 1)} className={`${classes.showMoreStyle} show-more-style-margin`}> <ChevronLeftIcon /> Previous Page  </Button>)
+              : null
+            }
+            {page < paging.totalPages && !isLoading
+              ? (<Button variant="contained" onClick={() => setPage(page + 1)} className={`${classes.showMoreStyle} show-more-style-margin`}>  Next Page <ChevronRightIcon /></Button>)
+              : null}
+          </div>
         </Grid>
       </Grid>
-      <div className={classes.divOutsideShowMore}>
-        {page > 1 && !isLoading
-          ? (<Button variant="contained" onClick={() => setPage(page - 1)} className={classes.showMoreStyle}> <ChevronLeftIcon /> Previous Page  </Button>)
-          : null
-        }
-        {page < paging.totalPages && !isLoading
-          ? <Button variant="contained" onClick={() => setPage(page + 1)} className={classes.showMoreStyle}>  Next Page <ChevronRightIcon /></Button>
-          : null}
-      </div>
     </div>
   );
 }
