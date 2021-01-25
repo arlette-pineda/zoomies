@@ -133,6 +133,7 @@ export default function DogList(props) {
           breed={breed} setBreed={setBreed}
           age={age} setAge={setAge}
           size={size} setSize={setSize}
+          page={page} setPage={setPage}
           localBreed={localBreed} setLocalBreed={setLocalBreed}
           localAge={localAge} setLocalAge={setLocalAge}
           localSize={localSize} setLocalSize={setLocalSize}
@@ -179,6 +180,7 @@ export default function DogList(props) {
                     breed={breed} setBreed={setBreed}
                     age={age} setAge={setAge}
                     size={size} setSize={setSize}
+                    page={page} setPage={setPage}
                     localBreed={localBreed} setLocalBreed={setLocalBreed}
                     localAge={localAge} setLocalAge={setLocalAge}
                     localSize={localSize} setLocalSize={setLocalSize}
