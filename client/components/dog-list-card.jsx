@@ -34,7 +34,7 @@ export default function DogCard(props) {
           component="img"
           className="card-img-height"
           image={props.dog.photos.medium ? props.dog.photos.medium : '/images/doge-edited.png'}
-          title="Contemplative Reptile" // fix this later --> props.dog.age + props.dog.breed.primary
+          title={props.dog.photos.medium ? props.dog.size + ' ' + props.dog.breed.primary : 'No Photo'}
         />
         <CardContent >
           <Typography gutterBottom component="h2" className={`${classes.bgColor} ${classes.ellipsis} card-title`}>
