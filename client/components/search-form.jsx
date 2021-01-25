@@ -92,11 +92,6 @@ export default function SearchForm(props) {
     setLocalAge('');
   };
 
-  // const test = (evt, newValue) => {
-  //   console.log({ newValue });
-  //   setLocalBreed(newValue);
-  // };
-
   return (
     <form noValidate onSubmit={handleSubmit} onReset={handleReset}>
       <div className={`${classes.root} ${classes.searchGroup} search-form-margin-lg`}>
@@ -108,7 +103,7 @@ export default function SearchForm(props) {
           options={breedList}
           getOptionLabel={option => option}
           value={localBreed || null}
-          onSelect={e => setLocalBreed(e.target.value)}
+          onChange={(e, newValue) => setLocalBreed(newValue)}
           className={`${classes.inputWidth} search-input-styling`}
           renderInput={params => <TextField {...params} variant="outlined" />}
         />
@@ -122,7 +117,7 @@ export default function SearchForm(props) {
           options={ages}
           getOptionLabel={option => option}
           value={localAge || null}
-          onSelect={e => setLocalAge(e.target.value)}
+          onChange={(e, newValue) => setLocalAge(newValue)}
           className={`${classes.inputWidth} search-input-styling`}
           renderInput={params => <TextField {...params} variant="outlined" />}
         />
@@ -137,7 +132,7 @@ export default function SearchForm(props) {
           getOptionLabel={option => option}
           value={localSize || null}
           className={`${classes.inputWidth} search-input-styling`}
-          onSelect={e => setLocalSize(e.target.value)}
+          onChange={(e, newValue) => setLocalSize(newValue)}
           renderInput={params => <TextField {...params} variant="outlined" />}
         />
       </div>
