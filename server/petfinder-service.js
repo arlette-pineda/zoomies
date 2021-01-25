@@ -6,6 +6,7 @@ const Address = require('./address');
 const Photos = require('./photos');
 const Paging = require('./paging');
 const SearchResult = require('./search-result');
+// const config =
 
 class PetfinderService {
   async getAnimals(breed, age, size, page, limit) {
