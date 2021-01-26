@@ -93,6 +93,7 @@ export default function DogList(props) {
     setBreed(parsed.breed);
     setAge(parsed.age);
     setSize(parsed.size);
+    setPage(parseInt(parsed.page || 1));
     setLocalBreed(parsed.breed);
     setLocalAge(parsed.age);
     setLocalSize(parsed.size);

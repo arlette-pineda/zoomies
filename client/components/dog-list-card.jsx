@@ -48,7 +48,6 @@ export default function DogCard(props) {
           </Typography>
         </CardContent>
       </CardActionArea>
-
     </Card>
   );
 }
