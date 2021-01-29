@@ -1,14 +1,40 @@
 require('dotenv/config');
 var petfinder = require('@petfinder/petfinder-js');
-var client = new petfinder.Client({ apiKey: process.env.PF_API_KEY, secret: process.env.PF_SECRET });
+var config = { apiKey: process.env.PF_API_KEY, secret: process.env.PF_SECRET };
+var client = new petfinder.Client(config);
 const Dog = require('./dog.js');
 const Address = require('./address');
 const Photos = require('./photos');
 const Paging = require('./paging');
 const SearchResult = require('./search-result');
-// const config =
 
 class PetfinderService {
+  constructor() {
+    for (var key in client.http.interceptors.response) {
+      console.log('response key', client.http.interceptors.response[key]);
+      // delete client.http.interceptors[key];
+    }
+    client.http.interceptors.response.forEach(function (interceptor) {
+      console.log('interceptor here', interceptor);
+    });
+    client.http.interceptors.response.eject(0);
+    console.log('all interceptor manager here', client.http.interceptors);
+    // client.http.interceptors.forEach(function testTwo(interceptor) {
+    //   console.log('interceptor here', interceptor);
+    // });
+    client.http.interceptors.response.use(undefined, function test(err) {
+      if (err.response.status === 401) {
+        config.token = '';
+        console.log('the error', err);
+        delete client.http.defaults.headers.common.Authorization;
+        console.log('check auth', client.http.defaults.headers.common.Authorization);
+        // return client.http.request(err.config);
+        console.log('err config', err.config);
+      }
+      return Promise.reject(err);
+    });
+  }
+
   async getAnimals(breed, age, size, page, limit) {
     const animalsResult = await client.animal.search({ type: 'dog', breed: breed, age: age, size: size, page: page, limit: limit });
     const paging = new Paging(animalsResult.data.pagination.total_pages, animalsResult.data.pagination.total_count);
@@ -34,10 +60,16 @@ class PetfinderService {
   }
 
   async getBreed() {
+    console.log('the token', config.token);
     const breedResult = await client.animalData.breeds('dog');
+    console.log('second token', config.token);
     const breedData = breedResult.data.breeds;
+    client.http.defaults.headers.common.Authorization = 'giberrish string';
+    // console.log('check auth gone', client.http.defaults.headers.common);
+    // config.token = '';
     return breedData.map(breed => breed.name);
   }
+
 }
 
 module.exports = PetfinderService;
