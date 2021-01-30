@@ -1,14 +1,39 @@
 require('dotenv/config');
 var petfinder = require('@petfinder/petfinder-js');
-var client = new petfinder.Client({ apiKey: process.env.PF_API_KEY, secret: process.env.PF_SECRET });
+var config = { apiKey: process.env.PF_API_KEY, secret: process.env.PF_SECRET };
+var client = new petfinder.Client(config);
 const Dog = require('./dog.js');
 const Address = require('./address');
 const Photos = require('./photos');
 const Paging = require('./paging');
 const SearchResult = require('./search-result');
-// const config =
+let retryCount = 0;
 
 class PetfinderService {
+  constructor() {
+    client.http.interceptors.response.eject(0);
+    client.http.interceptors.response.use(undefined, function tokenInterceptor(err) {
+      if (err.response.status === 401) {
+        retryCount += 1;
+        if (retryCount >= 3) {
+          return Promise.reject(err);
+        }
+        config.token = '';
+        if (client.http.defaults.headers.common.Authorization) {
+          delete client.http.defaults.headers.common.Authorization;
+        }
+        return client.authenticate()
+          .then(resp => {
+            retryCount = 0;
+            config.token = resp.data.access_token;
+            err.config.headers.Authorization = `Bearer ${config.token}`;
+            return client.http.request(err.config);
+          });
+      }
+      return Promise.reject(err);
+    });
+  }
+
   async getAnimals(breed, age, size, page, limit) {
     const animalsResult = await client.animal.search({ type: 'dog', breed: breed, age: age, size: size, page: page, limit: limit });
     const paging = new Paging(animalsResult.data.pagination.total_pages, animalsResult.data.pagination.total_count);
@@ -41,33 +66,3 @@ class PetfinderService {
 }
 
 module.exports = PetfinderService;
-
-// (async function () {
-//   try {
-//   let calledResult = await getAnimals('pug', 'baby', 'small', 2, 10);
-//   console.log('calledResult', calledResult);
-//   } catch (e) {
-//     console.log(e);
-//   }
-// })
-// ();
-
-// (async function () {
-//   try {
-//     let calledAnimalResult = await getAnimal(49476683);
-//     console.log('calledAnimalResult', calledAnimalResult);
-//   } catch (e){
-//     console.log(e);
-//   }
-// })
-// ();
-
-// (async function () {
-//   try {
-//     let calledBreed = await getBreed('dog');
-//     console.log('calledBreed', calledBreed);
-//   } catch (e){
-//     console.log(e);
-//   }
-// })
-// ();
