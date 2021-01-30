@@ -7,16 +7,25 @@ const Address = require('./address');
 const Photos = require('./photos');
 const Paging = require('./paging');
 const SearchResult = require('./search-result');
+let retryCount = 0;
 
 class PetfinderService {
   constructor() {
     client.http.interceptors.response.eject(0);
     client.http.interceptors.response.use(undefined, function test(err) {
       if (err.response.status === 401) {
+        console.log('heres da retry count', retryCount);
+        retryCount += 1;
+        if (retryCount >= 3) {
+          return Promise.reject(err);
+        }
         config.token = '';
-        delete client.http.defaults.headers.common.Authorization;
+        if (client.http.defaults.headers.common.Authorization) {
+          delete client.http.defaults.headers.common.Authorization;
+        }
         return client.authenticate()
           .then(resp => {
+            retryCount = 0;
             config.token = resp.data.access_token;
             err.config.headers.Authorization = `Bearer ${config.token}`;
             return client.http.request(err.config);
