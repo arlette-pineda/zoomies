@@ -12,9 +12,8 @@ let retryCount = 0;
 class PetfinderService {
   constructor() {
     client.http.interceptors.response.eject(0);
-    client.http.interceptors.response.use(undefined, function test(err) {
+    client.http.interceptors.response.use(undefined, function tokenInterceptor(err) {
       if (err.response.status === 401) {
-        console.log('heres da retry count', retryCount);
         retryCount += 1;
         if (retryCount >= 3) {
           return Promise.reject(err);
@@ -60,11 +59,8 @@ class PetfinderService {
   }
 
   async getBreed() {
-    console.log('the token', config.token);
     const breedResult = await client.animalData.breeds('dog');
-    console.log('second token', config.token);
     const breedData = breedResult.data.breeds;
-    client.http.defaults.headers.common.Authorization = 'giberrish string';
     return breedData.map(breed => breed.name);
   }
 }
