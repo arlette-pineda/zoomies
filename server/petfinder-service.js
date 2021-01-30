@@ -10,31 +10,17 @@ const SearchResult = require('./search-result');
 
 class PetfinderService {
   constructor() {
-  //   for (var key in client.http.interceptors.response) {
-  //     console.log('response key', client.http.interceptors.response[key]);
-    // delete client.http.interceptors[key];
-    // }
-    // client.http.interceptors.response.forEach(function (interceptor) {
-    //   console.log('interceptor here', interceptor);
-    // });
     client.http.interceptors.response.eject(0);
-    // console.log('all interceptor manager here', client.http.interceptors);
-    // client.http.interceptors.forEach(function testTwo(interceptor) {
-    //   console.log('interceptor here', interceptor);
-    // });
     client.http.interceptors.response.use(undefined, function test(err) {
       if (err.response.status === 401) {
         config.token = '';
-        // console.log('the error', err);
         delete client.http.defaults.headers.common.Authorization;
-        // console.log('check auth', client.http.defaults.headers.common.Authorization);
         return client.authenticate()
           .then(resp => {
             config.token = resp.data.access_token;
             err.config.headers.Authorization = `Bearer ${config.token}`;
             return client.http.request(err.config);
           });
-        // console.log('err config', err.config);
       }
       return Promise.reject(err);
     });
@@ -70,41 +56,8 @@ class PetfinderService {
     console.log('second token', config.token);
     const breedData = breedResult.data.breeds;
     client.http.defaults.headers.common.Authorization = 'giberrish string';
-    // console.log('check auth gone', client.http.defaults.headers.common);
-    // config.token = '';
     return breedData.map(breed => breed.name);
   }
-
 }
 
 module.exports = PetfinderService;
-
-// (async function () {
-//   try {
-//   let calledResult = await getAnimals('pug', 'baby', 'small', 2, 10);
-//   console.log('calledResult', calledResult);
-//   } catch (e) {
-//     console.log(e);
-//   }
-// })
-// ();
-
-// (async function () {
-//   try {
-//     let calledAnimalResult = await getAnimal(49476683);
-//     console.log('calledAnimalResult', calledAnimalResult);
-//   } catch (e){
-//     console.log(e);
-//   }
-// })
-// ();
-
-// (async function () {
-//   try {
-//     let calledBreed = await getBreed('dog');
-//     console.log('calledBreed', calledBreed);
-//   } catch (e){
-//     console.log(e);
-//   }
-// })
-// ();
