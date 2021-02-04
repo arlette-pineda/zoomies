@@ -44,7 +44,9 @@ Try the app live [here!](https://zoomies-pet-therapy.arlettepineda.com/)
   ```
      npm install
   ```
-5. Request API key and secret.
+5. Request API Key and Secret.
+    * Go to https://www.petfinder.com/developers/
+    * Click on GET AN API KEY button and follow instructions
 
 6. You many now start the project. It can be viewed by going to http://localhost:3000 in your browser. 
   ```javascript
