@@ -1,4 +1,4 @@
-# Zoomies
+# Zoomies (Under Construction)
 A full stack Node.js and React web app for scheduling zoom pet therapy sessions with a doggie of your choice!
 
 ## Technologies Used
