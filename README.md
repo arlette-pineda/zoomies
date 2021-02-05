@@ -23,7 +23,11 @@ Try the app live [here!](https://zoomies-pet-therapy.arlettepineda.com/)
 - Users can view pages by URL
 
 ## Preview
-
+![Zoomies Preview Desktop Search 1 Filter](DesktopSearch1Filter.gif "Zoomies search with 1 filter on desktop preview")
+![Zoomies Preview Desktop Search Remove Filter Chips](DesktopSearchRemoveChips.gif "Zoomies desktop search remove filter chips preview")
+![Zoomies Preview Desktop Search With 3 Filters](Desktop3FiltersNextPage.gif "Zoomies desktop search with 3 filters click to next page preview")
+![Zoomies Preview iPhone About Page](AboutIphoneXSMax.gif "Zoomies iphone about page preview")
+![Zoomies Preview iPhone Homepage](HomepageIphone11.gif "Zoomies iphone homepage preview")
 
 ### Development
 - Node.js 10 or higher
