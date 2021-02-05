@@ -20,7 +20,7 @@ Try the app live [here!](https://zoomies-pet-therapy.arlettepineda.com/)
 ## Features
 - Users can view list of all dogs
 - Users can filter by breed, age, and size
-- Users can view pages by URL
+- Users can page through results
 
 ## Preview
 ![Zoomies Preview Desktop Search 1 Filter](DesktopSearch1Filter.gif "Zoomies search with 1 filter on desktop preview")
