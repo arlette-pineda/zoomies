@@ -71,7 +71,7 @@ export default function DogList(props) {
   const [hasError, setErrors] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
-  const [paging, setPaging] = useState({});
+  const [paging, setPaging] = useState({ totalPages: 1, totalCount: 0 });
   const history = useHistory();
 
   const dogSearch = () => {
@@ -107,10 +107,8 @@ export default function DogList(props) {
   let startIndex = (page - 1) * limit + 1;
   let endIndex = page * limit;
 
-  if (paging) {
-    if (page === paging.totalPages) {
-      endIndex = paging.totalCount;
-    }
+  if (page === paging.totalPages) {
+    endIndex = paging.totalCount;
   }
 
   if (paging.totalCount === 0) {
