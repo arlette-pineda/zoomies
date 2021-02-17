@@ -42,9 +42,10 @@ export default function About() {
       <p className="about-us-p-lg">Hi there! Zoomies realizes that we are all going through difficult times right now
         and are missing some connection. We’d like to aid in that and why not do it with
         four-legged friends that are sure to leave a smile on anyone’s face!</p>
+      <p className="about-us-p-lg">Studies show that pet therapy helps alleviate stress and improve mood while producing a calming effect.</p>
       <p className="about-us-p-lg">Now you don’t have to worry whether far, allergic, or scared, we have a
         perfect little (or big!) buddy for everybody! </p>
-      <p className="about-us-p-lg">Volunteers at our partner organizations are ready to assist and our good boys
+      <p className="about-us-p-lg">Volunteers at our partner organizations are ready to assist with your virtual session and our good boys
         and girls are eager to meet you!</p>
       <Button variant="contained" component={Link} to='/search' className={`${classes.searchButtonStyle} search-button-style-lg`}>
         Find a Dog <NavigateNextRoundedIcon className={classes.iconStyling} />
