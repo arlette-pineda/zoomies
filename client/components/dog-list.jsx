@@ -128,7 +128,14 @@ export default function DogList(props) {
       />
       <Hidden lgUp>
         <div className={classes.resultsStyle}>
-          {paging.totalCount === 0
+          {/* { while (paging) {
+            paging.totalCount === 0
+              ? '0 results'
+              : !isLoading
+                ? (`${startIndex}-${endIndex} of ${paging.totalCount} results`)
+                : null}
+                } */}
+          {!isLoading && paging.totalCount === 0
             ? '0 results'
             : !isLoading
               ? (`${startIndex}-${endIndex} of ${paging.totalCount} results`)
