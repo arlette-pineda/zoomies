@@ -107,9 +107,12 @@ export default function DogList(props) {
   let startIndex = (page - 1) * limit + 1;
   let endIndex = page * limit;
 
-  if (page === paging.totalPages) {
-    endIndex = paging.totalCount;
+  if (paging) {
+    if (page === paging.totalPages) {
+      endIndex = paging.totalCount;
+    }
   }
+
   if (paging.totalCount === 0) {
     startIndex = 0;
   }
