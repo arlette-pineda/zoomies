@@ -7,6 +7,7 @@ const Address = require('./address');
 const Photos = require('./photos');
 const Paging = require('./paging');
 const SearchResult = require('./search-result');
+const logger = require('./logger.js');
 let retryCount = 0;
 
 class PetfinderService {
@@ -35,7 +36,9 @@ class PetfinderService {
   }
 
   async getAnimals(breed, age, size, page, limit) {
+    logger.debug(`This is the request breed:${breed}, age:${age}, size:${size}`);
     const animalsResult = await client.animal.search({ type: 'dog', breed: breed, age: age, size: size, page: page, limit: limit });
+    logger.debug(animalsResult);
     const paging = new Paging(animalsResult.data.pagination.total_pages, animalsResult.data.pagination.total_count);
     const animals = animalsResult.data.animals.map(animal => {
       let photos = {};
@@ -60,6 +63,7 @@ class PetfinderService {
 
   async getBreed() {
     const breedResult = await client.animalData.breeds('dog');
+    logger.debug(breedResult);
     const breedData = breedResult.data.breeds;
     return breedData.map(breed => breed.name);
   }
