@@ -1,19 +1,18 @@
 require('dotenv/config');
 const express = require('express');
-const logger = require('./logger.js');
+// const logger = require('./logger.js');
 const app = express();
 const petfinderService = require('./petfinder-service');
 const pfService = new petfinderService();
 
 app.get('/api/health-check', (req, res, next) => {
-  logger.debug('Trying to debug');
+  // logger.debug('Trying to debug');
   return res.json({ message: 'select \'successfully connected\' as "message"' });
 });
 
 app.get('/api/dogs/:dogId', async (req, res, next) => {
   try {
     const animalResult = await pfService.getAnimal(req.params.dogId);
-
     return res.json(animalResult);
   } catch (error) {
     next(error);
@@ -23,7 +22,7 @@ app.get('/api/dogs/:dogId', async (req, res, next) => {
 app.get('/api/dogBreeds', async (req, res, next) => {
   try {
     const dogBreeds = await pfService.getBreed();
-    logger.debug(dogBreeds);
+    // logger.debug(dogBreeds);
     return res.json(dogBreeds);
   } catch (error) {
     next(error);
@@ -49,7 +48,8 @@ app.get('/errorTest', (req, res) => {
 });
 
 app.use((err, req, res, next) => {
-  logger.error(err);
+  // logger.error(err);
+  console.error(err);
   res.status(500).json({
     error: 'an unexpected error occurred'
   });
