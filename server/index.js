@@ -43,15 +43,20 @@ app.get('/api/search', async (req, res, next) => {
   }
 });
 
-app.get('/errorTest', (req, res) => {
-  throw new Error('I broke');
+app.get('/errorTest', (req, res, next) => {
+  try {
+    throw new Error('I broke');
+  } catch (error) {
+    next(error);
+  }
 });
 
 app.use((err, req, res, next) => {
   // logger.error(err);
-  console.error(err);
+  // console.error(err);
   res.status(500).json({
-    err
+    error: err.message,
+    stack: err.stack
   });
 });
 

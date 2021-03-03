@@ -90,13 +90,13 @@ export default function DogList(props) {
 
   useEffect(() => {
     const parsed = QueryString.parse(location.search);
-    setBreed(parsed.breed);
-    setAge(parsed.age);
-    setSize(parsed.size);
+    setBreed(parsed.breed || '');
+    setAge(parsed.age || '');
+    setSize(parsed.size || '');
     setPage(parseInt(parsed.page || 1));
-    setLocalBreed(parsed.breed);
-    setLocalAge(parsed.age);
-    setLocalSize(parsed.size);
+    setLocalBreed(parsed.breed || '');
+    setLocalAge(parsed.age || '');
+    setLocalSize(parsed.size || '');
   }, []);
 
   useEffect(() => {
