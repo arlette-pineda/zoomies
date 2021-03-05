@@ -1,40 +1,41 @@
 import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    // width: '90vw',
-    // display: 'flex',
-    // justifyContent: 'center'
-    // flexDirection: 'column'
-    margin: theme.spacing(3)
+    margin: theme.spacing(3),
+    backgroundColor: theme.palette.primary.main
   },
   containerOne: {
     backgroundColor: '#cfe8fc',
     height: '30vh'
   },
   containerTwo: {
-    backgroundColor: '#cfffe2',
     height: '15vh',
-    borderRadius: '40px'
+    borderRadius: '40px',
+    paddingLeft: '20px',
+    backgroundColor: 'white'
   },
   containerThree: {
     backgroundColor: '#ffcff5',
-    height: '40vh'
+    height: '35vh',
+    borderRadius: '40px 40px 0 0',
+    paddingLeft: '20px'
   },
   containerFour: {
     backgroundColor: '#ffe1cf',
-    height: '30vh'
+    height: '30vh',
+    paddingLeft: '20px'
   },
   testOne: {
-    backgroundColor: '#ffe1cf'
+    backgroundColor: 'white',
+    borderRadius: '40px 0 0 40px'
   },
   testTwo: {
-    backgroundColor: '#fff2cf'
+    backgroundColor: theme.palette.secondary.main,
+    borderRadius: '0 40px 40px 0'
   }
 }));
 
@@ -42,15 +43,17 @@ export default function DogDetails(props) {
 
   const classes = useStyles();
   return (
-    <div className={classes.root}>
-      <Grid container justify="center">
+    <div className={classes.root} id="content-wrap">
+      <Grid container>
         <Grid item xs={12} className={classes.containerOne}>Photos</Grid>
         <Grid container item xs={12} className={classes.containerTwo}>
           <Grid item xs={8} className={classes.testOne}>
-            <div>Dog Name</div>
-            <div>Dog Breed</div>
+            <h2>Dog Name</h2>
+            <h3>Dog Breed</h3>
           </Grid>
-          <Grid item xs={4} className={classes.testTwo}>Schedule Meet!</Grid>
+          <Grid item xs={4} className={classes.testTwo}>
+            <h3>Schedule Meet!</h3>
+          </Grid>
         </Grid>
         <Grid item xs={12} className={classes.containerThree}>
           <h3>Details</h3>
