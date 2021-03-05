@@ -43,13 +43,6 @@ export default function DogDetails(props) {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      {/* <Button >Hello</Button>
-      <Container className={classes.containerOne}>
-        <Typography component="div"/>Container 1</Container>
-      <Container maxWidth="sm" className={classes.containerTwo}>
-        <Typography component="div"/>Container 2</Container>
-      <Container maxWidth="sm" className={classes.containerThree}>
-        <Typography component="div"/>Container 3</Container> */}
       <Grid container justify="center">
         <Grid item xs={12} className={classes.containerOne}>Photos</Grid>
         <Grid container item xs={12} className={classes.containerTwo}>
@@ -59,12 +52,20 @@ export default function DogDetails(props) {
           </Grid>
           <Grid item xs={4} className={classes.testTwo}>Schedule Meet!</Grid>
         </Grid>
-        <Grid item xs={12} className={classes.containerThree}>Dog Stats
+        <Grid item xs={12} className={classes.containerThree}>
+          <h3>Details</h3>
           <div>
-            <p></p>
+            <p>Size: </p>
+            <p>Gender: </p>
+            <p>Age: </p>
+            <p>Coat: </p>
+            <p>Color: </p>
+            <p>Location: </p>
           </div>
         </Grid>
-        <Grid item xs={12} className={classes.containerFour}>Dog About</Grid>
+        <Grid item xs={12} className={classes.containerFour}>
+          <h3>About Me</h3>
+        </Grid>
       </Grid>
     </div>
   );
