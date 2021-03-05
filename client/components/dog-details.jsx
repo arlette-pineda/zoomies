@@ -53,10 +53,17 @@ export default function DogDetails(props) {
       <Grid container justify="center">
         <Grid item xs={12} className={classes.containerOne}>Photos</Grid>
         <Grid container item xs={12} className={classes.containerTwo}>
-          <Grid item xs={8} className={classes.testOne}>Hellow</Grid>
-          <Grid item xs={4} className={classes.testTwo}>Hellow</Grid>
+          <Grid item xs={8} className={classes.testOne}>
+            <div>Dog Name</div>
+            <div>Dog Breed</div>
+          </Grid>
+          <Grid item xs={4} className={classes.testTwo}>Schedule Meet!</Grid>
         </Grid>
-        <Grid item xs={12} className={classes.containerThree}>Dog Stats</Grid>
+        <Grid item xs={12} className={classes.containerThree}>Dog Stats
+          <div>
+            <p></p>
+          </div>
+        </Grid>
         <Grid item xs={12} className={classes.containerFour}>Dog About</Grid>
       </Grid>
     </div>
