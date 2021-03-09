@@ -49,10 +49,19 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function DogDetails(props) {
-
   const classes = useStyles();
-
   const { dogId } = useParams();
+  const [thisDog, setThisDog] = useState(null);
+
+  const getDogId = () => {
+    fetch(`/api/dogs/${dogId}`)
+      .then(response => response.json())
+      .then(res => {
+        setThisDog(res);
+      });
+  };
+
+  // getDogId();
 
   return (
     <div id="content-wrap">
