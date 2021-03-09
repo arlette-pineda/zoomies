@@ -47,7 +47,7 @@ class PetfinderService {
       }
       return new Dog(animal.id, animal.name, animal.breeds, animal.age, animal.size,
         animal.description, new Address(animal.contact.address.city, animal.contact.address.state), animal.gender, animal.coat,
-        animal.colors, animal.tags, photos);
+        animal.colors, animal.tags, photos, animal.url);
     }
     );
     return new SearchResult(paging, animals);
@@ -58,7 +58,9 @@ class PetfinderService {
     const animalData = animalResult.data.animal;
     return new Dog(animalData.id, animalData.name, animalData.breeds, animalData.age, animalData.size,
       animalData.description, new Address(animalData.contact.address.city, animalData.contact.address.state), animalData.gender, animalData.coat,
-      animalData.colors, animalData.tags, new Photos(animalData.photos[0].small, animalData.photos[0].medium, animalData.photos[0].large, animalData.photos[0].full));
+      animalData.colors, animalData.tags, null, animalData.url
+      // new Photos(animalData.photos[0].small, animalData.photos[0].medium, animalData.photos[0].large, animalData.photos[0].full)
+    );
   }
 
   async getBreed() {
