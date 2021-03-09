@@ -5,6 +5,7 @@ import Home from './home';
 import About from './about';
 import DogList from './dog-list';
 import Footer from './footer';
+import DogDetails from './dog-details';
 
 export default class App extends React.Component {
 
@@ -17,6 +18,7 @@ export default class App extends React.Component {
             <Route path="/" exact component={Home}/>
             <Route path="/about" component={About} />
             <Route path="/search" component={DogList} />
+            <Route path="/dog-details/:dogId" component={DogDetails}/>
           </div>
         </Router>
         <Footer/>
