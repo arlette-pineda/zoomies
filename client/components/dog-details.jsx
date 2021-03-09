@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import { useParams } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -27,7 +28,8 @@ const useStyles = makeStyles(theme => ({
   aboutMeSection: {
     backgroundColor: '#ffe1cf',
     height: '30vh',
-    paddingLeft: '30px'
+    paddingLeft: '30px',
+    borderRadius: '0 0 25px 25px'
   },
   nameSub: {
     backgroundColor: 'white',
@@ -49,15 +51,17 @@ const useStyles = makeStyles(theme => ({
 export default function DogDetails(props) {
 
   const classes = useStyles();
+
+  const { dogId } = useParams();
+
   return (
     <div id="content-wrap">
       <div className={classes.photosSection}>Photos</div>
       <div className={classes.root} >
         <Grid container >
-          {/* <Grid item xs={12} className={classes.photosSection}>Photos</Grid> */}
           <Grid container item xs={12} className={classes.titleSection}>
             <Grid item xs={8} className={classes.nameSub}>
-              <h2>Dog Name</h2>
+              <h2>Dog Name {dogId} </h2>
               <h3>Dog Breed</h3>
             </Grid>
             <Grid item xs={4} className={classes.scheduleArea}>
