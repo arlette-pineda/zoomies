@@ -96,6 +96,7 @@ export default function DogDetails(props) {
             <Grid item xs={12} className={classes.aboutMeSection}>
               <h2>About Me </h2>
               <p>{thisDog.description}</p>
+              <a href={thisDog.url} target="_blank" rel="noopener noreferrer">Adopt Me</a>
             </Grid>
           </Grid>
         </div>
