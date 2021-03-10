@@ -13,21 +13,23 @@ const useStyles = makeStyles(theme => ({
     height: '30vh'
   },
   titleSection: {
-    height: '12vh',
+    // height: '12vh',
     borderRadius: '25px',
-    marginBottom: '35px',
+    // marginBottom: '35px',
     marginTop: '-55px',
     filter: 'drop-shadow(0 2mm 1mm lightgray)'
   },
   detailsSection: {
     backgroundColor: 'white',
-    height: '35vh',
+    minHeight: '35vh',
     borderRadius: '25px 25px 0 0',
-    paddingLeft: '30px'
+    paddingLeft: '30px',
+    paddingRight: '30px',
+    marginTop: '30px'
   },
   aboutMeSection: {
     backgroundColor: 'white',
-    height: '30vh',
+    minHeight: '30vh',
     paddingLeft: '30px',
     paddingRight: '30px',
     borderRadius: '0 0 25px 25px',
@@ -44,7 +46,8 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.secondary.main,
     borderRadius: '0 25px 25px 0',
     textAlign: 'center',
-    paddingTop: '10px'
+    display: 'flex',
+    alignItems: 'center'
   },
   detailItems: {
     textShadow: '0 6px 14px #454545a1',
@@ -58,7 +61,9 @@ const useStyles = makeStyles(theme => ({
     letterSpacing: 'normal'
   },
   secondaryBreedStyle: {
-    marginTop: '3px'
+    display: 'block',
+    marginTop: '3px',
+    fontSize: '.9rem'
   },
   detailSpans: {
     textShadow: 'none',
@@ -93,14 +98,16 @@ export default function DogDetails(props) {
   if (thisDog != null) {
     return (
       <div id="content-wrap">
-        <div className={classes.photosSection}>Photos</div>
+        <div className={classes.photosSection}>
+          <img src={thisDog.photos[0].medium} alt=""/>
+        </div>
         <div className={classes.root} >
           <Grid container >
             <Grid container item xs={12} className={classes.titleSection}>
               <Grid item xs={8} className={classes.nameSub}>
                 <h2>{thisDog.name}</h2>
                 <h3 className={classes.breedsStyle}>{thisDog.breed.primary}
-                  {(thisDog.breed.secondary) ? <h5 className={classes.secondaryBreedStyle}> & {thisDog.breed.secondary}</h5>
+                  {(thisDog.breed.secondary) ? <span className={classes.secondaryBreedStyle}> & {thisDog.breed.secondary}</span>
                     : null} </h3>
               </Grid>
               <Grid item xs={4} className={classes.scheduleArea}>
