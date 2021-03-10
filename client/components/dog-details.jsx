@@ -62,8 +62,8 @@ const useStyles = makeStyles(theme => ({
   },
   secondaryBreedStyle: {
     display: 'block',
-    marginTop: '3px',
-    fontSize: '.9rem'
+    // marginTop: '3px',
+    fontSize: '.85rem'
   },
   detailSpans: {
     textShadow: 'none',
