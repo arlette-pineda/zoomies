@@ -4,6 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { useParams } from 'react-router-dom';
 import { Button } from '@material-ui/core';
+import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
+import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -79,6 +81,19 @@ const useStyles = makeStyles(theme => ({
   descriptionStyle: {
     fontSize: '0.95rem',
     color: '#5b5959'
+  },
+  urlButtonStyling: {
+    backgroundColor: theme.palette.secondary.main,
+    borderRadius: '25px',
+    marginBottom: '7%'
+  },
+  adoptUrlStyling: {
+    letterSpacing: '1px',
+    textDecoration: 'none',
+    color: 'black',
+    padding: '0px 5px',
+    display: 'flex',
+    textTransform: 'none'
   }
 }));
 
@@ -134,7 +149,7 @@ export default function DogDetails(props) {
             <Grid item xs={12} className={classes.aboutMeSection}>
               <h2>About Me </h2>
               <p className={classes.descriptionStyle}>{thisDog.description}</p>
-              <Button><a href={thisDog.url} target="_blank" rel="noopener noreferrer">Adopt Me</a></Button>
+              <Button className={classes.urlButtonStyling}><a href={thisDog.url} className={classes.adoptUrlStyling} target="_blank" rel="noopener noreferrer"><KeyboardArrowRightIcon /> Adopt Me <KeyboardArrowLeftIcon /></a></Button>
             </Grid>
           </Grid>
         </div>
