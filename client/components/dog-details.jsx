@@ -3,14 +3,20 @@ import { makeStyles } from '@material-ui/core/styles';
 // import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import { useParams } from 'react-router-dom';
+import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
     margin: theme.spacing(3)
   },
   photosSection: {
-    backgroundColor: '#cfe8fc',
-    height: '30vh'
+    backgroundColor: '#e5e5e5',
+    height: '40vh',
+    display: 'flex',
+    justifyContent: 'center'
+  },
+  imgStyling: {
+    height: '40vh'
   },
   titleSection: {
     // height: '12vh',
@@ -99,7 +105,7 @@ export default function DogDetails(props) {
     return (
       <div id="content-wrap">
         <div className={classes.photosSection}>
-          <img src={thisDog.photos[0].medium} alt=""/>
+          <img className={classes.imgStyling} src={thisDog.photos[0].medium} alt=""/>
         </div>
         <div className={classes.root} >
           <Grid container >
@@ -128,7 +134,7 @@ export default function DogDetails(props) {
             <Grid item xs={12} className={classes.aboutMeSection}>
               <h2>About Me </h2>
               <p className={classes.descriptionStyle}>{thisDog.description}</p>
-              <a href={thisDog.url} target="_blank" rel="noopener noreferrer">Adopt Me</a>
+              <Button><a href={thisDog.url} target="_blank" rel="noopener noreferrer">Adopt Me</a></Button>
             </Grid>
           </Grid>
         </div>
