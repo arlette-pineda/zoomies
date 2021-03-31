@@ -82,6 +82,10 @@ const useStyles = makeStyles(theme => ({
     fontSize: '0.95rem',
     color: '#5b5959'
   },
+  adoptDiv: {
+    display: 'flex',
+    justifyContent: 'center'
+  },
   urlButtonStyling: {
     backgroundColor: theme.palette.secondary.main,
     borderRadius: '25px',
@@ -120,7 +124,10 @@ export default function DogDetails(props) {
     return (
       <div id="content-wrap">
         <div className={classes.photosSection}>
-          <img className={classes.imgStyling} src={thisDog.photos[0].medium} alt=""/>
+          <img className={classes.imgStyling} src={(thisDog.photos.length !== 0) ? thisDog.photos[0].medium : '/images/doge-edited.png'} alt=""/>
+          {/* {(props.dog.photos.length !== 0) ? props.dog.photos[0].medium : '/images/doge-edited.png'} */}
+          {/* src={(thisDog.photos.length !== 0) ? thisDog.photos[0].medium : '/images/doge-edited.png'} */}
+          {/* <img src="/images" alt=""/> */}
         </div>
         <div className={classes.root} >
           <Grid container >
@@ -149,7 +156,9 @@ export default function DogDetails(props) {
             <Grid item xs={12} className={classes.aboutMeSection}>
               <h2>About Me </h2>
               <p className={classes.descriptionStyle}>{thisDog.description}</p>
-              <Button className={classes.urlButtonStyling}><a href={thisDog.url} className={classes.adoptUrlStyling} target="_blank" rel="noopener noreferrer"><KeyboardArrowRightIcon /> Adopt Me <KeyboardArrowLeftIcon /></a></Button>
+              <div className={classes.adoptDiv}>
+                <Button className={classes.urlButtonStyling}><a href={thisDog.url} className={classes.adoptUrlStyling} target="_blank" rel="noopener noreferrer"><KeyboardArrowRightIcon /> Adopt Me <KeyboardArrowLeftIcon /></a></Button>
+              </div>
             </Grid>
           </Grid>
         </div>
