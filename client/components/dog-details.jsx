@@ -106,12 +106,15 @@ export default function DogDetails(props) {
   const { dogId } = useParams();
   const [thisDog, setThisDog] = useState(null);
   const [hasError, setErrors] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const getDogId = () => {
+    setIsLoading(true);
     fetch(`/api/dogs/${dogId}`)
       .then(response => response.json())
       .then(res => {
         setThisDog(res);
+        setIsLoading(false);
       })
       .catch(() => setErrors(true));
   };
