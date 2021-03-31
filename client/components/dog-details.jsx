@@ -132,53 +132,50 @@ export default function DogDetails(props) {
     getDogId();
   }, [dogId]);
 
-  // if (isLoading) {
-  return <div className={classes.progressDiv}><CircularProgress className={classes.progressCircle} /></div>;
-  // } else if (thisDog != null) {
-  //   return (
-  //     <div id="content-wrap">
-  //       <div className={classes.photosSection}>
-  //         <img className={classes.imgStyling} src={(thisDog.photos.length !== 0) ? thisDog.photos[0].medium : '/images/doge-edited.png'} alt=""/>
-  //         {/* {(props.dog.photos.length !== 0) ? props.dog.photos[0].medium : '/images/doge-edited.png'} */}
-  //         {/* src={(thisDog.photos.length !== 0) ? thisDog.photos[0].medium : '/images/doge-edited.png'} */}
-  //         {/* <img src="/images" alt=""/> */}
-  //       </div>
-  //       <div className={classes.root} >
-  //         <Grid container >
-  //           <Grid container item xs={12} className={classes.titleSection}>
-  //             <Grid item xs={8} className={classes.nameSub}>
-  //               <h2>{thisDog.name}</h2>
-  //               <h3 className={classes.breedsStyle}>{thisDog.breed.primary}
-  //                 {(thisDog.breed.secondary) ? <span className={classes.secondaryBreedStyle}> & {thisDog.breed.secondary}</span>
-  //                   : null} </h3>
-  //             </Grid>
-  //             <Grid item xs={4} className={classes.scheduleArea}>
-  //               <h3>Schedule Meet!</h3>
-  //             </Grid>
-  //           </Grid>
-  //           <Grid item xs={12} className={classes.detailsSection}>
-  //             <h2>Details</h2>
-  //             <div className={classes.detailItems}>
-  //               <p>Age: <span className={classes.detailSpans}>   {thisDog.age}</span></p>
-  //               <p>Size: <span className={classes.detailSpans}>   {thisDog.size}</span></p>
-  //               <p>Coat: <span className={classes.detailSpans}>  {thisDog.coat}</span></p>
-  //               <p>Color: <span className={classes.detailSpans}>   {thisDog.color.primary}</span></p>
-  //               <p>Gender: <span className={classes.detailSpans}>   {thisDog.gender}</span></p>
-  //               <p>Location: <span className={classes.detailSpans}>   {thisDog.location.city}, {thisDog.location.state}</span></p>
-  //             </div>
-  //           </Grid>
-  //           <Grid item xs={12} className={classes.aboutMeSection}>
-  //             <h2>About Me </h2>
-  //             <p className={classes.descriptionStyle}>{thisDog.description}</p>
-  //             <div className={classes.adoptDiv}>
-  //               <Button className={classes.urlButtonStyling}><a href={thisDog.url} className={classes.adoptUrlStyling} target="_blank" rel="noopener noreferrer"><KeyboardArrowRightIcon /> Adopt Me <KeyboardArrowLeftIcon /></a></Button>
-  //             </div>
-  //           </Grid>
-  //         </Grid>
-  //       </div>
-  //     </div>
-  //   );
-  // } else {
-  // return (null);
-  // }
+  if (isLoading) {
+    return <div className={classes.progressDiv}><CircularProgress className={classes.progressCircle} /></div>;
+  } else if (thisDog != null) {
+    return (
+      <div id="content-wrap">
+        <div className={classes.photosSection}>
+          <img className={classes.imgStyling} src={(thisDog.photos.length !== 0) ? thisDog.photos[0].medium : '/images/doge-edited.png'} alt=""/>
+        </div>
+        <div className={classes.root} >
+          <Grid container >
+            <Grid container item xs={12} className={classes.titleSection}>
+              <Grid item xs={8} className={classes.nameSub}>
+                <h2>{thisDog.name}</h2>
+                <h3 className={classes.breedsStyle}>{thisDog.breed.primary}
+                  {(thisDog.breed.secondary) ? <span className={classes.secondaryBreedStyle}> & {thisDog.breed.secondary}</span>
+                    : null} </h3>
+              </Grid>
+              <Grid item xs={4} className={classes.scheduleArea}>
+                <h3>Schedule Meet!</h3>
+              </Grid>
+            </Grid>
+            <Grid item xs={12} className={classes.detailsSection}>
+              <h2>Details</h2>
+              <div className={classes.detailItems}>
+                <p>Age: <span className={classes.detailSpans}>   {thisDog.age}</span></p>
+                <p>Size: <span className={classes.detailSpans}>   {thisDog.size}</span></p>
+                <p>Coat: <span className={classes.detailSpans}>  {thisDog.coat}</span></p>
+                <p>Color: <span className={classes.detailSpans}>   {thisDog.color.primary}</span></p>
+                <p>Gender: <span className={classes.detailSpans}>   {thisDog.gender}</span></p>
+                <p>Location: <span className={classes.detailSpans}>   {thisDog.location.city}, {thisDog.location.state}</span></p>
+              </div>
+            </Grid>
+            <Grid item xs={12} className={classes.aboutMeSection}>
+              <h2>About Me </h2>
+              <p className={classes.descriptionStyle}>{thisDog.description}</p>
+              <div className={classes.adoptDiv}>
+                <Button className={classes.urlButtonStyling}><a href={thisDog.url} className={classes.adoptUrlStyling} target="_blank" rel="noopener noreferrer"><KeyboardArrowRightIcon /> Adopt Me <KeyboardArrowLeftIcon /></a></Button>
+              </div>
+            </Grid>
+          </Grid>
+        </div>
+      </div>
+    );
+  } else {
+    return (null);
+  }
 }
