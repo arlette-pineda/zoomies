@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-// import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import { useParams } from 'react-router-dom';
 import { Button } from '@material-ui/core';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 
@@ -18,7 +19,18 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center'
   },
   imgStyling: {
-    height: '40vh'
+    height: '40vh',
+    position: 'relative'
+  },
+  backButtonStyling: {
+    backgroundColor: 'white',
+    height: '50px',
+    width: '50px',
+    minWidth: '50px',
+    top: '90px',
+    borderRadius: '30px',
+    position: 'absolute',
+    left: '30px'
   },
   titleSection: {
     // height: '12vh',
@@ -82,6 +94,10 @@ const useStyles = makeStyles(theme => ({
     fontSize: '0.95rem',
     color: '#5b5959'
   },
+  adoptDiv: {
+    display: 'flex',
+    justifyContent: 'center'
+  },
   urlButtonStyling: {
     backgroundColor: theme.palette.secondary.main,
     borderRadius: '25px',
@@ -94,6 +110,15 @@ const useStyles = makeStyles(theme => ({
     padding: '0px 5px',
     display: 'flex',
     textTransform: 'none'
+  },
+  progressDiv: {
+    height: '60vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  progressCircle: {
+    color: 'grey'
   }
 }));
 
@@ -102,12 +127,15 @@ export default function DogDetails(props) {
   const { dogId } = useParams();
   const [thisDog, setThisDog] = useState(null);
   const [hasError, setErrors] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const getDogId = () => {
+    // setIsLoading(false);
     fetch(`/api/dogs/${dogId}`)
       .then(response => response.json())
       .then(res => {
         setThisDog(res);
+        setIsLoading(false);
       })
       .catch(() => setErrors(true));
   };
@@ -116,11 +144,14 @@ export default function DogDetails(props) {
     getDogId();
   }, [dogId]);
 
-  if (thisDog != null) {
+  if (isLoading) {
+    return <div className={classes.progressDiv}><CircularProgress className={classes.progressCircle} /></div>;
+  } else if (thisDog != null) {
     return (
       <div id="content-wrap">
         <div className={classes.photosSection}>
-          <img className={classes.imgStyling} src={thisDog.photos[0].medium} alt=""/>
+          <img className={classes.imgStyling} src={(thisDog.photos.length !== 0) ? thisDog.photos[0].medium : '/images/doge-edited.png'} alt=""/>
+          <Button className={classes.backButtonStyling}><ArrowBackIcon/></Button>
         </div>
         <div className={classes.root} >
           <Grid container >
@@ -149,7 +180,11 @@ export default function DogDetails(props) {
             <Grid item xs={12} className={classes.aboutMeSection}>
               <h2>About Me </h2>
               <p className={classes.descriptionStyle}>{thisDog.description}</p>
-              <Button className={classes.urlButtonStyling}><a href={thisDog.url} className={classes.adoptUrlStyling} target="_blank" rel="noopener noreferrer"><KeyboardArrowRightIcon /> Adopt Me <KeyboardArrowLeftIcon /></a></Button>
+              <div className={classes.adoptDiv}>
+                <Button className={classes.urlButtonStyling}><a href={thisDog.url} className={classes.adoptUrlStyling} target="_blank" rel="noopener noreferrer">
+                  <KeyboardArrowRightIcon /> Adopt Me <KeyboardArrowLeftIcon /></a>
+                </Button>
+              </div>
             </Grid>
           </Grid>
         </div>
