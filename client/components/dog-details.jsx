@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import { useParams } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 
@@ -18,7 +19,18 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center'
   },
   imgStyling: {
-    height: '40vh'
+    height: '40vh',
+    position: 'relative'
+  },
+  backButtonStyling: {
+    backgroundColor: 'white',
+    height: '50px',
+    width: '50px',
+    minWidth: '50px',
+    top: '90px',
+    borderRadius: '30px',
+    position: 'absolute',
+    left: '30px'
   },
   titleSection: {
     // height: '12vh',
@@ -139,6 +151,7 @@ export default function DogDetails(props) {
       <div id="content-wrap">
         <div className={classes.photosSection}>
           <img className={classes.imgStyling} src={(thisDog.photos.length !== 0) ? thisDog.photos[0].medium : '/images/doge-edited.png'} alt=""/>
+          <Button className={classes.backButtonStyling}><ArrowBackIcon/></Button>
         </div>
         <div className={classes.root} >
           <Grid container >
@@ -168,7 +181,9 @@ export default function DogDetails(props) {
               <h2>About Me </h2>
               <p className={classes.descriptionStyle}>{thisDog.description}</p>
               <div className={classes.adoptDiv}>
-                <Button className={classes.urlButtonStyling}><a href={thisDog.url} className={classes.adoptUrlStyling} target="_blank" rel="noopener noreferrer"><KeyboardArrowRightIcon /> Adopt Me <KeyboardArrowLeftIcon /></a></Button>
+                <Button className={classes.urlButtonStyling}><a href={thisDog.url} className={classes.adoptUrlStyling} target="_blank" rel="noopener noreferrer">
+                  <KeyboardArrowRightIcon /> Adopt Me <KeyboardArrowLeftIcon /></a>
+                </Button>
               </div>
             </Grid>
           </Grid>
