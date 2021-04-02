@@ -37,6 +37,7 @@ body {
 .about-us-p-lg {
   color: #575555;
   font-weight: 500;
+  margin-bottom: 2rem;
 }
 
 .MuiToolbar-root {
@@ -150,6 +151,11 @@ body {
 @media (min-width: 1280px){
   #content-wrap {
     width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #about-content-wrap {
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
   }
