@@ -5,8 +5,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
-import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
+import PetsIcon from '@material-ui/icons/Pets';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -152,6 +151,12 @@ export default function DogDetails(props) {
   if (isLoading) {
     return <div className={classes.progressDiv}><CircularProgress className={classes.progressCircle} /></div>;
   } else if (thisDog != null) {
+    let doggieDescription = thisDog.description;
+    if (doggieDescription) {
+      doggieDescription = doggieDescription.replaceAll('&amp;#34;', '"').replaceAll('&amp;#39;', "'")
+        .replaceAll('&#039;', "'").replaceAll('&amp;amp;', '&').replaceAll('&amp;', '&');
+    }
+
     return (
       <div id="content-wrap">
         <div className={classes.photosSection}>
@@ -183,11 +188,12 @@ export default function DogDetails(props) {
               </div>
             </Grid>
             <Grid item xs={12} className={classes.aboutMeSection}>
-              <h2>About Me </h2>
-              <p className={classes.descriptionStyle}>{thisDog.description}</p>
+              <h2>About </h2>
+              <p className={classes.descriptionStyle}>{doggieDescription}</p>
               <div className={classes.adoptDiv}>
-                <Button className={classes.urlButtonStyling}><a href={thisDog.url} className={classes.adoptUrlStyling} target="_blank" rel="noopener noreferrer">
-                  <KeyboardArrowRightIcon /> Adopt Me <KeyboardArrowLeftIcon /></a>
+                <Button className={classes.urlButtonStyling}>
+                  <a href={thisDog.url} className={classes.adoptUrlStyling} target="_blank" rel="noopener noreferrer">
+                  Adopt Me <PetsIcon fontSize="small" /></a>
                 </Button>
               </div>
             </Grid>
