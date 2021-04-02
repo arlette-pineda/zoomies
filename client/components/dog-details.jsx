@@ -40,15 +40,15 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: 'white',
     minHeight: '35vh',
     borderRadius: '25px 25px 0 0',
-    paddingLeft: '30px',
-    paddingRight: '30px',
+    paddingLeft: '25px',
+    paddingRight: '25px',
     marginTop: '30px'
   },
   aboutMeSection: {
     backgroundColor: 'white',
     minHeight: '30vh',
-    paddingLeft: '30px',
-    paddingRight: '30px',
+    paddingLeft: '25px',
+    paddingRight: '25px',
     borderRadius: '0 0 25px 25px',
     filter: 'drop-shadow(0 2mm 0.3mm lightgray)'
   },
@@ -87,7 +87,7 @@ const useStyles = makeStyles(theme => ({
     paddingLeft: '10px'
   },
   descriptionStyle: {
-    fontSize: '0.95rem',
+    fontSize: '0.9rem',
     color: '#5b5959'
   },
   adoptDiv: {
