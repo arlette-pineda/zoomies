@@ -32,9 +32,7 @@ const useStyles = makeStyles(theme => ({
     left: '30px'
   },
   titleSection: {
-    // height: '12vh',
     borderRadius: '25px',
-    // marginBottom: '35px',
     marginTop: '-55px',
     filter: 'drop-shadow(0 2mm 1mm lightgray)'
   },
@@ -81,7 +79,6 @@ const useStyles = makeStyles(theme => ({
   },
   secondaryBreedStyle: {
     display: 'block',
-    // marginTop: '3px',
     fontSize: '.85rem'
   },
   detailSpans: {
@@ -130,7 +127,6 @@ export default function DogDetails(props) {
   const [isLoading, setIsLoading] = useState(true);
 
   const getDogId = () => {
-    // setIsLoading(false);
     fetch(`/api/dogs/${dogId}`)
       .then(response => response.json())
       .then(res => {
