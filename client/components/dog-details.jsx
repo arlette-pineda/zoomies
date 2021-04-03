@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
     borderRadius: '25px 25px 0 0',
     paddingLeft: '25px',
     paddingRight: '25px',
-    marginTop: '30px'
+    filter: 'drop-shadow(0 2mm 1mm lightgray)'
   },
   aboutMeSection: {
     backgroundColor: 'white',
@@ -53,7 +53,7 @@ const useStyles = makeStyles(theme => ({
     paddingLeft: '25px',
     paddingRight: '25px',
     borderRadius: '0 0 25px 25px',
-    filter: 'drop-shadow(0 2mm 0.3mm lightgray)'
+    filter: 'drop-shadow(0 2mm 1mm lightgray)'
   },
   nameSub: {
     backgroundColor: 'white',
@@ -123,7 +123,7 @@ const useStyles = makeStyles(theme => ({
   adSection: {
     border: '2px solid #fec700',
     borderRadius: '25px',
-    height: '400px',
+    height: '480px',
     backgroundColor: 'white',
     display: 'flex',
     justifyContent: 'center',
@@ -132,7 +132,6 @@ const useStyles = makeStyles(theme => ({
     padding: '0 30px',
     lineHeight: '1.5',
     fontSize: '1.1rem',
-    // filter: 'drop-shadow(0 2mm 0.3mm lightgray)'
     filter: 'drop-shadow(0 2mm 1mm lightgray)'
   },
   aboutH2: {
@@ -144,10 +143,17 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: '30px'
   },
   detailsH2: {
-    paddingTop: '15px'
+    paddingTop: '20px',
+    marginTop: 0
   },
   scheduleH3: {
     fontSize: 'large'
+  },
+  detailsAboutAd: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    marginTop: '30px',
+    marginBottom: '3%'
   }
 }));
 
@@ -191,7 +197,9 @@ export default function DogDetails(props) {
           <img className={classes.imgStyling} src={(thisDog.photos.length !== 0) ? thisDog.photos[0].medium : '/images/doge-edited.png'} alt=""/>
           <Button onClick={goBackToSearch} className={classes.backButtonStyling}><ArrowBackIcon/></Button>
         </div>
+
         <div className={classes.root} id="details-root-lg">
+
           <Grid container >
 
             <Grid container item xs={12} lg={10} className={classes.titleSection}>
@@ -206,38 +214,43 @@ export default function DogDetails(props) {
               </Grid>
             </Grid>
 
-            <Grid item lg={8} xs={12}>
+            <Grid item lg={12} className={classes.detailsAboutAd} >
 
-              <Grid item xs={12} className={classes.detailsSection}>
-                <h2 className={classes.detailsH2}>Details</h2>
-                <div className={classes.detailItems}>
-                  <p>Age: <span className={classes.detailSpans}>   {thisDog.age}</span></p>
-                  <p>Size: <span className={classes.detailSpans}>   {thisDog.size}</span></p>
-                  <p>Coat: <span className={classes.detailSpans}>  {thisDog.coat}</span></p>
-                  <p>Color: <span className={classes.detailSpans}>   {thisDog.color.primary}</span></p>
-                  <p>Gender: <span className={classes.detailSpans}>   {thisDog.gender}</span></p>
-                  <p className={classes.locationP}>Location: <span className={classes.detailSpans}>   {thisDog.location.city}, {thisDog.location.state}</span></p>
-                </div>
-              </Grid>
+              <Grid item lg={8} xs={12}>
 
-              <Grid item xs={12} className={classes.aboutMeSection}>
-                <h2 className={classes.aboutH2}>About </h2>
-                <p className={classes.descriptionStyle}>{doggieDescription}</p>
-                <div className={classes.adoptDiv}>
-                  <Button className={classes.urlButtonStyling}>
-                    <a href={thisDog.url} className={classes.adoptUrlStyling} target="_blank" rel="noopener noreferrer">
+                <Grid item xs={12} className={classes.detailsSection}>
+                  <h2 className={classes.detailsH2}>Details</h2>
+                  <div className={classes.detailItems}>
+                    <p>Age: <span className={classes.detailSpans}>   {thisDog.age}</span></p>
+                    <p>Size: <span className={classes.detailSpans}>   {thisDog.size}</span></p>
+                    <p>Coat: <span className={classes.detailSpans}>  {thisDog.coat}</span></p>
+                    <p>Color: <span className={classes.detailSpans}>   {thisDog.color.primary}</span></p>
+                    <p>Gender: <span className={classes.detailSpans}>   {thisDog.gender}</span></p>
+                    <p className={classes.locationP}>Location: <span className={classes.detailSpans}>   {thisDog.location.city}, {thisDog.location.state}</span></p>
+                  </div>
+                </Grid>
+
+                <Grid item xs={12} className={classes.aboutMeSection}>
+                  <h2 className={classes.aboutH2}>About </h2>
+                  <p className={classes.descriptionStyle}>{doggieDescription}</p>
+                  <div className={classes.adoptDiv}>
+                    <Button className={classes.urlButtonStyling}>
+                      <a href={thisDog.url} className={classes.adoptUrlStyling} target="_blank" rel="noopener noreferrer">
                   Adopt Me <PetsIcon fontSize="small" /></a>
-                  </Button>
-                </div>
-              </Grid>
-            </Grid>
-            <Hidden mdDown>
-              <Grid item lg={3}>
-                <Grid item className={classes.adSection}>
-                  <div>Hi this is something related to the website!</div>
+                    </Button>
+                  </div>
                 </Grid>
               </Grid>
-            </Hidden>
+
+              <Hidden mdDown>
+                <Grid item lg={3}>
+                  <Grid item className={classes.adSection}>
+                    <div>Hi this is something related to the website!</div>
+                  </Grid>
+                </Grid>
+              </Hidden>
+
+            </Grid>
 
           </Grid>
         </div>
