@@ -37,6 +37,7 @@ body {
 .about-us-p-lg {
   color: #575555;
   font-weight: 500;
+  margin-bottom: 2rem;
 }
 
 .MuiToolbar-root {
@@ -105,8 +106,11 @@ body {
     height: 1.5em;
   }
   /* body centering */
-  .makeStyles-root-6 {
-    margin: 0 auto;
+  /* .makeStyles-root-6 {
+
+  } */
+  #details-root-lg {
+   margin: 0 auto;
     width: 90%;
   }
   /* homepage img text lg */
@@ -150,6 +154,11 @@ body {
 @media (min-width: 1280px){
   #content-wrap {
     width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #about-content-wrap {
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
   }
