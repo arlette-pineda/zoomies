@@ -106,8 +106,11 @@ body {
     height: 1.5em;
   }
   /* body centering */
-  .makeStyles-root-6 {
-    margin: 0 auto;
+  /* .makeStyles-root-6 {
+
+  } */
+  #details-root-lg {
+   margin: 0 auto;
     width: 90%;
   }
   /* homepage img text lg */
