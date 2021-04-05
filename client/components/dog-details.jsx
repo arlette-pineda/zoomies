@@ -135,7 +135,7 @@ const useStyles = makeStyles(theme => ({
     filter: 'drop-shadow(0 2mm 1mm lightgray)'
   },
   aboutH2: {
-    marginTop: 0,
+    marginTop: '-1px',
     paddingTop: '5px'
   },
   locationP: {
@@ -204,7 +204,7 @@ export default function DogDetails(props) {
 
             <Grid container >
 
-              <Grid container item xs={12} lg={12} className={classes.titleSection}>
+              <Grid container item xs={12} md={12} className={classes.titleSection}>
                 <Grid item xs={8} className={classes.nameSub}>
                   <h2>{thisDog.name}</h2>
                   <h3 className={classes.breedsStyle}>{thisDog.breed.primary}
@@ -218,7 +218,7 @@ export default function DogDetails(props) {
 
               <Grid item lg={12} className={classes.detailsAboutAd} >
 
-                <Grid item lg={8} xs={12}>
+                <Grid item md={8} xs={12}>
 
                   <Grid item xs={12} className={classes.detailsSection}>
                     <h2 className={classes.detailsH2}>Details</h2>
@@ -244,8 +244,8 @@ export default function DogDetails(props) {
                   </Grid>
                 </Grid>
 
-                <Hidden mdDown>
-                  <Grid item lg={3}>
+                <Hidden smDown>
+                  <Grid item md={3}>
                     <Grid item className={classes.adSection}>
                       <div>Hi this is something related to the website!</div>
                     </Grid>
