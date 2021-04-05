@@ -192,67 +192,70 @@ export default function DogDetails(props) {
         .replaceAll('&#039;', "'").replaceAll('&amp;amp;', '&').replaceAll('&amp;', '&');
     }
     return (
-      <div id="content-wrap">
+      <div>
         <div className={classes.photosSection}>
           <img className={classes.imgStyling} src={(thisDog.photos.length !== 0) ? thisDog.photos[0].medium : '/images/doge-edited.png'} alt=""/>
           <Button onClick={goBackToSearch} className={classes.backButtonStyling}><ArrowBackIcon/></Button>
         </div>
 
-        <div className={classes.root} id="details-root-lg">
+        <div id="content-wrap">
 
-          <Grid container >
+          <div className={classes.root} id="details-root-lg">
 
-            <Grid container item xs={12} lg={10} className={classes.titleSection}>
-              <Grid item xs={8} className={classes.nameSub}>
-                <h2>{thisDog.name}</h2>
-                <h3 className={classes.breedsStyle}>{thisDog.breed.primary}
-                  {(thisDog.breed.secondary) ? <span className={classes.secondaryBreedStyle}> & {thisDog.breed.secondary}</span>
-                    : null} </h3>
-              </Grid>
-              <Grid item xs={4} className={classes.scheduleArea}>
-                <h3 className={classes.scheduleH3}>Schedule Meet!</h3>
-              </Grid>
-            </Grid>
+            <Grid container >
 
-            <Grid item lg={12} className={classes.detailsAboutAd} >
-
-              <Grid item lg={8} xs={12}>
-
-                <Grid item xs={12} className={classes.detailsSection}>
-                  <h2 className={classes.detailsH2}>Details</h2>
-                  <div className={classes.detailItems}>
-                    <p>Age: <span className={classes.detailSpans}>   {thisDog.age}</span></p>
-                    <p>Size: <span className={classes.detailSpans}>   {thisDog.size}</span></p>
-                    <p>Coat: <span className={classes.detailSpans}>  {thisDog.coat}</span></p>
-                    <p>Color: <span className={classes.detailSpans}>   {thisDog.color.primary}</span></p>
-                    <p>Gender: <span className={classes.detailSpans}>   {thisDog.gender}</span></p>
-                    <p className={classes.locationP}>Location: <span className={classes.detailSpans}>   {thisDog.location.city}, {thisDog.location.state}</span></p>
-                  </div>
+              <Grid container item xs={12} lg={12} className={classes.titleSection}>
+                <Grid item xs={8} className={classes.nameSub}>
+                  <h2>{thisDog.name}</h2>
+                  <h3 className={classes.breedsStyle}>{thisDog.breed.primary}
+                    {(thisDog.breed.secondary) ? <span className={classes.secondaryBreedStyle}> & {thisDog.breed.secondary}</span>
+                      : null} </h3>
                 </Grid>
+                <Grid item xs={4} className={classes.scheduleArea}>
+                  <h3 className={classes.scheduleH3}>Schedule Meet!</h3>
+                </Grid>
+              </Grid>
 
-                <Grid item xs={12} className={classes.aboutMeSection}>
-                  <h2 className={classes.aboutH2}>About </h2>
-                  <p className={classes.descriptionStyle}>{doggieDescription}</p>
-                  <div className={classes.adoptDiv}>
-                    <Button className={classes.urlButtonStyling}>
-                      <a href={thisDog.url} className={classes.adoptUrlStyling} target="_blank" rel="noopener noreferrer">
+              <Grid item lg={12} className={classes.detailsAboutAd} >
+
+                <Grid item lg={8} xs={12}>
+
+                  <Grid item xs={12} className={classes.detailsSection}>
+                    <h2 className={classes.detailsH2}>Details</h2>
+                    <div className={classes.detailItems}>
+                      <p>Age: <span className={classes.detailSpans}>   {thisDog.age}</span></p>
+                      <p>Size: <span className={classes.detailSpans}>   {thisDog.size}</span></p>
+                      <p>Coat: <span className={classes.detailSpans}>  {thisDog.coat}</span></p>
+                      <p>Color: <span className={classes.detailSpans}>   {thisDog.color.primary}</span></p>
+                      <p>Gender: <span className={classes.detailSpans}>   {thisDog.gender}</span></p>
+                      <p className={classes.locationP}>Location: <span className={classes.detailSpans}>   {thisDog.location.city}, {thisDog.location.state}</span></p>
+                    </div>
+                  </Grid>
+
+                  <Grid item xs={12} className={classes.aboutMeSection}>
+                    <h2 className={classes.aboutH2}>About </h2>
+                    <p className={classes.descriptionStyle}>{doggieDescription}</p>
+                    <div className={classes.adoptDiv}>
+                      <Button className={classes.urlButtonStyling}>
+                        <a href={thisDog.url} className={classes.adoptUrlStyling} target="_blank" rel="noopener noreferrer">
                   Adopt Me <PetsIcon fontSize="small" /></a>
-                    </Button>
-                  </div>
-                </Grid>
-              </Grid>
-
-              <Hidden mdDown>
-                <Grid item lg={3}>
-                  <Grid item className={classes.adSection}>
-                    <div>Hi this is something related to the website!</div>
+                      </Button>
+                    </div>
                   </Grid>
                 </Grid>
-              </Hidden>
+
+                <Hidden mdDown>
+                  <Grid item lg={3}>
+                    <Grid item className={classes.adSection}>
+                      <div>Hi this is something related to the website!</div>
+                    </Grid>
+                  </Grid>
+                </Hidden>
+
+              </Grid>
 
             </Grid>
-
-          </Grid>
+          </div>
         </div>
       </div>
     );
