@@ -154,6 +154,14 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'space-between',
     marginTop: '30px',
     marginBottom: '3%'
+  },
+  adImg: {
+    height: '480px',
+    maxWidth: '315px',
+    objectFit: 'cover',
+    borderRadius: '25px',
+    border: '2px solid #fec700',
+    objectPosition: '96%'
   }
 }));
 
@@ -224,10 +232,10 @@ export default function DogDetails(props) {
                     <h2 className={classes.detailsH2}>Details</h2>
                     <div className={classes.detailItems}>
                       <p>Age: <span className={classes.detailSpans}>   {thisDog.age}</span></p>
+                      <p>Sex: <span className={classes.detailSpans}>   {thisDog.gender}</span></p>
                       <p>Size: <span className={classes.detailSpans}>   {thisDog.size}</span></p>
                       <p>Coat: <span className={classes.detailSpans}>  {thisDog.coat}</span></p>
                       <p>Color: <span className={classes.detailSpans}>   {thisDog.color.primary}</span></p>
-                      <p>Gender: <span className={classes.detailSpans}>   {thisDog.gender}</span></p>
                       <p className={classes.locationP}>Location: <span className={classes.detailSpans}>   {thisDog.location.city}, {thisDog.location.state}</span></p>
                     </div>
                   </Grid>
@@ -238,7 +246,7 @@ export default function DogDetails(props) {
                     <div className={classes.adoptDiv}>
                       <Button className={classes.urlButtonStyling}>
                         <a href={thisDog.url} className={classes.adoptUrlStyling} target="_blank" rel="noopener noreferrer">
-                  Adopt Me <PetsIcon fontSize="small" /></a>
+                  More Info <PetsIcon fontSize="small" /></a>
                       </Button>
                     </div>
                   </Grid>
@@ -247,7 +255,9 @@ export default function DogDetails(props) {
                 <Hidden smDown>
                   <Grid item md={3}>
                     <Grid item className={classes.adSection}>
-                      <div>Hi this is something related to the website!</div>
+
+                      <img className={classes.adImg} src="/images/doggieAd.png" alt=""/>
+
                     </Grid>
                   </Grid>
                 </Hidden>
