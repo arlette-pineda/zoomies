@@ -147,7 +147,11 @@ const useStyles = makeStyles(theme => ({
     marginTop: 0
   },
   scheduleH3: {
-    fontSize: 'large'
+    textTransform: 'none',
+    fontFamily: theme.typography.fontFamily,
+    width: '100%',
+    height: '100%',
+    borderRadius: '0 25px 25px 0'
   },
   detailsAboutAd: {
     display: 'flex',
@@ -227,7 +231,10 @@ export default function DogDetails(props) {
                       : null} </h3>
                 </Grid>
                 <Grid item xs={4} className={classes.scheduleArea}>
-                  <h3 className={classes.scheduleH3}>Schedule Meet!</h3>
+                  <Button className={classes.scheduleH3}>
+                    <h3 >Schedule Meet!</h3>
+                  </Button>
+
                 </Grid>
               </Grid>
 
