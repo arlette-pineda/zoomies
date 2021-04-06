@@ -121,17 +121,17 @@ const useStyles = makeStyles(theme => ({
     color: 'grey'
   },
   adSection: {
-    border: '2px solid #fec700',
+    // border: '5px solid #fec700',
     borderRadius: '25px',
-    height: '480px',
+    height: '400px',
     backgroundColor: 'white',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center',
-    padding: '0 30px',
-    lineHeight: '1.5',
-    fontSize: '1.1rem',
+    // display: 'flex',
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    // textAlign: 'center',
+    // padding: '0 30px',
+    // lineHeight: '1.5',
+    // fontSize: '1.1rem',
     filter: 'drop-shadow(0 2mm 1mm lightgray)'
   },
   aboutH2: {
@@ -156,12 +156,12 @@ const useStyles = makeStyles(theme => ({
     marginBottom: '3%'
   },
   adImg: {
-    height: '480px',
-    maxWidth: '315px',
+    height: '100%',
+    width: '100%',
     objectFit: 'cover',
     borderRadius: '25px',
-    border: '2px solid #fec700',
-    objectPosition: '96%'
+    border: '5px solid #fec700'
+    // objectPosition: '96%'
   }
 }));
 
@@ -253,12 +253,12 @@ export default function DogDetails(props) {
                 </Grid>
 
                 <Hidden smDown>
-                  <Grid item md={3}>
-                    <Grid item className={classes.adSection}>
+                  <Grid item md={3} className={classes.adSection}>
+                    {/* <Grid item > */}
 
-                      <img className={classes.adImg} src="/images/doggieAd.png" alt=""/>
+                    <img className={classes.adImg} src="/images/doggie2.png" alt=""/>
 
-                    </Grid>
+                    {/* </Grid> */}
                   </Grid>
                 </Hidden>
 
