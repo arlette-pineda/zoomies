@@ -105,10 +105,11 @@ body {
     width: 1.5em;
     height: 1.5em;
   }
-  /* body centering */
-  /* .makeStyles-root-6 {
-
-  } */
+  /* back button sizing from top */
+  #back-button-lg {
+    top: 110px;
+    left: 40px;
+  }
   #details-root-lg {
    margin: 0 auto;
     width: 90%;
@@ -121,10 +122,6 @@ body {
   .img-style-lg {
     max-height: 355px;
   }
-  /* next/prev buttons margin */
-  /* .show-more-style-margin {
-    margin: 0 200px;
-  } */
 }
 
 @media (min-width: 960px){
@@ -156,6 +153,7 @@ body {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
+    max-width: 1000px;
   }
   #about-content-wrap {
     width: 60%;
