@@ -7,6 +7,8 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import PetsIcon from '@material-ui/icons/Pets';
 import Hidden from '@material-ui/core/Hidden';
+import Popover from '@material-ui/core/Popover';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -20,7 +22,6 @@ const useStyles = makeStyles(theme => ({
     minHeight: '260px'
   },
   imgStyling: {
-    height: '40vh',
     minHeight: '250px',
     position: 'relative'
   },
@@ -121,17 +122,9 @@ const useStyles = makeStyles(theme => ({
     color: 'grey'
   },
   adSection: {
-    // border: '5px solid #fec700',
     borderRadius: '25px',
     height: '400px',
     backgroundColor: 'white',
-    // display: 'flex',
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // textAlign: 'center',
-    // padding: '0 30px',
-    // lineHeight: '1.5',
-    // fontSize: '1.1rem',
     filter: 'drop-shadow(0 2mm 1mm lightgray)'
   },
   aboutH2: {
@@ -168,6 +161,12 @@ const useStyles = makeStyles(theme => ({
   },
   petIcon: {
     paddingLeft: '3px'
+  },
+  typography: {
+    padding: theme.spacing(2),
+    backgroundColor: '#e9e9e9',
+    textAlign: 'center',
+    maxWidth: '280px'
   }
 }));
 
@@ -178,6 +177,7 @@ export default function DogDetails(props) {
   const [thisDog, setThisDog] = useState(null);
   const [hasError, setErrors] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [showPopover, setShowPopover] = useState(null);
 
   const getDogId = () => {
     fetch(`/api/dogs/${dogId}`)
@@ -196,6 +196,17 @@ export default function DogDetails(props) {
   const goBackToSearch = () => {
     history.goBack();
   };
+
+  const handleClickPopover = event => {
+    setShowPopover(event.currentTarget);
+  };
+
+  const handleClosePopover = () => {
+    setShowPopover(null);
+  };
+
+  const open = Boolean(showPopover);
+  const id = open ? 'simple-popover' : undefined;
 
   if (isLoading) {
     return <div className={classes.progressDiv}><CircularProgress className={classes.progressCircle} /></div>;
@@ -231,9 +242,25 @@ export default function DogDetails(props) {
                       : null} </h3>
                 </Grid>
                 <Grid item xs={4} className={classes.scheduleArea}>
-                  <Button className={classes.scheduleH3}>
+                  <Button onClick={handleClickPopover} className={classes.scheduleH3}>
                     <h3 >Schedule Meet!</h3>
                   </Button>
+                  <Popover
+                    id={id}
+                    open={open}
+                    anchorEl={showPopover}
+                    onClose={handleClosePopover}
+                    anchorOrigin={{
+                      vertical: 'bottom',
+                      horizontal: 'right'
+                    }}
+                    transformOrigin={{
+                      vertical: 'top',
+                      horizontal: 'center'
+                    }}
+                  >
+                    <Typography className={classes.typography}>The scheduling feature is a WIP and will be available soon!</Typography>
+                  </Popover>
 
                 </Grid>
               </Grid>

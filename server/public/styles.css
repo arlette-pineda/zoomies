@@ -126,7 +126,9 @@ body {
   #photos-section-lg {
     min-height: 340px;
   }
+  /* details photo size */
   #img-styling-lg {
+    /* height: unset; */
     min-height: 350px;
   }
 }
