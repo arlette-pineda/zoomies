@@ -161,7 +161,9 @@ const useStyles = makeStyles(theme => ({
     objectFit: 'cover',
     borderRadius: '25px',
     border: '5px solid #fec700'
-    // objectPosition: '96%'
+  },
+  petIcon: {
+    paddingLeft: '3px'
   }
 }));
 
@@ -246,7 +248,7 @@ export default function DogDetails(props) {
                     <div className={classes.adoptDiv}>
                       <Button className={classes.urlButtonStyling}>
                         <a href={thisDog.url} className={classes.adoptUrlStyling} target="_blank" rel="noopener noreferrer">
-                  More Info <PetsIcon fontSize="small" /></a>
+                  More Info <PetsIcon fontSize="small" className={classes.petIcon}/></a>
                       </Button>
                     </div>
                   </Grid>
