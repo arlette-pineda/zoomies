@@ -122,6 +122,13 @@ body {
   .img-style-lg {
     max-height: 355px;
   }
+  /* details photo section size */
+  #photos-section-lg {
+    min-height: 340px;
+  }
+  #img-styling-lg {
+    min-height: 350px;
+  }
 }
 
 @media (min-width: 960px){
@@ -145,6 +152,13 @@ body {
   /* testimonial p quotes margin lg */
   .home-p-style-lg {
     margin: 0 2.5% 30px !important;
+  }
+  /* details photo section size */
+  #photos-section-lg {
+    min-height: 400px;
+  }
+  #img-styling-lg {
+    min-height: 410px;
   }
 }
 
@@ -179,6 +193,13 @@ body {
   /* homepage img style */
   .img-style-lg {
     width: 70vw;
+  }
+  /* details photo section size */
+  #photos-section-lg {
+    min-height: 450px;
+  }
+  #img-styling-lg {
+    min-height: 460px;
   }
 }
 

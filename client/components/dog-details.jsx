@@ -203,8 +203,13 @@ export default function DogDetails(props) {
     }
     return (
       <div>
-        <div className={classes.photosSection}>
-          <img className={classes.imgStyling} src={(thisDog.photos.length !== 0) ? thisDog.photos[0].medium : '/images/doge-edited.png'} alt=""/>
+        <div className={classes.photosSection} id="photos-section-lg">
+          <Hidden mdUp>
+            <img className={classes.imgStyling} src={(thisDog.photos.length !== 0) ? thisDog.photos[0].medium : '/images/doge-edited.png'} alt=""/>
+          </Hidden>
+          <Hidden smDown>
+            <img className={classes.imgStyling} id="img-styling-lg" src={(thisDog.photos.length !== 0) ? thisDog.photos[0].full + '&width=1080' : '/images/doge-edited.png'} alt="" />
+          </Hidden>
           <Button onClick={goBackToSearch} className={classes.backButtonStyling} id="back-button-lg"><ArrowBackIcon/></Button>
         </div>
 
