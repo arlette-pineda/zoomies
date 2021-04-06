@@ -49,7 +49,7 @@ const useStyles = makeStyles(theme => ({
   },
   aboutMeSection: {
     backgroundColor: 'white',
-    minHeight: '30vh',
+    minHeight: '150px',
     paddingLeft: '25px',
     paddingRight: '25px',
     borderRadius: '0 0 25px 25px',
@@ -203,7 +203,7 @@ export default function DogDetails(props) {
       <div>
         <div className={classes.photosSection}>
           <img className={classes.imgStyling} src={(thisDog.photos.length !== 0) ? thisDog.photos[0].medium : '/images/doge-edited.png'} alt=""/>
-          <Button onClick={goBackToSearch} className={classes.backButtonStyling}><ArrowBackIcon/></Button>
+          <Button onClick={goBackToSearch} className={classes.backButtonStyling} id="back-button-lg"><ArrowBackIcon/></Button>
         </div>
 
         <div id="content-wrap">
@@ -224,7 +224,7 @@ export default function DogDetails(props) {
                 </Grid>
               </Grid>
 
-              <Grid item lg={12} className={classes.detailsAboutAd} >
+              <Grid item xs={12} className={classes.detailsAboutAd} >
 
                 <Grid item md={8} xs={12}>
 
