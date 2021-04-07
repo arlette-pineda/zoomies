@@ -100,9 +100,12 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center'
   },
   urlButtonStyling: {
-    backgroundColor: theme.palette.secondary.main,
     borderRadius: '25px',
-    marginBottom: '7%'
+    marginBottom: '7%',
+    backgroundColor: theme.palette.secondary.main,
+    '&:hover': {
+      backgroundColor: '#dfaf04'
+    }
   },
   adoptUrlStyling: {
     letterSpacing: '1px',
@@ -242,8 +245,8 @@ export default function DogDetails(props) {
                       : null} </h3>
                 </Grid>
                 <Grid item xs={4} className={classes.scheduleArea}>
-                  <Button onClick={handleClickPopover} className={classes.scheduleH3}>
-                    <h3 >Schedule Meet!</h3>
+                  <Button onClick={handleClickPopover} className={classes.scheduleH3} id="schedule-button-lg">
+                    <h3>Schedule Meet!</h3>
                   </Button>
                   <Popover
                     id={id}
@@ -259,7 +262,7 @@ export default function DogDetails(props) {
                       horizontal: 'center'
                     }}
                   >
-                    <Typography className={classes.typography}>The scheduling feature is a WIP and will be available soon!</Typography>
+                    <Typography className={classes.typography}>Scheduling feature not yet available. Be sure to check back soon!</Typography>
                   </Popover>
 
                 </Grid>
@@ -285,7 +288,7 @@ export default function DogDetails(props) {
                     <h2 className={classes.aboutH2}>About </h2>
                     <p className={classes.descriptionStyle}>{doggieDescription}</p>
                     <div className={classes.adoptDiv}>
-                      <Button className={classes.urlButtonStyling}>
+                      <Button className={classes.urlButtonStyling} disableRipple="true">
                         <a href={thisDog.url} className={classes.adoptUrlStyling} target="_blank" rel="noopener noreferrer">
                   More Info <PetsIcon fontSize="small" className={classes.petIcon}/></a>
                       </Button>

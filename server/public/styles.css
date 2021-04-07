@@ -162,6 +162,10 @@ body {
   #img-styling-lg {
     min-height: 410px;
   }
+  /* schedule button size */
+  #schedule-button-lg {
+    font-size: large;
+  }
 }
 
 @media (min-width: 1280px){
