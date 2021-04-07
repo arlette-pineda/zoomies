@@ -7,6 +7,8 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import PetsIcon from '@material-ui/icons/Pets';
 import Hidden from '@material-ui/core/Hidden';
+import Popover from '@material-ui/core/Popover';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -20,7 +22,6 @@ const useStyles = makeStyles(theme => ({
     minHeight: '260px'
   },
   imgStyling: {
-    height: '40vh',
     minHeight: '250px',
     position: 'relative'
   },
@@ -99,9 +100,12 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center'
   },
   urlButtonStyling: {
-    backgroundColor: theme.palette.secondary.main,
     borderRadius: '25px',
-    marginBottom: '7%'
+    marginBottom: '7%',
+    backgroundColor: theme.palette.secondary.main,
+    '&:hover': {
+      backgroundColor: '#dfaf04'
+    }
   },
   adoptUrlStyling: {
     letterSpacing: '1px',
@@ -121,17 +125,9 @@ const useStyles = makeStyles(theme => ({
     color: 'grey'
   },
   adSection: {
-    // border: '5px solid #fec700',
     borderRadius: '25px',
     height: '400px',
     backgroundColor: 'white',
-    // display: 'flex',
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // textAlign: 'center',
-    // padding: '0 30px',
-    // lineHeight: '1.5',
-    // fontSize: '1.1rem',
     filter: 'drop-shadow(0 2mm 1mm lightgray)'
   },
   aboutH2: {
@@ -147,7 +143,11 @@ const useStyles = makeStyles(theme => ({
     marginTop: 0
   },
   scheduleH3: {
-    fontSize: 'large'
+    textTransform: 'none',
+    fontFamily: theme.typography.fontFamily,
+    width: '100%',
+    height: '100%',
+    borderRadius: '0 25px 25px 0'
   },
   detailsAboutAd: {
     display: 'flex',
@@ -164,6 +164,12 @@ const useStyles = makeStyles(theme => ({
   },
   petIcon: {
     paddingLeft: '3px'
+  },
+  typography: {
+    padding: theme.spacing(2),
+    backgroundColor: '#e9e9e9',
+    textAlign: 'center',
+    maxWidth: '280px'
   }
 }));
 
@@ -174,6 +180,7 @@ export default function DogDetails(props) {
   const [thisDog, setThisDog] = useState(null);
   const [hasError, setErrors] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [showPopover, setShowPopover] = useState(null);
 
   const getDogId = () => {
     fetch(`/api/dogs/${dogId}`)
@@ -193,6 +200,17 @@ export default function DogDetails(props) {
     history.goBack();
   };
 
+  const handleClickPopover = event => {
+    setShowPopover(event.currentTarget);
+  };
+
+  const handleClosePopover = () => {
+    setShowPopover(null);
+  };
+
+  const open = Boolean(showPopover);
+  const id = open ? 'simple-popover' : undefined;
+
   if (isLoading) {
     return <div className={classes.progressDiv}><CircularProgress className={classes.progressCircle} /></div>;
   } else if (thisDog != null) {
@@ -203,17 +221,18 @@ export default function DogDetails(props) {
     }
     return (
       <div>
-        <div className={classes.photosSection}>
-          <img className={classes.imgStyling} src={(thisDog.photos.length !== 0) ? thisDog.photos[0].medium : '/images/doge-edited.png'} alt=""/>
+        <div className={classes.photosSection} id="photos-section-lg">
+          <Hidden mdUp>
+            <img className={classes.imgStyling} src={(thisDog.photos.length !== 0) ? thisDog.photos[0].medium : '/images/doge-edited.png'} alt=""/>
+          </Hidden>
+          <Hidden smDown>
+            <img className={classes.imgStyling} id="img-styling-lg" src={(thisDog.photos.length !== 0) ? thisDog.photos[0].full : '/images/doge-edited.png'} alt="" />
+          </Hidden>
           <Button onClick={goBackToSearch} className={classes.backButtonStyling} id="back-button-lg"><ArrowBackIcon/></Button>
         </div>
-
         <div id="content-wrap">
-
           <div className={classes.root} id="details-root-lg">
-
             <Grid container >
-
               <Grid container item xs={12} md={12} className={classes.titleSection}>
                 <Grid item xs={8} className={classes.nameSub}>
                   <h2>{thisDog.name}</h2>
@@ -222,14 +241,29 @@ export default function DogDetails(props) {
                       : null} </h3>
                 </Grid>
                 <Grid item xs={4} className={classes.scheduleArea}>
-                  <h3 className={classes.scheduleH3}>Schedule Meet!</h3>
+                  <Button onClick={handleClickPopover} className={classes.scheduleH3} id="schedule-button-lg">
+                    <h3>Schedule Meet!</h3>
+                  </Button>
+                  <Popover
+                    id={id}
+                    open={open}
+                    anchorEl={showPopover}
+                    onClose={handleClosePopover}
+                    anchorOrigin={{
+                      vertical: 'bottom',
+                      horizontal: 'right'
+                    }}
+                    transformOrigin={{
+                      vertical: 'top',
+                      horizontal: 'center'
+                    }}
+                  >
+                    <Typography className={classes.typography}>Scheduling feature not yet available. Be sure to check back soon!</Typography>
+                  </Popover>
                 </Grid>
               </Grid>
-
               <Grid item xs={12} className={classes.detailsAboutAd} >
-
                 <Grid item md={8} xs={12}>
-
                   <Grid item xs={12} className={classes.detailsSection}>
                     <h2 className={classes.detailsH2}>Details</h2>
                     <div className={classes.detailItems}>
@@ -241,31 +275,25 @@ export default function DogDetails(props) {
                       <p className={classes.locationP}>Location: <span className={classes.detailSpans}>   {thisDog.location.city}, {thisDog.location.state}</span></p>
                     </div>
                   </Grid>
-
                   <Grid item xs={12} className={classes.aboutMeSection}>
                     <h2 className={classes.aboutH2}>About </h2>
                     <p className={classes.descriptionStyle}>{doggieDescription}</p>
                     <div className={classes.adoptDiv}>
-                      <Button className={classes.urlButtonStyling}>
+                      <Button className={classes.urlButtonStyling} disableRipple="true">
                         <a href={thisDog.url} className={classes.adoptUrlStyling} target="_blank" rel="noopener noreferrer">
                   More Info <PetsIcon fontSize="small" className={classes.petIcon}/></a>
                       </Button>
                     </div>
                   </Grid>
                 </Grid>
-
                 <Hidden smDown>
                   <Grid item md={3} className={classes.adSection}>
                     {/* <Grid item > */}
-
                     <img className={classes.adImg} src="/images/doggie2.png" alt=""/>
-
                     {/* </Grid> */}
                   </Grid>
                 </Hidden>
-
               </Grid>
-
             </Grid>
           </div>
         </div>
