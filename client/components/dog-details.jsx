@@ -226,17 +226,13 @@ export default function DogDetails(props) {
             <img className={classes.imgStyling} src={(thisDog.photos.length !== 0) ? thisDog.photos[0].medium : '/images/doge-edited.png'} alt=""/>
           </Hidden>
           <Hidden smDown>
-            <img className={classes.imgStyling} id="img-styling-lg" src={(thisDog.photos.length !== 0) ? thisDog.photos[0].full + '&width=1080' : '/images/doge-edited.png'} alt="" />
+            <img className={classes.imgStyling} id="img-styling-lg" src={(thisDog.photos.length !== 0) ? thisDog.photos[0].full : '/images/doge-edited.png'} alt="" />
           </Hidden>
           <Button onClick={goBackToSearch} className={classes.backButtonStyling} id="back-button-lg"><ArrowBackIcon/></Button>
         </div>
-
         <div id="content-wrap">
-
           <div className={classes.root} id="details-root-lg">
-
             <Grid container >
-
               <Grid container item xs={12} md={12} className={classes.titleSection}>
                 <Grid item xs={8} className={classes.nameSub}>
                   <h2>{thisDog.name}</h2>
@@ -264,14 +260,10 @@ export default function DogDetails(props) {
                   >
                     <Typography className={classes.typography}>Scheduling feature not yet available. Be sure to check back soon!</Typography>
                   </Popover>
-
                 </Grid>
               </Grid>
-
               <Grid item xs={12} className={classes.detailsAboutAd} >
-
                 <Grid item md={8} xs={12}>
-
                   <Grid item xs={12} className={classes.detailsSection}>
                     <h2 className={classes.detailsH2}>Details</h2>
                     <div className={classes.detailItems}>
@@ -283,7 +275,6 @@ export default function DogDetails(props) {
                       <p className={classes.locationP}>Location: <span className={classes.detailSpans}>   {thisDog.location.city}, {thisDog.location.state}</span></p>
                     </div>
                   </Grid>
-
                   <Grid item xs={12} className={classes.aboutMeSection}>
                     <h2 className={classes.aboutH2}>About </h2>
                     <p className={classes.descriptionStyle}>{doggieDescription}</p>
@@ -295,19 +286,14 @@ export default function DogDetails(props) {
                     </div>
                   </Grid>
                 </Grid>
-
                 <Hidden smDown>
                   <Grid item md={3} className={classes.adSection}>
                     {/* <Grid item > */}
-
                     <img className={classes.adImg} src="/images/doggie2.png" alt=""/>
-
                     {/* </Grid> */}
                   </Grid>
                 </Hidden>
-
               </Grid>
-
             </Grid>
           </div>
         </div>
