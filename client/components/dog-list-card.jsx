@@ -34,7 +34,7 @@ export default function DogCard(props) {
         <CardMedia
           component="img"
           className="card-img-height"
-          image={(props.dog.photos.length !== 0) ? props.dog.photos[0].medium : '/images/doge-edited.png'}
+          image={(props.dog.photos.length !== 0) ? props.dog.photos[0].medium : '/images/no-photo-dog.png'}
           title={(props.dog.photos.length !== 0) ? props.dog.size + ' ' + props.dog.breed.primary : 'No Photo'}
         />
         <CardContent >
