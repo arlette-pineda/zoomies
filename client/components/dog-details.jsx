@@ -16,14 +16,16 @@ const useStyles = makeStyles(theme => ({
   },
   photosSection: {
     backgroundColor: '#e5e5e5',
-    height: '40vh',
     display: 'flex',
     justifyContent: 'center',
-    minHeight: '260px'
+    minHeight: '260px',
+    maxHeight: '300px'
   },
   imgStyling: {
     minHeight: '250px',
-    position: 'relative'
+    position: 'relative',
+    overflow: 'hidden',
+    maxHeight: '300px'
   },
   backButtonStyling: {
     backgroundColor: 'white',
@@ -223,10 +225,10 @@ export default function DogDetails(props) {
       <div>
         <div className={classes.photosSection} id="photos-section-lg">
           <Hidden mdUp>
-            <img className={classes.imgStyling} src={(thisDog.photos.length !== 0) ? thisDog.photos[0].medium : '/images/doge-edited.png'} alt=""/>
+            <img className={classes.imgStyling} src={(thisDog.photos.length !== 0) ? thisDog.photos[0].medium : '/images/no-photo-dog.png'} alt=""/>
           </Hidden>
           <Hidden smDown>
-            <img className={classes.imgStyling} id="img-styling-lg" src={(thisDog.photos.length !== 0) ? thisDog.photos[0].full : '/images/doge-edited.png'} alt="" />
+            <img className={classes.imgStyling} id="img-styling-lg" src={(thisDog.photos.length !== 0) ? thisDog.photos[0].full : '/images/no-photo-dog.png'} alt="" />
           </Hidden>
           <Button onClick={goBackToSearch} className={classes.backButtonStyling} id="back-button-lg"><ArrowBackIcon/></Button>
         </div>
