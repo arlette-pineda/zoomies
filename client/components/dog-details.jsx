@@ -281,7 +281,7 @@ export default function DogDetails(props) {
                     <h2 className={classes.aboutH2}>About </h2>
                     <p className={classes.descriptionStyle}>{doggieDescription}</p>
                     <div className={classes.adoptDiv}>
-                      <Button className={classes.urlButtonStyling} disableRipple="true">
+                      <Button className={classes.urlButtonStyling}>
                         <a href={thisDog.url} className={classes.adoptUrlStyling} target="_blank" rel="noopener noreferrer">
                   More Info <PetsIcon fontSize="small" className={classes.petIcon}/></a>
                       </Button>
