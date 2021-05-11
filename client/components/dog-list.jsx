@@ -12,6 +12,9 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import Button from '@material-ui/core/Button';
 import SearchForm from './search-form';
 import Hidden from '@material-ui/core/Hidden';
+import ScrollTop from './back-to-top';
+import Fab from '@material-ui/core/Fab';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -212,6 +215,11 @@ export default function DogList(props) {
           </div>
         </Grid>
       </Grid>
+      <ScrollTop {...props}>
+        <Fab color="secondary" size="small" aria-label="scroll back to top">
+          <KeyboardArrowUpIcon />
+        </Fab>
+      </ScrollTop>
     </div>
   );
 }
