@@ -60,7 +60,7 @@ function NavBar() {
   return (
     <div className={classes.root}>
       <AppBar position="relative" className="main-color header-size" onClick={anchorEl ? () => handleClose() : undefined}>
-        <Toolbar className={`${classes.navToolbar} nav-toolbar`}>
+        <Toolbar className={`${classes.navToolbar} nav-toolbar`} id="back-to-top-anchor">
           <Typography component={Link} to='/' variant="h6" className={classes.title}>
             <img src="/images/zoomies-img.png" alt="zoomies logo" className="logo-img"/>
           </Typography>
